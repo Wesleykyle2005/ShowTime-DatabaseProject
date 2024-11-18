@@ -16,5 +16,10 @@ namespace ShowTime_DatabseProject
         {
             InitializeComponent();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

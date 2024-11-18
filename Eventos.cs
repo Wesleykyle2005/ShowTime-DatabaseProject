@@ -21,5 +21,15 @@ namespace ShowTime_DatabseProject
         {
 
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
