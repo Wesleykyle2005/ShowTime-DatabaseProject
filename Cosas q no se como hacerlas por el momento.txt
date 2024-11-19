@@ -2,3 +2,7 @@
 2.Mecnica de las asignacines de eventos
 3.Mecanica de asiganciones de servicios
 4La asignacion de utileria crea q en algunas cosas ya se tendra q dejar por predeterminadas
+
+
+
+Nota: hay q hacer algunos cambios sencillos, segun yo.
