@@ -28,125 +28,162 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBox1 = new CheckBox();
+            dgvServices = new DataGridView();
+            btnFiltlerService = new Button();
+            btnDeleteService = new Button();
+            btnUpdateService = new Button();
+            btnRegisterService = new Button();
             label2 = new Label();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            txtServiceCost = new TextBox();
             label5 = new Label();
             label3 = new Label();
-            textBox3 = new TextBox();
+            txtServiceDescription = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtServiceName = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
             SuspendLayout();
             // 
-            // checkBox1
+            // dgvServices
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(315, 55);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(97, 19);
-            checkBox1.TabIndex = 51;
-            checkBox1.Text = "Diponibilidad";
-            checkBox1.UseVisualStyleBackColor = true;
+            dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvServices.Dock = DockStyle.Bottom;
+            dgvServices.Location = new Point(0, 207);
+            dgvServices.Name = "dgvServices";
+            dgvServices.Size = new Size(581, 251);
+            dgvServices.TabIndex = 60;
+            // 
+            // btnFiltlerService
+            // 
+            btnFiltlerService.Location = new Point(433, 158);
+            btnFiltlerService.Name = "btnFiltlerService";
+            btnFiltlerService.Size = new Size(136, 31);
+            btnFiltlerService.TabIndex = 59;
+            btnFiltlerService.Text = "Filtrar Servicio";
+            btnFiltlerService.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteService
+            // 
+            btnDeleteService.Location = new Point(433, 121);
+            btnDeleteService.Name = "btnDeleteService";
+            btnDeleteService.Size = new Size(136, 31);
+            btnDeleteService.TabIndex = 58;
+            btnDeleteService.Text = "Eliminar Servicio";
+            btnDeleteService.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateService
+            // 
+            btnUpdateService.Location = new Point(433, 84);
+            btnUpdateService.Name = "btnUpdateService";
+            btnUpdateService.Size = new Size(136, 31);
+            btnUpdateService.TabIndex = 57;
+            btnUpdateService.Text = "Actualizar Servicio";
+            btnUpdateService.UseVisualStyleBackColor = true;
+            // 
+            // btnRegisterService
+            // 
+            btnRegisterService.Location = new Point(433, 46);
+            btnRegisterService.Name = "btnRegisterService";
+            btnRegisterService.Size = new Size(136, 31);
+            btnRegisterService.TabIndex = 56;
+            btnRegisterService.Text = "Registrar Servicio";
+            btnRegisterService.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(35, 312);
+            label2.Location = new Point(11, 164);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
-            label2.TabIndex = 50;
+            label2.TabIndex = 54;
             label2.Text = "Costo";
             // 
-            // textBox2
+            // txtServiceCost
             // 
-            textBox2.Location = new Point(97, 309);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(301, 23);
-            textBox2.TabIndex = 49;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(109, 390);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 31);
-            button1.TabIndex = 48;
-            button1.Text = "Agregar";
-            button1.UseVisualStyleBackColor = true;
+            txtServiceCost.Location = new Point(58, 160);
+            txtServiceCost.Name = "txtServiceCost";
+            txtServiceCost.Size = new Size(208, 23);
+            txtServiceCost.TabIndex = 53;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(132, 9);
+            label5.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(235, 4);
             label5.Name = "label5";
-            label5.Size = new Size(53, 15);
-            label5.TabIndex = 47;
-            label5.Text = "Servicios";
-            label5.Click += label5_Click;
+            label5.Size = new Size(194, 28);
+            label5.TabIndex = 52;
+            label5.Text = "Contol de Servicios";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(35, 101);
+            label3.Location = new Point(12, 76);
             label3.Name = "label3";
             label3.Size = new Size(69, 15);
-            label3.TabIndex = 46;
+            label3.TabIndex = 51;
             label3.Text = "Descripcion";
             // 
-            // textBox3
+            // txtServiceDescription
             // 
-            textBox3.Location = new Point(35, 119);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(363, 173);
-            textBox3.TabIndex = 45;
+            txtServiceDescription.Location = new Point(12, 94);
+            txtServiceDescription.Multiline = true;
+            txtServiceDescription.Name = "txtServiceDescription";
+            txtServiceDescription.Size = new Size(382, 60);
+            txtServiceDescription.TabIndex = 50;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(16, 54);
+            label1.Location = new Point(15, 49);
             label1.Name = "label1";
-            label1.Size = new Size(56, 15);
-            label1.TabIndex = 44;
-            label1.Text = "Nombres";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 49;
+            label1.Text = "Nombre";
             // 
-            // textBox1
+            // txtServiceName
             // 
-            textBox1.Location = new Point(78, 51);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(219, 23);
-            textBox1.TabIndex = 43;
+            txtServiceName.Location = new Point(77, 46);
+            txtServiceName.Name = "txtServiceName";
+            txtServiceName.Size = new Size(317, 23);
+            txtServiceName.TabIndex = 48;
             // 
             // Servicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(420, 430);
-            Controls.Add(checkBox1);
+            ClientSize = new Size(581, 458);
+            Controls.Add(dgvServices);
+            Controls.Add(btnFiltlerService);
+            Controls.Add(btnDeleteService);
+            Controls.Add(btnUpdateService);
+            Controls.Add(btnRegisterService);
             Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(button1);
+            Controls.Add(txtServiceCost);
             Controls.Add(label5);
             Controls.Add(label3);
-            Controls.Add(textBox3);
+            Controls.Add(txtServiceDescription);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtServiceName);
             Name = "Servicios";
             Text = "Servicios";
+            ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private CheckBox checkBox1;
+        private DataGridView dgvServices;
+        private Button btnFiltlerService;
+        private Button btnDeleteService;
+        private Button btnUpdateService;
+        private Button btnRegisterService;
         private Label label2;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txtServiceCost;
         private Label label5;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtServiceDescription;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtServiceName;
     }
 }

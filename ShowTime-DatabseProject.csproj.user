@@ -1,19 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Asignacion de Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Asignacion de Servicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Asignacion de Utileria.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Empleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Eventos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Seguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Menu Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Paquetes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Roles.cs">
+    <Compile Update="Servicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Servicios.cs">
+    <Compile Update="Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Utileria.cs">

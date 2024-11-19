@@ -28,88 +28,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label3 = new Label();
-            textBox3 = new TextBox();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            dgvServices = new DataGridView();
+            btnFiltlerService = new Button();
+            btnDeleteService = new Button();
+            btnUpdateService = new Button();
+            btnRegisterProp = new Button();
             label2 = new Label();
+            txtPropQuantity = new TextBox();
+            label5 = new Label();
+            label1 = new Label();
+            txtPropName = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
             SuspendLayout();
             // 
-            // label3
+            // dgvServices
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(25, 87);
-            label3.Name = "label3";
-            label3.Size = new Size(55, 15);
-            label3.TabIndex = 18;
-            label3.Text = "Cantidad";
+            dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvServices.Dock = DockStyle.Bottom;
+            dgvServices.Location = new Point(0, 193);
+            dgvServices.Name = "dgvServices";
+            dgvServices.Size = new Size(316, 301);
+            dgvServices.TabIndex = 72;
             // 
-            // textBox3
+            // btnFiltlerService
             // 
-            textBox3.Location = new Point(87, 87);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(219, 23);
-            textBox3.TabIndex = 17;
+            btnFiltlerService.Location = new Point(157, 156);
+            btnFiltlerService.Name = "btnFiltlerService";
+            btnFiltlerService.Size = new Size(136, 31);
+            btnFiltlerService.TabIndex = 71;
+            btnFiltlerService.Text = "Filtrar Utileria";
+            btnFiltlerService.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnDeleteService
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(25, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(56, 15);
-            label1.TabIndex = 16;
-            label1.Text = "Nombres";
+            btnDeleteService.Location = new Point(15, 156);
+            btnDeleteService.Name = "btnDeleteService";
+            btnDeleteService.Size = new Size(136, 31);
+            btnDeleteService.TabIndex = 70;
+            btnDeleteService.Text = "Eliminar Utileria";
+            btnDeleteService.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnUpdateService
             // 
-            textBox1.Location = new Point(87, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(219, 23);
-            textBox1.TabIndex = 15;
+            btnUpdateService.Location = new Point(157, 119);
+            btnUpdateService.Name = "btnUpdateService";
+            btnUpdateService.Size = new Size(136, 31);
+            btnUpdateService.TabIndex = 69;
+            btnUpdateService.Text = "Actualizar Utileria";
+            btnUpdateService.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnRegisterProp
             // 
-            button1.Location = new Point(101, 143);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 31);
-            button1.TabIndex = 39;
-            button1.Text = "Agregar";
-            button1.UseVisualStyleBackColor = true;
+            btnRegisterProp.Location = new Point(15, 119);
+            btnRegisterProp.Name = "btnRegisterProp";
+            btnRegisterProp.Size = new Size(136, 31);
+            btnRegisterProp.TabIndex = 68;
+            btnRegisterProp.Text = "Registrar Utileria";
+            btnRegisterProp.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(88, 12);
+            label2.Location = new Point(16, 85);
             label2.Name = "label2";
-            label2.Size = new Size(44, 15);
-            label2.TabIndex = 40;
-            label2.Text = "Utileria";
+            label2.Size = new Size(55, 15);
+            label2.TabIndex = 67;
+            label2.Text = "Cantidad";
+            // 
+            // txtPropQuantity
+            // 
+            txtPropQuantity.Location = new Point(77, 82);
+            txtPropQuantity.Name = "txtPropQuantity";
+            txtPropQuantity.Size = new Size(227, 23);
+            txtPropQuantity.TabIndex = 66;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(55, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(179, 28);
+            label5.TabIndex = 65;
+            label5.Text = "Contol de Utileria";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(15, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 62;
+            label1.Text = "Nombre";
+            // 
+            // txtPropName
+            // 
+            txtPropName.Location = new Point(77, 44);
+            txtPropName.Name = "txtPropName";
+            txtPropName.Size = new Size(227, 23);
+            txtPropName.TabIndex = 61;
             // 
             // Utileria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(321, 189);
+            ClientSize = new Size(316, 494);
+            Controls.Add(dgvServices);
+            Controls.Add(btnFiltlerService);
+            Controls.Add(btnDeleteService);
+            Controls.Add(btnUpdateService);
+            Controls.Add(btnRegisterProp);
             Controls.Add(label2);
-            Controls.Add(button1);
-            Controls.Add(label3);
-            Controls.Add(textBox3);
+            Controls.Add(txtPropQuantity);
+            Controls.Add(label5);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtPropName);
             Name = "Utileria";
             Text = "Utileria";
+            ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label3;
-        private TextBox textBox3;
-        private Label label1;
-        private TextBox textBox1;
-        private Button button1;
+        private DataGridView dgvServices;
+        private Button btnFiltlerService;
+        private Button btnDeleteService;
+        private Button btnUpdateService;
+        private Button btnRegisterProp;
         private Label label2;
+        private TextBox txtPropQuantity;
+        private Label label5;
+        private Label label1;
+        private TextBox txtPropName;
     }
 }

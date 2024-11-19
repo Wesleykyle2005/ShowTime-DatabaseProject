@@ -77,7 +77,6 @@
             label9.Size = new Size(112, 15);
             label9.TabIndex = 66;
             label9.Text = "Detalles Adicionales";
-            label9.Click += this.label9_Click;
             // 
             // cmbPackage
             // 

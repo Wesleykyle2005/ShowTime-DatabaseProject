@@ -38,13 +38,15 @@
             txtEmployeeLastName = new TextBox();
             label1 = new Label();
             TxtEmployeeName = new TextBox();
-            label6 = new Label();
-            cmbEmployeeStatus = new ComboBox();
             dgvEmployees = new DataGridView();
             btnUpdateEmployee = new Button();
             btnDeleteEmployee = new Button();
             groupBox1 = new GroupBox();
             btnFiltlerEmployee = new Button();
+            label6 = new Label();
+            cmbEmployeeStatus = new ComboBox();
+            cmbEmployeeRole = new ComboBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvEmployees).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -71,7 +73,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 108);
+            label4.Location = new Point(6, 108);
             label4.Name = "label4";
             label4.Size = new Size(105, 15);
             label4.TabIndex = 26;
@@ -87,7 +89,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(14, 78);
+            label3.Location = new Point(11, 78);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 24;
@@ -95,15 +97,15 @@
             // 
             // txtEmployeeNumber
             // 
-            txtEmployeeNumber.Location = new Point(74, 74);
+            txtEmployeeNumber.Location = new Point(68, 74);
             txtEmployeeNumber.Name = "txtEmployeeNumber";
-            txtEmployeeNumber.Size = new Size(277, 23);
+            txtEmployeeNumber.Size = new Size(283, 23);
             txtEmployeeNumber.TabIndex = 23;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 49);
+            label2.Location = new Point(7, 49);
             label2.Name = "label2";
             label2.Size = new Size(56, 15);
             label2.TabIndex = 22;
@@ -111,15 +113,15 @@
             // 
             // txtEmployeeLastName
             // 
-            txtEmployeeLastName.Location = new Point(74, 45);
+            txtEmployeeLastName.Location = new Point(68, 45);
             txtEmployeeLastName.Name = "txtEmployeeLastName";
-            txtEmployeeLastName.Size = new Size(277, 23);
+            txtEmployeeLastName.Size = new Size(283, 23);
             txtEmployeeLastName.TabIndex = 21;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 19);
+            label1.Location = new Point(6, 19);
             label1.Name = "label1";
             label1.Size = new Size(56, 15);
             label1.TabIndex = 20;
@@ -127,33 +129,16 @@
             // 
             // TxtEmployeeName
             // 
-            TxtEmployeeName.Location = new Point(74, 16);
+            TxtEmployeeName.Location = new Point(68, 16);
             TxtEmployeeName.Name = "TxtEmployeeName";
-            TxtEmployeeName.Size = new Size(277, 23);
+            TxtEmployeeName.Size = new Size(283, 23);
             TxtEmployeeName.TabIndex = 19;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(14, 139);
-            label6.Name = "label6";
-            label6.Size = new Size(42, 15);
-            label6.TabIndex = 29;
-            label6.Text = "Estado";
-            // 
-            // cmbEmployeeStatus
-            // 
-            cmbEmployeeStatus.FormattingEnabled = true;
-            cmbEmployeeStatus.Location = new Point(74, 136);
-            cmbEmployeeStatus.Name = "cmbEmployeeStatus";
-            cmbEmployeeStatus.Size = new Size(277, 23);
-            cmbEmployeeStatus.TabIndex = 30;
             // 
             // dgvEmployees
             // 
             dgvEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmployees.Dock = DockStyle.Bottom;
-            dgvEmployees.Location = new Point(0, 214);
+            dgvEmployees.Location = new Point(0, 212);
             dgvEmployees.Name = "dgvEmployees";
             dgvEmployees.Size = new Size(520, 273);
             dgvEmployees.TabIndex = 31;
@@ -178,6 +163,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cmbEmployeeRole);
+            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(cmbEmployeeStatus);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtEmployeeEmail);
@@ -190,7 +177,7 @@
             groupBox1.Controls.Add(TxtEmployeeName);
             groupBox1.Location = new Point(7, 29);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(364, 171);
+            groupBox1.Size = new Size(364, 170);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Empleado";
@@ -205,11 +192,45 @@
             btnFiltlerEmployee.Text = "Filtrar Empelado";
             btnFiltlerEmployee.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(7, 139);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 15);
+            label6.TabIndex = 29;
+            label6.Text = "Estado";
+            // 
+            // cmbEmployeeStatus
+            // 
+            cmbEmployeeStatus.FormattingEnabled = true;
+            cmbEmployeeStatus.Location = new Point(55, 134);
+            cmbEmployeeStatus.Name = "cmbEmployeeStatus";
+            cmbEmployeeStatus.Size = new Size(130, 23);
+            cmbEmployeeStatus.TabIndex = 30;
+            // 
+            // cmbEmployeeRole
+            // 
+            cmbEmployeeRole.FormattingEnabled = true;
+            cmbEmployeeRole.Location = new Point(230, 134);
+            cmbEmployeeRole.Name = "cmbEmployeeRole";
+            cmbEmployeeRole.Size = new Size(121, 23);
+            cmbEmployeeRole.TabIndex = 32;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(187, 139);
+            label7.Name = "label7";
+            label7.Size = new Size(42, 15);
+            label7.TabIndex = 31;
+            label7.Text = "Estado";
+            // 
             // Empleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 487);
+            ClientSize = new Size(520, 485);
             Controls.Add(btnFiltlerEmployee);
             Controls.Add(groupBox1);
             Controls.Add(btnDeleteEmployee);
@@ -238,12 +259,14 @@
         private TextBox txtEmployeeLastName;
         private Label label1;
         private TextBox TxtEmployeeName;
-        private Label label6;
-        private ComboBox cmbEmployeeStatus;
         private DataGridView dgvEmployees;
         private Button btnUpdateEmployee;
         private Button btnDeleteEmployee;
         private GroupBox groupBox1;
         private Button btnFiltlerEmployee;
+        private ComboBox cmbEmployeeRole;
+        private Label label7;
+        private ComboBox cmbEmployeeStatus;
+        private Label label6;
     }
 }
