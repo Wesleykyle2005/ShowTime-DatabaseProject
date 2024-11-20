@@ -47,7 +47,7 @@
             dgvServices.Dock = DockStyle.Bottom;
             dgvServices.Location = new Point(0, 193);
             dgvServices.Name = "dgvServices";
-            dgvServices.Size = new Size(316, 301);
+            dgvServices.Size = new Size(534, 301);
             dgvServices.TabIndex = 72;
             // 
             // btnFiltlerService
@@ -132,7 +132,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(316, 494);
+            ClientSize = new Size(534, 494);
             Controls.Add(dgvServices);
             Controls.Add(btnFiltlerService);
             Controls.Add(btnDeleteService);

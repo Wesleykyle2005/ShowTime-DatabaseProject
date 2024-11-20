@@ -45,7 +45,6 @@
             btnFiltlerEmployee = new Button();
             label6 = new Label();
             cmbEmployeeStatus = new ComboBox();
-            cmbEmployeeRole = new ComboBox();
             label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvEmployees).BeginInit();
             groupBox1.SuspendLayout();
@@ -163,7 +162,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(cmbEmployeeRole);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(cmbEmployeeStatus);
             groupBox1.Controls.Add(label6);
@@ -209,14 +207,6 @@
             cmbEmployeeStatus.Size = new Size(130, 23);
             cmbEmployeeStatus.TabIndex = 30;
             // 
-            // cmbEmployeeRole
-            // 
-            cmbEmployeeRole.FormattingEnabled = true;
-            cmbEmployeeRole.Location = new Point(230, 134);
-            cmbEmployeeRole.Name = "cmbEmployeeRole";
-            cmbEmployeeRole.Size = new Size(121, 23);
-            cmbEmployeeRole.TabIndex = 32;
-            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -238,6 +228,7 @@
             Controls.Add(dgvEmployees);
             Controls.Add(btnRegisterEmployee);
             Controls.Add(label5);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Empleados";
             Text = "Empleados";
             ((System.ComponentModel.ISupportInitialize)dgvEmployees).EndInit();
@@ -264,7 +255,6 @@
         private Button btnDeleteEmployee;
         private GroupBox groupBox1;
         private Button btnFiltlerEmployee;
-        private ComboBox cmbEmployeeRole;
         private Label label7;
         private ComboBox cmbEmployeeStatus;
         private Label label6;

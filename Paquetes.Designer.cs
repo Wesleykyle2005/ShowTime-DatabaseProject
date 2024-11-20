@@ -41,6 +41,8 @@
             btnUpdatePackage = new Button();
             btnRegisterPackage = new Button();
             dgvPackages = new DataGridView();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
             SuspendLayout();
             // 
@@ -100,13 +102,13 @@
             // 
             txtPackageCost.Location = new Point(58, 165);
             txtPackageCost.Name = "txtPackageCost";
-            txtPackageCost.Size = new Size(208, 23);
+            txtPackageCost.Size = new Size(68, 23);
             txtPackageCost.TabIndex = 39;
             // 
             // chkbPackageStatus
             // 
             chkbPackageStatus.AutoSize = true;
-            chkbPackageStatus.Location = new Point(296, 165);
+            chkbPackageStatus.Location = new Point(15, 194);
             chkbPackageStatus.Name = "chkbPackageStatus";
             chkbPackageStatus.Size = new Size(97, 19);
             chkbPackageStatus.TabIndex = 42;
@@ -154,16 +156,35 @@
             // 
             dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPackages.Dock = DockStyle.Bottom;
-            dgvPackages.Location = new Point(0, 219);
+            dgvPackages.Location = new Point(0, 265);
             dgvPackages.Name = "dgvPackages";
-            dgvPackages.Size = new Size(600, 251);
+            dgvPackages.Size = new Size(600, 205);
             dgvPackages.TabIndex = 47;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(146, 169);
+            label4.Name = "label4";
+            label4.Size = new Size(104, 15);
+            label4.TabIndex = 63;
+            label4.Text = "Servicios incluidos";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(252, 171);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 64;
             // 
             // Paquetes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(600, 470);
+            Controls.Add(comboBox1);
+            Controls.Add(label4);
             Controls.Add(dgvPackages);
             Controls.Add(btnFiltlerPackage);
             Controls.Add(btnDeletePackage);
@@ -198,5 +219,7 @@
         private Button btnUpdatePackage;
         private Button btnRegisterPackage;
         private DataGridView dgvPackages;
+        private Label label4;
+        private ComboBox comboBox1;
     }
 }

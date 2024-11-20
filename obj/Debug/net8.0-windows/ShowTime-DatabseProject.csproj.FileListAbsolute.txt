@@ -1,0 +1,15 @@
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Empleados.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Eventos.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Asignacion_de_Empleados.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Menu_Principal.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Paquetes.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Properties.Resources.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Servicios.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Usuarios.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Utileria.resources
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.AssemblyInfo.cs
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.sourcelink.json

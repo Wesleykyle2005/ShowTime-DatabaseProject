@@ -40,6 +40,8 @@
             txtServiceDescription = new TextBox();
             label1 = new Label();
             txtServiceName = new TextBox();
+            comboBox1 = new ComboBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
             SuspendLayout();
             // 
@@ -47,9 +49,9 @@
             // 
             dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServices.Dock = DockStyle.Bottom;
-            dgvServices.Location = new Point(0, 207);
+            dgvServices.Location = new Point(0, 226);
             dgvServices.Name = "dgvServices";
-            dgvServices.Size = new Size(581, 251);
+            dgvServices.Size = new Size(581, 232);
             dgvServices.TabIndex = 60;
             // 
             // btnFiltlerService
@@ -91,7 +93,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(11, 164);
+            label2.Location = new Point(15, 163);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 54;
@@ -101,7 +103,7 @@
             // 
             txtServiceCost.Location = new Point(58, 160);
             txtServiceCost.Name = "txtServiceCost";
-            txtServiceCost.Size = new Size(208, 23);
+            txtServiceCost.Size = new Size(79, 23);
             txtServiceCost.TabIndex = 53;
             // 
             // label5
@@ -147,11 +149,30 @@
             txtServiceName.Size = new Size(317, 23);
             txtServiceName.TabIndex = 48;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(292, 166);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 61;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(184, 169);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 15);
+            label4.TabIndex = 62;
+            label4.Text = "Utileria neceasaria";
+            // 
             // Servicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(581, 458);
+            Controls.Add(label4);
+            Controls.Add(comboBox1);
             Controls.Add(dgvServices);
             Controls.Add(btnFiltlerService);
             Controls.Add(btnDeleteService);
@@ -185,5 +206,7 @@
         private TextBox txtServiceDescription;
         private Label label1;
         private TextBox txtServiceName;
+        private ComboBox comboBox1;
+        private Label label4;
     }
 }

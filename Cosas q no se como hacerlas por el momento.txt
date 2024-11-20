@@ -1,8 +1,10 @@
-﻿1.Mecanica de los pagos, posible revision del form
-2.Mecnica de las asignacines de eventos
-3.Mecanica de asiganciones de servicios
-4La asignacion de utileria crea q en algunas cosas ya se tendra q dejar por predeterminadas
+﻿crear form roles
 
 
 
-Nota: hay q hacer algunos cambios sencillos, segun yo.
+form border style none
+backcolor fondo
+forecolor letra
+
+menu principal
+tamaños iguales

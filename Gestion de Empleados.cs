@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
-    public partial class Asignacion_de_Servicos : Form
+    public partial class Asignacion_de_Empleados : Form
     {
-        public Asignacion_de_Servicos()
+        public Asignacion_de_Empleados()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
