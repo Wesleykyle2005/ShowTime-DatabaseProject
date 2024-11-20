@@ -21,5 +21,10 @@ namespace ShowTime_DatabseProject
         {
 
         }
+
+        private void btnRegisterEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

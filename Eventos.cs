@@ -31,5 +31,15 @@ namespace ShowTime_DatabseProject
         {
 
         }
+
+        private void gbEventDetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbClienteInfo_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

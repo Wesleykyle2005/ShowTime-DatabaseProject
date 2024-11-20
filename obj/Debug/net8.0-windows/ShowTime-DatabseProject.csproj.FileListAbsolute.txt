@@ -13,3 +13,13 @@ C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-
 C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.AssemblyInfo.cs
 C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.sourcelink.json
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\bin\Debug\net8.0-windows\ShowTime-DatabseProject.exe
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\bin\Debug\net8.0-windows\ShowTime-DatabseProject.deps.json
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\bin\Debug\net8.0-windows\ShowTime-DatabseProject.runtimeconfig.json
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\bin\Debug\net8.0-windows\ShowTime-DatabseProject.dll
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\bin\Debug\net8.0-windows\ShowTime-DatabseProject.pdb
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.dll
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\refint\ShowTime-DatabseProject.dll
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.pdb
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.genruntimeconfig.cache
+C:\Users\DELL\Desktop\Database project\ShowTime-DatabseProject\obj\Debug\net8.0-windows\ref\ShowTime-DatabseProject.dll
