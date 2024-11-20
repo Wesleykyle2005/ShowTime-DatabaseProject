@@ -51,15 +51,15 @@
             // 
             dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServices.Dock = DockStyle.Bottom;
-            dgvServices.Location = new Point(0, 248);
+            dgvServices.Location = new Point(0, 290);
             dgvServices.Name = "dgvServices";
-            dgvServices.Size = new Size(581, 210);
+            dgvServices.Size = new Size(700, 210);
             dgvServices.TabIndex = 60;
             // 
             // btnFiltlerService
             // 
-            btnFiltlerService.Font = new Font("Forte", 11.25F);
-            btnFiltlerService.Location = new Point(433, 158);
+            btnFiltlerService.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnFiltlerService.Location = new Point(521, 157);
             btnFiltlerService.Name = "btnFiltlerService";
             btnFiltlerService.Size = new Size(136, 31);
             btnFiltlerService.TabIndex = 59;
@@ -68,8 +68,8 @@
             // 
             // btnDeleteService
             // 
-            btnDeleteService.Font = new Font("Forte", 11.25F);
-            btnDeleteService.Location = new Point(433, 121);
+            btnDeleteService.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnDeleteService.Location = new Point(521, 120);
             btnDeleteService.Name = "btnDeleteService";
             btnDeleteService.Size = new Size(136, 31);
             btnDeleteService.TabIndex = 58;
@@ -78,8 +78,8 @@
             // 
             // btnUpdateService
             // 
-            btnUpdateService.Font = new Font("Forte", 11.25F);
-            btnUpdateService.Location = new Point(433, 84);
+            btnUpdateService.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnUpdateService.Location = new Point(521, 83);
             btnUpdateService.Name = "btnUpdateService";
             btnUpdateService.Size = new Size(136, 31);
             btnUpdateService.TabIndex = 57;
@@ -88,8 +88,8 @@
             // 
             // btnRegisterService
             // 
-            btnRegisterService.Font = new Font("Forte", 11.25F);
-            btnRegisterService.Location = new Point(433, 46);
+            btnRegisterService.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnRegisterService.Location = new Point(521, 45);
             btnRegisterService.Name = "btnRegisterService";
             btnRegisterService.Size = new Size(136, 31);
             btnRegisterService.TabIndex = 56;
@@ -99,77 +99,77 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 158);
+            label2.Location = new Point(3, 155);
             label2.Name = "label2";
-            label2.Size = new Size(44, 16);
+            label2.Size = new Size(56, 20);
             label2.TabIndex = 54;
             label2.Text = "Costo";
             // 
             // txtServiceCost
             // 
-            txtServiceCost.Location = new Point(54, 151);
+            txtServiceCost.Location = new Point(68, 151);
             txtServiceCost.Name = "txtServiceCost";
-            txtServiceCost.Size = new Size(79, 28);
+            txtServiceCost.Size = new Size(65, 26);
             txtServiceCost.TabIndex = 53;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Forte", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(162, 6);
+            label5.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(234, 6);
             label5.Name = "label5";
-            label5.Size = new Size(234, 30);
+            label5.Size = new Size(248, 31);
             label5.TabIndex = 52;
             label5.Text = "Contol de Servicios";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 46);
+            label3.Location = new Point(3, 43);
             label3.Name = "label3";
-            label3.Size = new Size(79, 16);
+            label3.Size = new Size(103, 20);
             label3.TabIndex = 51;
             label3.Text = "Descripcion";
             // 
             // txtServiceDescription
             // 
-            txtServiceDescription.Location = new Point(20, 65);
+            txtServiceDescription.Location = new Point(20, 69);
             txtServiceDescription.Multiline = true;
             txtServiceDescription.Name = "txtServiceDescription";
-            txtServiceDescription.Size = new Size(382, 80);
+            txtServiceDescription.Size = new Size(382, 76);
             txtServiceDescription.TabIndex = 50;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(20, 24);
+            label1.Location = new Point(17, 21);
             label1.Name = "label1";
-            label1.Size = new Size(57, 16);
+            label1.Size = new Size(71, 20);
             label1.TabIndex = 49;
             label1.Text = "Nombre";
             // 
             // txtServiceName
             // 
-            txtServiceName.Location = new Point(91, 19);
+            txtServiceName.Location = new Point(97, 19);
             txtServiceName.Name = "txtServiceName";
-            txtServiceName.Size = new Size(317, 28);
+            txtServiceName.Size = new Size(311, 26);
             txtServiceName.TabIndex = 48;
             // 
             // comboBox1
             // 
             comboBox1.BackColor = Color.FromArgb(242, 242, 242);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(281, 155);
+            comboBox1.Location = new Point(315, 155);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 24);
+            comboBox1.Size = new Size(87, 28);
             comboBox1.TabIndex = 61;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(150, 158);
+            label4.Location = new Point(147, 155);
             label4.Name = "label4";
-            label4.Size = new Size(125, 16);
+            label4.Size = new Size(159, 20);
             label4.TabIndex = 62;
             label4.Text = "Utileria neceasaria";
             // 
@@ -184,9 +184,11 @@
             groupBox1.Controls.Add(txtServiceDescription);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtServiceName);
-            groupBox1.Font = new Font("Forte", 11.25F);
-            groupBox1.Location = new Point(11, 41);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(80, 40);
             groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(0);
             groupBox1.Size = new Size(414, 190);
             groupBox1.TabIndex = 63;
             groupBox1.TabStop = false;
@@ -197,7 +199,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(581, 458);
+            ClientSize = new Size(700, 500);
             Controls.Add(groupBox1);
             Controls.Add(dgvServices);
             Controls.Add(btnFiltlerService);

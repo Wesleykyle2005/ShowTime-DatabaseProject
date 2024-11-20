@@ -51,68 +51,69 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Forte", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(235, 9);
+            label5.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
+            label5.Location = new Point(240, 9);
             label5.Name = "label5";
-            label5.Size = new Size(170, 21);
+            label5.Size = new Size(193, 24);
             label5.TabIndex = 37;
             label5.Text = "Contol de Paquetes";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(2, 52);
+            label3.Location = new Point(9, 52);
             label3.Name = "label3";
-            label3.Size = new Size(79, 16);
+            label3.Size = new Size(103, 20);
             label3.TabIndex = 34;
             label3.Text = "Descripcion";
             // 
             // txtPackageDescription
             // 
-            txtPackageDescription.Location = new Point(2, 70);
+            txtPackageDescription.Location = new Point(2, 75);
             txtPackageDescription.Multiline = true;
             txtPackageDescription.Name = "txtPackageDescription";
-            txtPackageDescription.Size = new Size(382, 60);
+            txtPackageDescription.Size = new Size(382, 55);
             txtPackageDescription.TabIndex = 33;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(5, 25);
+            label1.Location = new Point(41, 25);
             label1.Name = "label1";
-            label1.Size = new Size(57, 16);
+            label1.Size = new Size(71, 20);
             label1.TabIndex = 30;
             label1.Text = "Nombre";
+            label1.Click += label1_Click;
             // 
             // txtPackageName
             // 
-            txtPackageName.Location = new Point(67, 22);
+            txtPackageName.Location = new Point(118, 22);
             txtPackageName.Name = "txtPackageName";
-            txtPackageName.Size = new Size(317, 28);
+            txtPackageName.Size = new Size(266, 26);
             txtPackageName.TabIndex = 29;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1, 140);
+            label2.Location = new Point(6, 140);
             label2.Name = "label2";
-            label2.Size = new Size(44, 16);
+            label2.Size = new Size(56, 20);
             label2.TabIndex = 40;
             label2.Text = "Costo";
             // 
             // txtPackageCost
             // 
-            txtPackageCost.Location = new Point(48, 136);
+            txtPackageCost.Location = new Point(67, 136);
             txtPackageCost.Name = "txtPackageCost";
-            txtPackageCost.Size = new Size(68, 28);
+            txtPackageCost.Size = new Size(49, 26);
             txtPackageCost.TabIndex = 39;
             // 
             // chkbPackageStatus
             // 
             chkbPackageStatus.AutoSize = true;
-            chkbPackageStatus.Location = new Point(5, 165);
+            chkbPackageStatus.Location = new Point(27, 163);
             chkbPackageStatus.Name = "chkbPackageStatus";
-            chkbPackageStatus.Size = new Size(116, 20);
+            chkbPackageStatus.Size = new Size(131, 24);
             chkbPackageStatus.TabIndex = 42;
             chkbPackageStatus.Text = "Diponibilidad";
             chkbPackageStatus.UseVisualStyleBackColor = true;
@@ -120,8 +121,8 @@
             // 
             // btnFiltlerPackage
             // 
-            btnFiltlerPackage.Font = new Font("Forte", 11.25F);
-            btnFiltlerPackage.Location = new Point(421, 163);
+            btnFiltlerPackage.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnFiltlerPackage.Location = new Point(513, 176);
             btnFiltlerPackage.Name = "btnFiltlerPackage";
             btnFiltlerPackage.Size = new Size(148, 31);
             btnFiltlerPackage.TabIndex = 46;
@@ -130,8 +131,8 @@
             // 
             // btnDeletePackage
             // 
-            btnDeletePackage.Font = new Font("Forte", 11.25F);
-            btnDeletePackage.Location = new Point(421, 126);
+            btnDeletePackage.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnDeletePackage.Location = new Point(513, 139);
             btnDeletePackage.Name = "btnDeletePackage";
             btnDeletePackage.Size = new Size(148, 31);
             btnDeletePackage.TabIndex = 45;
@@ -140,8 +141,8 @@
             // 
             // btnUpdatePackage
             // 
-            btnUpdatePackage.Font = new Font("Forte", 11.25F);
-            btnUpdatePackage.Location = new Point(421, 89);
+            btnUpdatePackage.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnUpdatePackage.Location = new Point(513, 102);
             btnUpdatePackage.Name = "btnUpdatePackage";
             btnUpdatePackage.Size = new Size(148, 31);
             btnUpdatePackage.TabIndex = 44;
@@ -150,8 +151,8 @@
             // 
             // btnRegisterPackage
             // 
-            btnRegisterPackage.Font = new Font("Forte", 11.25F);
-            btnRegisterPackage.Location = new Point(421, 51);
+            btnRegisterPackage.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnRegisterPackage.Location = new Point(513, 64);
             btnRegisterPackage.Name = "btnRegisterPackage";
             btnRegisterPackage.Size = new Size(148, 31);
             btnRegisterPackage.TabIndex = 43;
@@ -162,9 +163,9 @@
             // 
             dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPackages.Dock = DockStyle.Bottom;
-            dgvPackages.Location = new Point(0, 265);
+            dgvPackages.Location = new Point(0, 295);
             dgvPackages.Name = "dgvPackages";
-            dgvPackages.Size = new Size(573, 205);
+            dgvPackages.Size = new Size(700, 205);
             dgvPackages.TabIndex = 47;
             // 
             // label4
@@ -172,16 +173,16 @@
             label4.AutoSize = true;
             label4.Location = new Point(136, 140);
             label4.Name = "label4";
-            label4.Size = new Size(126, 16);
+            label4.Size = new Size(156, 20);
             label4.TabIndex = 63;
             label4.Text = "Servicios incluidos";
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(242, 142);
+            comboBox1.Location = new Point(298, 142);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 24);
+            comboBox1.Size = new Size(86, 28);
             comboBox1.TabIndex = 64;
             // 
             // groupBox1
@@ -196,8 +197,8 @@
             groupBox1.Controls.Add(txtPackageDescription);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtPackageName);
-            groupBox1.Font = new Font("Forte", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 40);
+            groupBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(104, 64);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(403, 200);
             groupBox1.TabIndex = 65;
@@ -208,7 +209,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(573, 470);
+            ClientSize = new Size(700, 500);
             Controls.Add(groupBox1);
             Controls.Add(dgvPackages);
             Controls.Add(btnFiltlerPackage);

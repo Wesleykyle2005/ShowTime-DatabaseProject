@@ -67,7 +67,7 @@
             // 
             // btnRegisterReservation
             // 
-            btnRegisterReservation.Font = new Font("Forte", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegisterReservation.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRegisterReservation.Location = new Point(260, 457);
             btnRegisterReservation.Name = "btnRegisterReservation";
             btnRegisterReservation.Size = new Size(154, 31);
@@ -78,10 +78,10 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Forte", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(181, 5);
+            label10.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
+            label10.Location = new Point(242, 9);
             label10.Name = "label10";
-            label10.Size = new Size(285, 32);
+            label10.Size = new Size(227, 24);
             label10.TabIndex = 76;
             label10.Text = "Reservacion de Evento";
             // 
@@ -90,15 +90,15 @@
             label11.AutoSize = true;
             label11.Location = new Point(290, 75);
             label11.Name = "label11";
-            label11.Size = new Size(106, 14);
+            label11.Size = new Size(156, 20);
             label11.TabIndex = 75;
             label11.Text = "Correo electronico";
             // 
             // txtClientEmail
             // 
-            txtClientEmail.Location = new Point(398, 68);
+            txtClientEmail.Location = new Point(450, 68);
             txtClientEmail.Name = "txtClientEmail";
-            txtClientEmail.Size = new Size(256, 25);
+            txtClientEmail.Size = new Size(204, 26);
             txtClientEmail.TabIndex = 74;
             // 
             // label12
@@ -106,15 +106,15 @@
             label12.AutoSize = true;
             label12.Location = new Point(7, 74);
             label12.Name = "label12";
-            label12.Size = new Size(51, 14);
+            label12.Size = new Size(71, 20);
             label12.TabIndex = 73;
             label12.Text = "Numero";
             // 
             // txtClientNumber
             // 
-            txtClientNumber.Location = new Point(65, 69);
+            txtClientNumber.Location = new Point(90, 69);
             txtClientNumber.Name = "txtClientNumber";
-            txtClientNumber.Size = new Size(219, 25);
+            txtClientNumber.Size = new Size(194, 26);
             txtClientNumber.TabIndex = 72;
             // 
             // label13
@@ -122,15 +122,15 @@
             label13.AutoSize = true;
             label13.Location = new Point(331, 39);
             label13.Name = "label13";
-            label13.Size = new Size(64, 14);
+            label13.Size = new Size(82, 20);
             label13.TabIndex = 71;
             label13.Text = "Apellidos";
             // 
             // txtClientLastName
             // 
-            txtClientLastName.Location = new Point(398, 34);
+            txtClientLastName.Location = new Point(450, 34);
             txtClientLastName.Name = "txtClientLastName";
-            txtClientLastName.Size = new Size(256, 25);
+            txtClientLastName.Size = new Size(204, 26);
             txtClientLastName.TabIndex = 70;
             // 
             // label14
@@ -138,16 +138,16 @@
             label14.AutoSize = true;
             label14.Location = new Point(4, 40);
             label14.Name = "label14";
-            label14.Size = new Size(56, 14);
+            label14.Size = new Size(80, 20);
             label14.TabIndex = 69;
             label14.Text = "Nombres";
             label14.Click += label14_Click;
             // 
             // txtClientName
             // 
-            txtClientName.Location = new Point(65, 35);
+            txtClientName.Location = new Point(90, 35);
             txtClientName.Name = "txtClientName";
-            txtClientName.Size = new Size(219, 25);
+            txtClientName.Size = new Size(194, 26);
             txtClientName.TabIndex = 68;
             // 
             // gbClienteInfo
@@ -161,7 +161,7 @@
             gbClienteInfo.Controls.Add(label13);
             gbClienteInfo.Controls.Add(txtClientLastName);
             gbClienteInfo.Controls.Add(txtClientName);
-            gbClienteInfo.Font = new Font("Forte", 9.75F);
+            gbClienteInfo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             gbClienteInfo.Location = new Point(12, 40);
             gbClienteInfo.Name = "gbClienteInfo";
             gbClienteInfo.Size = new Size(660, 102);
@@ -172,9 +172,9 @@
             // 
             // txtEventAddress
             // 
-            txtEventAddress.Location = new Point(74, 56);
+            txtEventAddress.Location = new Point(103, 56);
             txtEventAddress.Name = "txtEventAddress";
-            txtEventAddress.Size = new Size(579, 25);
+            txtEventAddress.Size = new Size(550, 26);
             txtEventAddress.TabIndex = 50;
             // 
             // label1
@@ -182,7 +182,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(9, 31);
             label1.Name = "label1";
-            label1.Size = new Size(58, 14);
+            label1.Size = new Size(88, 20);
             label1.TabIndex = 51;
             label1.Text = "Ubicacion";
             // 
@@ -191,7 +191,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(15, 61);
             label2.Name = "label2";
-            label2.Size = new Size(56, 14);
+            label2.Size = new Size(84, 20);
             label2.TabIndex = 53;
             label2.Text = "Direccion";
             // 
@@ -200,31 +200,31 @@
             label3.AutoSize = true;
             label3.Location = new Point(9, 107);
             label3.Name = "label3";
-            label3.Size = new Size(39, 14);
+            label3.Size = new Size(59, 20);
             label3.TabIndex = 54;
             label3.Text = "Fecha";
             // 
             // txtNumberAttenddes
             // 
-            txtNumberAttenddes.Location = new Point(139, 139);
+            txtNumberAttenddes.Location = new Point(230, 139);
             txtNumberAttenddes.Name = "txtNumberAttenddes";
-            txtNumberAttenddes.Size = new Size(56, 25);
+            txtNumberAttenddes.Size = new Size(43, 26);
             txtNumberAttenddes.TabIndex = 55;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 142);
+            label4.Location = new Point(11, 142);
             label4.Name = "label4";
-            label4.Size = new Size(133, 14);
+            label4.Size = new Size(196, 20);
             label4.TabIndex = 56;
             label4.Text = "Cantidad de Asistentes";
             // 
             // dtpDate
             // 
-            dtpDate.Location = new Point(53, 101);
+            dtpDate.Location = new Point(74, 101);
             dtpDate.Name = "dtpDate";
-            dtpDate.Size = new Size(236, 25);
+            dtpDate.Size = new Size(215, 26);
             dtpDate.TabIndex = 59;
             // 
             // label7
@@ -233,16 +233,16 @@
             label7.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
             label7.Location = new Point(295, 107);
             label7.Name = "label7";
-            label7.Size = new Size(71, 14);
+            label7.Size = new Size(96, 20);
             label7.TabIndex = 60;
             label7.Text = "Hora Inicio";
             // 
             // dtpStartTime
             // 
             dtpStartTime.Format = DateTimePickerFormat.Time;
-            dtpStartTime.Location = new Point(366, 101);
+            dtpStartTime.Location = new Point(398, 101);
             dtpStartTime.Name = "dtpStartTime";
-            dtpStartTime.Size = new Size(102, 25);
+            dtpStartTime.Size = new Size(70, 26);
             dtpStartTime.TabIndex = 61;
             // 
             // label6
@@ -251,33 +251,33 @@
             label6.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
             label6.Location = new Point(474, 107);
             label6.Name = "label6";
-            label6.Size = new Size(68, 14);
+            label6.Size = new Size(92, 20);
             label6.TabIndex = 62;
             label6.Text = "Hora Final";
             // 
             // dtpEndTime
             // 
             dtpEndTime.Format = DateTimePickerFormat.Time;
-            dtpEndTime.Location = new Point(541, 101);
+            dtpEndTime.Location = new Point(572, 101);
             dtpEndTime.Name = "dtpEndTime";
-            dtpEndTime.Size = new Size(113, 25);
+            dtpEndTime.Size = new Size(82, 26);
             dtpEndTime.TabIndex = 63;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(217, 147);
+            label8.Location = new Point(279, 142);
             label8.Name = "label8";
-            label8.Size = new Size(128, 14);
+            label8.Size = new Size(189, 20);
             label8.TabIndex = 64;
             label8.Text = "Paquete Seleccionado";
             // 
             // cmbPackage
             // 
             cmbPackage.FormattingEnabled = true;
-            cmbPackage.Location = new Point(355, 142);
+            cmbPackage.Location = new Point(488, 142);
             cmbPackage.Name = "cmbPackage";
-            cmbPackage.Size = new Size(298, 22);
+            cmbPackage.Size = new Size(165, 28);
             cmbPackage.TabIndex = 65;
             // 
             // label9
@@ -285,7 +285,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(11, 198);
             label9.Name = "label9";
-            label9.Size = new Size(126, 14);
+            label9.Size = new Size(172, 20);
             label9.TabIndex = 66;
             label9.Text = "Detalles Adicionales";
             // 
@@ -301,17 +301,17 @@
             // cmbEventLoaction
             // 
             cmbEventLoaction.FormattingEnabled = true;
-            cmbEventLoaction.Location = new Point(74, 28);
+            cmbEventLoaction.Location = new Point(103, 28);
             cmbEventLoaction.Name = "cmbEventLoaction";
-            cmbEventLoaction.Size = new Size(579, 22);
+            cmbEventLoaction.Size = new Size(550, 28);
             cmbEventLoaction.TabIndex = 68;
             // 
             // cmbServices
             // 
             cmbServices.FormattingEnabled = true;
-            cmbServices.Location = new Point(355, 170);
+            cmbServices.Location = new Point(488, 170);
             cmbServices.Name = "cmbServices";
-            cmbServices.Size = new Size(298, 22);
+            cmbServices.Size = new Size(165, 28);
             cmbServices.TabIndex = 70;
             // 
             // label5
@@ -319,25 +319,25 @@
             label5.AutoSize = true;
             label5.Location = new Point(248, 184);
             label5.Name = "label5";
-            label5.Size = new Size(0, 14);
+            label5.Size = new Size(0, 20);
             label5.TabIndex = 71;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(220, 170);
+            label15.Location = new Point(283, 170);
             label15.Name = "label15";
-            label15.Size = new Size(124, 14);
+            label15.Size = new Size(185, 20);
             label15.TabIndex = 72;
             label15.Text = "Servicio Seleccionado";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(139, 167);
+            textBox1.Location = new Point(230, 175);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(56, 23);
+            textBox1.Size = new Size(40, 23);
             textBox1.TabIndex = 73;
             // 
             // gbEventDetails
@@ -364,7 +364,7 @@
             gbEventDetails.Controls.Add(label2);
             gbEventDetails.Controls.Add(label1);
             gbEventDetails.Controls.Add(txtEventAddress);
-            gbEventDetails.Font = new Font("Forte", 9.75F);
+            gbEventDetails.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             gbEventDetails.Location = new Point(12, 153);
             gbEventDetails.Name = "gbEventDetails";
             gbEventDetails.Size = new Size(660, 298);
@@ -376,9 +376,9 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(93, 172);
+            label16.Location = new Point(168, 178);
             label16.Name = "label16";
-            label16.Size = new Size(39, 14);
+            label16.Size = new Size(56, 20);
             label16.TabIndex = 74;
             label16.Text = "Costo";
             // 
@@ -387,7 +387,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(690, 500);
+            ClientSize = new Size(700, 500);
             Controls.Add(gbEventDetails);
             Controls.Add(gbClienteInfo);
             Controls.Add(label10);
