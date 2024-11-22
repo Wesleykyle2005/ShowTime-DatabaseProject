@@ -1,6 +1,6 @@
 ﻿namespace ShowTime_DatabseProject
 {
-    partial class Utileria
+    partial class Utileria_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvServices = new DataGridView();
+            dgvUtileria = new DataGridView();
             btnFiltlerService = new Button();
             btnDeleteService = new Button();
             btnUpdateService = new Button();
@@ -39,18 +39,19 @@
             label1 = new Label();
             txtPropName = new TextBox();
             groupBox1 = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUtileria).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvServices
+            // dgvUtileria
             // 
-            dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvServices.Dock = DockStyle.Bottom;
-            dgvServices.Location = new Point(0, 269);
-            dgvServices.Name = "dgvServices";
-            dgvServices.Size = new Size(700, 231);
-            dgvServices.TabIndex = 72;
+            dgvUtileria.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUtileria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUtileria.Dock = DockStyle.Bottom;
+            dgvUtileria.Location = new Point(0, 269);
+            dgvUtileria.Name = "dgvUtileria";
+            dgvUtileria.Size = new Size(700, 231);
+            dgvUtileria.TabIndex = 72;
             // 
             // btnFiltlerService
             // 
@@ -151,22 +152,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion de Utileria";
             // 
-            // Utileria
+            // Utileria_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 500);
             Controls.Add(groupBox1);
-            Controls.Add(dgvServices);
+            Controls.Add(dgvUtileria);
             Controls.Add(btnFiltlerService);
             Controls.Add(btnDeleteService);
             Controls.Add(btnUpdateService);
             Controls.Add(btnRegisterProp);
             Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Utileria";
+            Name = "Utileria_Form";
             Text = "Utileria";
-            ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUtileria).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -175,7 +176,7 @@
 
         #endregion
 
-        private DataGridView dgvServices;
+        private DataGridView dgvUtileria;
         private Button btnFiltlerService;
         private Button btnDeleteService;
         private Button btnUpdateService;
