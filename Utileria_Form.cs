@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using ShowTime_DatabseProject.Modelos;
+using ShowTime_DatabseProject.Models;
 
 
 namespace ShowTime_DatabseProject
@@ -37,7 +37,7 @@ namespace ShowTime_DatabseProject
                         {
                             Utileria utileria = new Utileria
                             {
-                                Id_utileria = Convert.ToInt32(reader["Id_utileria"]),
+                                IdUtileria = Convert.ToInt32(reader["Id_utileria"]),
                                 Nombre = reader["Nombre"].ToString(),
                                 Cantidad = Convert.ToInt32(reader["Cantidad"])
                             };
