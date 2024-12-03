@@ -115,7 +115,7 @@ namespace ShowTime_DatabseProject
             string employeePassword = txtPassword.Text;*/
 
             string queryInsert = "INSERT INTO Empleados (Nombre, Apellido, Telefono, Email) VALUES (@Nombre, @Apellido, @Telefono, @Email)";
-            MessageBox.Show("Cuenta añadida correctamente");
+            MessageBox.Show("Empleado añadido correctamente");
 
             try
             {
@@ -138,6 +138,54 @@ namespace ShowTime_DatabseProject
                 MessageBox.Show("Error: " + ex.Message);
             }
 
+        }
+
+        private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvEmployees.Rows[e.RowIndex];
+                TxtEmployeeName.Text = row.Cells["Nombre"].Value.ToString();
+                txtEmployeeLastName.Text = row.Cells["Apellido"].Value.ToString();
+                txtEmployeeNumber.Text = row.Cells["Telefono"].Value.ToString();
+                txtEmployeeEmail.Text = row.Cells["Email"].Value.ToString();
+            }
+        }
+
+        private void btnUpdateEmployee_Click(object sender, EventArgs e)
+        {
+            if (dgvEmployees.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvEmployees.SelectedRows[0];
+                    int id = Convert.ToInt32(row.Cells["IdEmpleado"].Value);
+
+                    string query = @"UPDATE Empleados
+                         SET Nombre = @Nombre, Apellido = @Apellido, Telefono = @Telefono, Email = @Email
+                         WHERE Id_empleado = @Id";
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Parameters.AddWithValue("@Nombre", TxtEmployeeName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Apellido", txtEmployeeLastName.Text);
+                        cmd.Parameters.AddWithValue("@Telefono", txtEmployeeNumber.Text);
+                        cmd.Parameters.AddWithValue("@Email", txtEmployeeEmail.Text);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Empleado actualizado correctamente.");
+                    LoadDataToDataGridView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar Empleado: " + ex.Message);
+                }
+            }
         }
     }
 }

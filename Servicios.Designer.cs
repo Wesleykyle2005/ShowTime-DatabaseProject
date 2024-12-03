@@ -55,6 +55,7 @@
             dgvServices.Name = "dgvServices";
             dgvServices.Size = new Size(700, 210);
             dgvServices.TabIndex = 60;
+            dgvServices.CellClick += dgvServices_CellClick;
             // 
             // btnFiltlerService
             // 

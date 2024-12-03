@@ -21,5 +21,10 @@ namespace ShowTime_DatabseProject
         {
 
         }
+
+        private void dgvServices_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

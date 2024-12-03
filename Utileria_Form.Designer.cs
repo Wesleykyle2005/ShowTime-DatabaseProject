@@ -52,6 +52,7 @@
             dgvUtileria.Name = "dgvUtileria";
             dgvUtileria.Size = new Size(700, 231);
             dgvUtileria.TabIndex = 72;
+            dgvUtileria.CellClick += dgvUtileria_CellClick;
             // 
             // btnFiltlerService
             // 
@@ -82,6 +83,7 @@
             btnUpdateService.TabIndex = 69;
             btnUpdateService.Text = "Actualizar Utileria";
             btnUpdateService.UseVisualStyleBackColor = true;
+            btnUpdateService.Click += btnUpdateService_Click;
             // 
             // btnRegisterProp
             // 

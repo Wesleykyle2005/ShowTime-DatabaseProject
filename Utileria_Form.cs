@@ -79,7 +79,7 @@ namespace ShowTime_DatabseProject
             string propQuantity = txtPropQuantity.Text;
 
             string queryInsert = "INSERT INTO Utileria (Nombre, Cantidad) VALUES (@Nombre, @Cantidad)";
-            MessageBox.Show("Cuenta añadida correctamente");
+            MessageBox.Show("Utileria añadida correctamente");
 
             try
             {
@@ -100,6 +100,50 @@ namespace ShowTime_DatabseProject
                 MessageBox.Show("Error: " + ex.Message);
             }
 
+        }
+
+        private void dgvUtileria_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvUtileria.Rows[e.RowIndex];
+                txtPropName.Text = row.Cells["Nombre"].Value.ToString();
+                txtPropQuantity.Text = row.Cells["Cantidad"].Value.ToString();
+            }
+        }
+
+        private void btnUpdateService_Click(object sender, EventArgs e)
+        {
+            if (dgvUtileria.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvUtileria.SelectedRows[0];
+                    int id = Convert.ToInt32(row.Cells["IdUtileria"].Value);
+
+                    string query = @"UPDATE Utileria
+                         SET Nombre = @Nombre, Cantidad = @Cantidad
+                         WHERE Id_utileria = @Id";
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Parameters.AddWithValue("@Nombre", txtPropName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Cantidad", txtPropQuantity.Text);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Utileria actualizada correctamente.");
+                    LoadDataToDataGridView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar la Utileria: " + ex.Message);
+                }
+            }
         }
     }
 }

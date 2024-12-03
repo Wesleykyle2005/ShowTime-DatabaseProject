@@ -145,6 +145,7 @@
             dgvEmployees.Name = "dgvEmployees";
             dgvEmployees.Size = new Size(700, 239);
             dgvEmployees.TabIndex = 31;
+            dgvEmployees.CellClick += dgvEmployees_CellClick;
             // 
             // btnUpdateEmployee
             // 
@@ -155,6 +156,7 @@
             btnUpdateEmployee.TabIndex = 32;
             btnUpdateEmployee.Text = "Actualizar Empelado";
             btnUpdateEmployee.UseVisualStyleBackColor = true;
+            btnUpdateEmployee.Click += btnUpdateEmployee_Click;
             // 
             // btnDeleteEmployee
             // 
