@@ -42,8 +42,8 @@
             btnUpdateEmployee = new Button();
             btnDeleteEmployee = new Button();
             groupBox1 = new GroupBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtPassword = new TextBox();
+            txtUser = new TextBox();
             label7 = new Label();
             label6 = new Label();
             btnFiltlerEmployee = new Button();
@@ -60,6 +60,7 @@
             btnRegisterEmployee.TabIndex = 28;
             btnRegisterEmployee.Text = "Registrar Empelado";
             btnRegisterEmployee.UseVisualStyleBackColor = true;
+            btnRegisterEmployee.Click += btnRegisterEmployee_Click_1;
             // 
             // label5
             // 
@@ -137,6 +138,7 @@
             // 
             // dgvEmployees
             // 
+            dgvEmployees.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmployees.Dock = DockStyle.Bottom;
             dgvEmployees.Location = new Point(0, 261);
@@ -167,8 +169,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(242, 121, 131);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtPassword);
+            groupBox1.Controls.Add(txtUser);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtEmployeeEmail);
@@ -188,19 +190,19 @@
             groupBox1.Text = "Datos del Empleado";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(186, 170);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 26);
-            textBox2.TabIndex = 29;
+            txtPassword.Location = new Point(186, 170);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(200, 26);
+            txtPassword.TabIndex = 29;
             // 
-            // textBox1
+            // txtUser
             // 
-            textBox1.Location = new Point(185, 140);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 26);
-            textBox1.TabIndex = 27;
+            txtUser.Location = new Point(185, 140);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(200, 26);
+            txtUser.TabIndex = 27;
             // 
             // label7
             // 
@@ -269,9 +271,9 @@
         private Button btnDeleteEmployee;
         private GroupBox groupBox1;
         private Button btnFiltlerEmployee;
-        private TextBox textBox1;
+        private TextBox txtUser;
         private Label label6;
-        private TextBox textBox2;
+        private TextBox txtPassword;
         private Label label7;
     }
 }

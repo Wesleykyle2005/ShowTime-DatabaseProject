@@ -71,6 +71,7 @@
             button7.TabIndex = 6;
             button7.Text = "Gestion de Usuarios";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button1
             // 

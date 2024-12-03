@@ -92,6 +92,7 @@
             btnRegisterProp.TabIndex = 68;
             btnRegisterProp.Text = "Registrar Utileria";
             btnRegisterProp.UseVisualStyleBackColor = true;
+            btnRegisterProp.Click += btnRegisterProp_Click;
             // 
             // label2
             // 

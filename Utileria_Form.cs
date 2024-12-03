@@ -17,21 +17,25 @@ namespace ShowTime_DatabseProject
     public partial class Utileria_Form : Form
     {
         string sqlServerConnectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
+
+        private string connectionString = "Server=SILVIA\\SQLEXPRESS; Database=DB_TeamSmile_ShowInfantil; Integrated Security=True; TrustServerCertificate=True";
+
         public Utileria_Form()
         {
             InitializeComponent();
             LoadDataToDataGridView();
         }
 
-        public IEnumerable<Utileria> GetAll() {
-        List<Utileria> utilerias = new List<Utileria>();
+        public IEnumerable<Utileria> GetAll()
+        {
+            List<Utileria> utilerias = new List<Utileria>();
             try
             {
-                using (SqlConnection connection= new SqlConnection(sqlServerConnectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand("SELECT * FROM Utileria", connection);
-                    using (SqlDataReader reader = command.ExecuteReader() )
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -58,14 +62,44 @@ namespace ShowTime_DatabseProject
         private void LoadDataToDataGridView()
         {
             try
-            {            
-                var utilerias = GetAll();               
+            {
+                var utilerias = GetAll();
                 dgvUtileria.DataSource = utilerias.ToList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar los datos en el DataGridView: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnRegisterProp_Click(object sender, EventArgs e)
+        {
+
+            string propName = txtPropName.Text;
+            string propQuantity = txtPropQuantity.Text;
+
+            string queryInsert = "INSERT INTO Utileria (Nombre, Cantidad) VALUES (@Nombre, @Cantidad)";
+            MessageBox.Show("Cuenta añadida correctamente");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(queryInsert, conn);
+                    cmd.Parameters.AddWithValue("@Nombre", propName);
+                    cmd.Parameters.AddWithValue("@Cantidad", propQuantity);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    LoadDataToDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
     }
 }
