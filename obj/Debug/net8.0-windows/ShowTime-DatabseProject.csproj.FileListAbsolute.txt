@@ -72,7 +72,6 @@ C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTi
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Asignacion_de_Empleados.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Empleados.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Eventos.resources
-C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Menu_Principal.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Paquetes.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Properties.Resources.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Servicios.resources
@@ -361,3 +360,14 @@ C:\Users\Silvia Fuentes\source\repos\ShowTime-DatabaseProject\obj\Debug\net8.0-w
 C:\Users\Silvia Fuentes\source\repos\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.pdb
 C:\Users\Silvia Fuentes\source\repos\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.genruntimeconfig.cache
 C:\Users\Silvia Fuentes\source\repos\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ref\ShowTime-DatabseProject.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\ReaLTaiizor.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Dashboard.resources
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Inicio.resources
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\Krypton.Toolkit.dll
