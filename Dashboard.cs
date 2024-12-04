@@ -84,5 +84,21 @@ namespace ShowTime_DatabseProject
         {
             CargarFormularioEnCelda(new Empleados(), PanelForm, 0, 1);
         }
+
+        private void serviceButton_Click(object sender, EventArgs e)
+        {
+            CargarFormularioEnCelda(new Servicios(), PanelForm, 0, 1);
+        }
+
+        private void paqueteButton_Click(object sender, EventArgs e)
+        {
+            CargarFormularioEnCelda(new Paquetes(), PanelForm, 0, 1);
+        }
+
+        private void eventButton_Click(object sender, EventArgs e)
+        {
+            CargarFormularioEnCelda(new Eventos(), PanelForm, 0, 1);
+
+        }
     }
 }

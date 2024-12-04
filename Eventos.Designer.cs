@@ -28,414 +28,205 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnRegisterReservation = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            dgvRolesEmpleados = new DataGridView();
             label10 = new Label();
-            label11 = new Label();
-            txtClientEmail = new TextBox();
-            label12 = new Label();
-            txtClientNumber = new TextBox();
-            label13 = new Label();
-            txtClientLastName = new TextBox();
-            label14 = new Label();
-            txtClientName = new TextBox();
-            gbClienteInfo = new GroupBox();
-            txtEventAddress = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            txtNumberAttenddes = new TextBox();
-            label4 = new Label();
-            dtpDate = new DateTimePicker();
-            label7 = new Label();
-            dtpStartTime = new DateTimePicker();
-            label6 = new Label();
-            dtpEndTime = new DateTimePicker();
-            label8 = new Label();
-            cmbPackage = new ComboBox();
-            label9 = new Label();
-            txtAdditionalDetails = new TextBox();
-            cmbEventLoaction = new ComboBox();
-            cmbServices = new ComboBox();
-            label5 = new Label();
-            label15 = new Label();
-            textBox1 = new TextBox();
-            gbEventDetails = new GroupBox();
-            label16 = new Label();
-            gbClienteInfo.SuspendLayout();
-            gbEventDetails.SuspendLayout();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            registerEvent = new FontAwesome.Sharp.IconButton();
+            editEvent = new FontAwesome.Sharp.IconButton();
+            payEvent = new FontAwesome.Sharp.IconButton();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRolesEmpleados).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
-            // btnRegisterReservation
+            // tableLayoutPanel1
             // 
-            btnRegisterReservation.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnRegisterReservation.Location = new Point(260, 457);
-            btnRegisterReservation.Name = "btnRegisterReservation";
-            btnRegisterReservation.Size = new Size(154, 31);
-            btnRegisterReservation.TabIndex = 58;
-            btnRegisterReservation.Text = "Registar Evento";
-            btnRegisterReservation.UseVisualStyleBackColor = true;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel1.Controls.Add(dgvRolesEmpleados, 0, 2);
+            tableLayoutPanel1.Controls.Add(label10, 0, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(4);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(700, 500);
+            tableLayoutPanel1.TabIndex = 79;
+            // 
+            // dgvRolesEmpleados
+            // 
+            dgvRolesEmpleados.AllowUserToAddRows = false;
+            dgvRolesEmpleados.AllowUserToDeleteRows = false;
+            dgvRolesEmpleados.AllowUserToResizeColumns = false;
+            dgvRolesEmpleados.AllowUserToResizeRows = false;
+            dgvRolesEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRolesEmpleados.BackgroundColor = Color.FromArgb(255, 202, 212);
+            dgvRolesEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvRolesEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle10.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgvRolesEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dgvRolesEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle11.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle11.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgvRolesEmpleados.DefaultCellStyle = dataGridViewCellStyle11;
+            dgvRolesEmpleados.Dock = DockStyle.Fill;
+            dgvRolesEmpleados.EnableHeadersVisualStyles = false;
+            dgvRolesEmpleados.GridColor = Color.Black;
+            dgvRolesEmpleados.Location = new Point(0, 250);
+            dgvRolesEmpleados.Margin = new Padding(0);
+            dgvRolesEmpleados.MultiSelect = false;
+            dgvRolesEmpleados.Name = "dgvRolesEmpleados";
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle12.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgvRolesEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dgvRolesEmpleados.RowHeadersVisible = false;
+            dgvRolesEmpleados.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgvRolesEmpleados.ScrollBars = ScrollBars.Vertical;
+            dgvRolesEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvRolesEmpleados.ShowCellErrors = false;
+            dgvRolesEmpleados.ShowRowErrors = false;
+            dgvRolesEmpleados.Size = new Size(700, 250);
+            dgvRolesEmpleados.TabIndex = 77;
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
-            label10.Location = new Point(242, 9);
+            label10.Dock = DockStyle.Fill;
+            label10.Location = new Point(4, 0);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(227, 24);
-            label10.TabIndex = 76;
-            label10.Text = "Reservacion de Evento";
+            label10.Size = new Size(692, 50);
+            label10.TabIndex = 78;
+            label10.Text = "Administrar eventos";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // tableLayoutPanel2
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(290, 75);
-            label11.Name = "label11";
-            label11.Size = new Size(156, 20);
-            label11.TabIndex = 75;
-            label11.Text = "Correo electronico";
+            tableLayoutPanel2.ColumnCount = 7;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel2.Controls.Add(registerEvent, 1, 1);
+            tableLayoutPanel2.Controls.Add(editEvent, 3, 1);
+            tableLayoutPanel2.Controls.Add(payEvent, 5, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 50);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.Size = new Size(700, 200);
+            tableLayoutPanel2.TabIndex = 79;
             // 
-            // txtClientEmail
+            // registerEvent
             // 
-            txtClientEmail.Location = new Point(450, 68);
-            txtClientEmail.Name = "txtClientEmail";
-            txtClientEmail.Size = new Size(204, 26);
-            txtClientEmail.TabIndex = 74;
+            registerEvent.Dock = DockStyle.Fill;
+            registerEvent.FlatAppearance.BorderSize = 0;
+            registerEvent.FlatStyle = FlatStyle.Flat;
+            registerEvent.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            registerEvent.IconChar = FontAwesome.Sharp.IconChar.None;
+            registerEvent.IconColor = Color.Black;
+            registerEvent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            registerEvent.Location = new Point(74, 44);
+            registerEvent.Margin = new Padding(4);
+            registerEvent.Name = "registerEvent";
+            registerEvent.Size = new Size(132, 112);
+            registerEvent.TabIndex = 0;
+            registerEvent.Text = "Registrar evento";
+            registerEvent.UseVisualStyleBackColor = true;
+            registerEvent.Click += registerEvent_Click;
             // 
-            // label12
+            // editEvent
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(7, 74);
-            label12.Name = "label12";
-            label12.Size = new Size(71, 20);
-            label12.TabIndex = 73;
-            label12.Text = "Numero";
+            editEvent.Dock = DockStyle.Fill;
+            editEvent.FlatAppearance.BorderSize = 0;
+            editEvent.FlatStyle = FlatStyle.Flat;
+            editEvent.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            editEvent.IconChar = FontAwesome.Sharp.IconChar.None;
+            editEvent.IconColor = Color.Black;
+            editEvent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            editEvent.Location = new Point(284, 44);
+            editEvent.Margin = new Padding(4);
+            editEvent.Name = "editEvent";
+            editEvent.Size = new Size(132, 112);
+            editEvent.TabIndex = 1;
+            editEvent.Text = "Editar evento";
+            editEvent.UseVisualStyleBackColor = true;
+            editEvent.Click += editEvent_Click;
             // 
-            // txtClientNumber
+            // payEvent
             // 
-            txtClientNumber.Location = new Point(90, 69);
-            txtClientNumber.Name = "txtClientNumber";
-            txtClientNumber.Size = new Size(194, 26);
-            txtClientNumber.TabIndex = 72;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(331, 39);
-            label13.Name = "label13";
-            label13.Size = new Size(82, 20);
-            label13.TabIndex = 71;
-            label13.Text = "Apellidos";
-            // 
-            // txtClientLastName
-            // 
-            txtClientLastName.Location = new Point(450, 34);
-            txtClientLastName.Name = "txtClientLastName";
-            txtClientLastName.Size = new Size(204, 26);
-            txtClientLastName.TabIndex = 70;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(4, 40);
-            label14.Name = "label14";
-            label14.Size = new Size(80, 20);
-            label14.TabIndex = 69;
-            label14.Text = "Nombres";
-            label14.Click += label14_Click;
-            // 
-            // txtClientName
-            // 
-            txtClientName.Location = new Point(90, 35);
-            txtClientName.Name = "txtClientName";
-            txtClientName.Size = new Size(194, 26);
-            txtClientName.TabIndex = 68;
-            // 
-            // gbClienteInfo
-            // 
-            gbClienteInfo.BackColor = Color.FromArgb(242, 121, 131);
-            gbClienteInfo.Controls.Add(label11);
-            gbClienteInfo.Controls.Add(txtClientEmail);
-            gbClienteInfo.Controls.Add(label14);
-            gbClienteInfo.Controls.Add(label12);
-            gbClienteInfo.Controls.Add(txtClientNumber);
-            gbClienteInfo.Controls.Add(label13);
-            gbClienteInfo.Controls.Add(txtClientLastName);
-            gbClienteInfo.Controls.Add(txtClientName);
-            gbClienteInfo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            gbClienteInfo.Location = new Point(12, 40);
-            gbClienteInfo.Name = "gbClienteInfo";
-            gbClienteInfo.Size = new Size(660, 102);
-            gbClienteInfo.TabIndex = 77;
-            gbClienteInfo.TabStop = false;
-            gbClienteInfo.Text = "Informacion del Cliente";
-            gbClienteInfo.Enter += gbClienteInfo_Enter;
-            // 
-            // txtEventAddress
-            // 
-            txtEventAddress.Location = new Point(103, 56);
-            txtEventAddress.Name = "txtEventAddress";
-            txtEventAddress.Size = new Size(550, 26);
-            txtEventAddress.TabIndex = 50;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(9, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(88, 20);
-            label1.TabIndex = 51;
-            label1.Text = "Ubicacion";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(15, 61);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 20);
-            label2.TabIndex = 53;
-            label2.Text = "Direccion";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(9, 107);
-            label3.Name = "label3";
-            label3.Size = new Size(59, 20);
-            label3.TabIndex = 54;
-            label3.Text = "Fecha";
-            // 
-            // txtNumberAttenddes
-            // 
-            txtNumberAttenddes.Location = new Point(230, 139);
-            txtNumberAttenddes.Name = "txtNumberAttenddes";
-            txtNumberAttenddes.Size = new Size(43, 26);
-            txtNumberAttenddes.TabIndex = 55;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(11, 142);
-            label4.Name = "label4";
-            label4.Size = new Size(196, 20);
-            label4.TabIndex = 56;
-            label4.Text = "Cantidad de Asistentes";
-            // 
-            // dtpDate
-            // 
-            dtpDate.Location = new Point(74, 101);
-            dtpDate.Name = "dtpDate";
-            dtpDate.Size = new Size(215, 26);
-            dtpDate.TabIndex = 59;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
-            label7.Location = new Point(295, 107);
-            label7.Name = "label7";
-            label7.Size = new Size(96, 20);
-            label7.TabIndex = 60;
-            label7.Text = "Hora Inicio";
-            // 
-            // dtpStartTime
-            // 
-            dtpStartTime.Format = DateTimePickerFormat.Time;
-            dtpStartTime.Location = new Point(398, 101);
-            dtpStartTime.Name = "dtpStartTime";
-            dtpStartTime.Size = new Size(70, 26);
-            dtpStartTime.TabIndex = 61;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
-            label6.Location = new Point(474, 107);
-            label6.Name = "label6";
-            label6.Size = new Size(92, 20);
-            label6.TabIndex = 62;
-            label6.Text = "Hora Final";
-            // 
-            // dtpEndTime
-            // 
-            dtpEndTime.Format = DateTimePickerFormat.Time;
-            dtpEndTime.Location = new Point(572, 101);
-            dtpEndTime.Name = "dtpEndTime";
-            dtpEndTime.Size = new Size(82, 26);
-            dtpEndTime.TabIndex = 63;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(279, 142);
-            label8.Name = "label8";
-            label8.Size = new Size(189, 20);
-            label8.TabIndex = 64;
-            label8.Text = "Paquete Seleccionado";
-            // 
-            // cmbPackage
-            // 
-            cmbPackage.FormattingEnabled = true;
-            cmbPackage.Location = new Point(488, 142);
-            cmbPackage.Name = "cmbPackage";
-            cmbPackage.Size = new Size(165, 28);
-            cmbPackage.TabIndex = 65;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(11, 198);
-            label9.Name = "label9";
-            label9.Size = new Size(172, 20);
-            label9.TabIndex = 66;
-            label9.Text = "Detalles Adicionales";
-            // 
-            // txtAdditionalDetails
-            // 
-            txtAdditionalDetails.Location = new Point(11, 215);
-            txtAdditionalDetails.Multiline = true;
-            txtAdditionalDetails.Name = "txtAdditionalDetails";
-            txtAdditionalDetails.Size = new Size(643, 69);
-            txtAdditionalDetails.TabIndex = 67;
-            txtAdditionalDetails.TextChanged += textBox3_TextChanged;
-            // 
-            // cmbEventLoaction
-            // 
-            cmbEventLoaction.FormattingEnabled = true;
-            cmbEventLoaction.Location = new Point(103, 28);
-            cmbEventLoaction.Name = "cmbEventLoaction";
-            cmbEventLoaction.Size = new Size(550, 28);
-            cmbEventLoaction.TabIndex = 68;
-            // 
-            // cmbServices
-            // 
-            cmbServices.FormattingEnabled = true;
-            cmbServices.Location = new Point(488, 170);
-            cmbServices.Name = "cmbServices";
-            cmbServices.Size = new Size(165, 28);
-            cmbServices.TabIndex = 70;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(248, 184);
-            label5.Name = "label5";
-            label5.Size = new Size(0, 20);
-            label5.TabIndex = 71;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(283, 170);
-            label15.Name = "label15";
-            label15.Size = new Size(185, 20);
-            label15.TabIndex = 72;
-            label15.Text = "Servicio Seleccionado";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(230, 175);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(40, 23);
-            textBox1.TabIndex = 73;
-            // 
-            // gbEventDetails
-            // 
-            gbEventDetails.BackColor = Color.FromArgb(242, 121, 131);
-            gbEventDetails.Controls.Add(label16);
-            gbEventDetails.Controls.Add(textBox1);
-            gbEventDetails.Controls.Add(label15);
-            gbEventDetails.Controls.Add(label5);
-            gbEventDetails.Controls.Add(cmbServices);
-            gbEventDetails.Controls.Add(cmbEventLoaction);
-            gbEventDetails.Controls.Add(txtAdditionalDetails);
-            gbEventDetails.Controls.Add(label9);
-            gbEventDetails.Controls.Add(cmbPackage);
-            gbEventDetails.Controls.Add(label8);
-            gbEventDetails.Controls.Add(dtpEndTime);
-            gbEventDetails.Controls.Add(label6);
-            gbEventDetails.Controls.Add(dtpStartTime);
-            gbEventDetails.Controls.Add(label7);
-            gbEventDetails.Controls.Add(dtpDate);
-            gbEventDetails.Controls.Add(label4);
-            gbEventDetails.Controls.Add(txtNumberAttenddes);
-            gbEventDetails.Controls.Add(label3);
-            gbEventDetails.Controls.Add(label2);
-            gbEventDetails.Controls.Add(label1);
-            gbEventDetails.Controls.Add(txtEventAddress);
-            gbEventDetails.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            gbEventDetails.Location = new Point(12, 153);
-            gbEventDetails.Name = "gbEventDetails";
-            gbEventDetails.Size = new Size(660, 298);
-            gbEventDetails.TabIndex = 78;
-            gbEventDetails.TabStop = false;
-            gbEventDetails.Text = "Detalles de Evento";
-            gbEventDetails.Enter += gbEventDetails_Enter;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(168, 178);
-            label16.Name = "label16";
-            label16.Size = new Size(56, 20);
-            label16.TabIndex = 74;
-            label16.Text = "Costo";
+            payEvent.Dock = DockStyle.Fill;
+            payEvent.FlatAppearance.BorderSize = 0;
+            payEvent.FlatStyle = FlatStyle.Flat;
+            payEvent.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            payEvent.IconChar = FontAwesome.Sharp.IconChar.None;
+            payEvent.IconColor = Color.Black;
+            payEvent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            payEvent.Location = new Point(494, 44);
+            payEvent.Margin = new Padding(4);
+            payEvent.Name = "payEvent";
+            payEvent.Size = new Size(132, 112);
+            payEvent.TabIndex = 2;
+            payEvent.Text = "Registrar pagos de eventos";
+            payEvent.UseVisualStyleBackColor = true;
+            payEvent.Click += payEvent_Click;
             // 
             // Eventos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 242, 242);
+            BackColor = Color.FromArgb(255, 229, 217);
             ClientSize = new Size(700, 500);
-            Controls.Add(gbEventDetails);
-            Controls.Add(gbClienteInfo);
-            Controls.Add(label10);
-            Controls.Add(btnRegisterReservation);
+            Controls.Add(tableLayoutPanel1);
+            Font = new Font("Courier New", 13F, FontStyle.Bold);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "Eventos";
             Text = "Eventos";
-            gbClienteInfo.ResumeLayout(false);
-            gbClienteInfo.PerformLayout();
-            gbEventDetails.ResumeLayout(false);
-            gbEventDetails.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvRolesEmpleados).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private Button btnRegisterReservation;
+        private TableLayoutPanel tableLayoutPanel1;
+        private DataGridView dgvRolesEmpleados;
         private Label label10;
-        private Label label11;
-        private TextBox txtClientEmail;
-        private Label label12;
-        private TextBox txtClientNumber;
-        private Label label13;
-        private TextBox txtClientLastName;
-        private Label label14;
-        private TextBox txtClientName;
-        private GroupBox gbClienteInfo;
-        private TextBox txtEventAddress;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox txtNumberAttenddes;
-        private Label label4;
-        private DateTimePicker dtpDate;
-        private Label label7;
-        private DateTimePicker dtpStartTime;
-        private Label label6;
-        private DateTimePicker dtpEndTime;
-        private Label label8;
-        private ComboBox cmbPackage;
-        private Label label9;
-        private TextBox txtAdditionalDetails;
-        private ComboBox cmbEventLoaction;
-        private ComboBox cmbServices;
-        private Label label5;
-        private Label label15;
-        private TextBox textBox1;
-        private GroupBox gbEventDetails;
-        private Label label16;
+        private TableLayoutPanel tableLayoutPanel2;
+        private FontAwesome.Sharp.IconButton registerEvent;
+        private FontAwesome.Sharp.IconButton editEvent;
+        private FontAwesome.Sharp.IconButton payEvent;
     }
 }

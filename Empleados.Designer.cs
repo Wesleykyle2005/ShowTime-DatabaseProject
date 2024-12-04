@@ -41,26 +41,24 @@
             label1 = new Label();
             TxtEmployeeName = new TextBox();
             btnUpdateEmployee = new Button();
-            btnDeleteEmployee = new Button();
             txtPassword = new TextBox();
             txtUser = new TextBox();
             label7 = new Label();
             label6 = new Label();
-            btnFiltlerEmployee = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            dgvEmployees = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new Panel();
+            tableLayoutPanel4 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
-            tableLayoutPanel4 = new TableLayoutPanel();
+            dgvEmployees = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvEmployees).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEmployees).BeginInit();
             SuspendLayout();
             // 
             // btnRegisterEmployee
@@ -170,19 +168,6 @@
             btnUpdateEmployee.UseVisualStyleBackColor = true;
             btnUpdateEmployee.Click += btnUpdateEmployee_Click;
             // 
-            // btnDeleteEmployee
-            // 
-            btnDeleteEmployee.Dock = DockStyle.Fill;
-            btnDeleteEmployee.FlatAppearance.BorderSize = 0;
-            btnDeleteEmployee.FlatStyle = FlatStyle.Flat;
-            btnDeleteEmployee.Font = new Font("Microsoft Sans Serif", 11.25F);
-            btnDeleteEmployee.Location = new Point(38, 58);
-            btnDeleteEmployee.Name = "btnDeleteEmployee";
-            btnDeleteEmployee.Size = new Size(239, 29);
-            btnDeleteEmployee.TabIndex = 33;
-            btnDeleteEmployee.Text = "Eliminar Empelado";
-            btnDeleteEmployee.UseVisualStyleBackColor = true;
-            // 
             // txtPassword
             // 
             txtPassword.BorderStyle = BorderStyle.None;
@@ -223,19 +208,6 @@
             label6.TabIndex = 28;
             label6.Text = "Usuario";
             // 
-            // btnFiltlerEmployee
-            // 
-            btnFiltlerEmployee.Dock = DockStyle.Fill;
-            btnFiltlerEmployee.FlatAppearance.BorderSize = 0;
-            btnFiltlerEmployee.FlatStyle = FlatStyle.Flat;
-            btnFiltlerEmployee.Font = new Font("Microsoft Sans Serif", 11.25F);
-            btnFiltlerEmployee.Location = new Point(38, 168);
-            btnFiltlerEmployee.Name = "btnFiltlerEmployee";
-            btnFiltlerEmployee.Size = new Size(239, 29);
-            btnFiltlerEmployee.TabIndex = 36;
-            btnFiltlerEmployee.Text = "Filtrar Empelado";
-            btnFiltlerEmployee.UseVisualStyleBackColor = true;
-            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
@@ -251,6 +223,97 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(700, 500);
             tableLayoutPanel1.TabIndex = 37;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(panel2, 1, 0);
+            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel2.Location = new Point(0, 50);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(700, 200);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(tableLayoutPanel4);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(350, 0);
+            panel2.Margin = new Padding(0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(350, 200);
+            panel2.TabIndex = 35;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 3;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.Controls.Add(btnRegisterEmployee, 1, 0);
+            tableLayoutPanel4.Controls.Add(btnUpdateEmployee, 1, 4);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(0, 0);
+            tableLayoutPanel4.Margin = new Padding(0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 7;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.Size = new Size(350, 200);
+            tableLayoutPanel4.TabIndex = 37;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(tableLayoutPanel3);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(350, 200);
+            panel1.TabIndex = 36;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(txtPassword, 1, 5);
+            tableLayoutPanel3.Controls.Add(label1, 0, 0);
+            tableLayoutPanel3.Controls.Add(txtUser, 1, 4);
+            tableLayoutPanel3.Controls.Add(label2, 0, 1);
+            tableLayoutPanel3.Controls.Add(txtEmployeeEmail, 1, 3);
+            tableLayoutPanel3.Controls.Add(label7, 0, 5);
+            tableLayoutPanel3.Controls.Add(txtEmployeeNumber, 1, 2);
+            tableLayoutPanel3.Controls.Add(label3, 0, 2);
+            tableLayoutPanel3.Controls.Add(txtEmployeeLastName, 1, 1);
+            tableLayoutPanel3.Controls.Add(label6, 0, 4);
+            tableLayoutPanel3.Controls.Add(label4, 0, 3);
+            tableLayoutPanel3.Controls.Add(TxtEmployeeName, 1, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 0);
+            tableLayoutPanel3.Margin = new Padding(0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 6;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel3.Size = new Size(350, 200);
+            tableLayoutPanel3.TabIndex = 35;
             // 
             // dgvEmployees
             // 
@@ -303,99 +366,6 @@
             dgvEmployees.Size = new Size(700, 250);
             dgvEmployees.TabIndex = 73;
             // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(panel2, 1, 0);
-            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel2.Location = new Point(0, 50);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(700, 200);
-            tableLayoutPanel2.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(tableLayoutPanel4);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(350, 0);
-            panel2.Margin = new Padding(0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(350, 200);
-            panel2.TabIndex = 35;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(tableLayoutPanel3);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(350, 200);
-            panel1.TabIndex = 36;
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(txtPassword, 1, 5);
-            tableLayoutPanel3.Controls.Add(label1, 0, 0);
-            tableLayoutPanel3.Controls.Add(txtUser, 1, 4);
-            tableLayoutPanel3.Controls.Add(label2, 0, 1);
-            tableLayoutPanel3.Controls.Add(txtEmployeeEmail, 1, 3);
-            tableLayoutPanel3.Controls.Add(label7, 0, 5);
-            tableLayoutPanel3.Controls.Add(txtEmployeeNumber, 1, 2);
-            tableLayoutPanel3.Controls.Add(label3, 0, 2);
-            tableLayoutPanel3.Controls.Add(txtEmployeeLastName, 1, 1);
-            tableLayoutPanel3.Controls.Add(label6, 0, 4);
-            tableLayoutPanel3.Controls.Add(label4, 0, 3);
-            tableLayoutPanel3.Controls.Add(TxtEmployeeName, 1, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 0);
-            tableLayoutPanel3.Margin = new Padding(0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 6;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel3.Size = new Size(350, 200);
-            tableLayoutPanel3.TabIndex = 35;
-            // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.ColumnCount = 3;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel4.Controls.Add(btnRegisterEmployee, 1, 0);
-            tableLayoutPanel4.Controls.Add(btnDeleteEmployee, 1, 2);
-            tableLayoutPanel4.Controls.Add(btnUpdateEmployee, 1, 4);
-            tableLayoutPanel4.Controls.Add(btnFiltlerEmployee, 1, 6);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(0, 0);
-            tableLayoutPanel4.Margin = new Padding(0);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 7;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
-            tableLayoutPanel4.Size = new Size(350, 200);
-            tableLayoutPanel4.TabIndex = 37;
-            // 
             // Empleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -406,13 +376,13 @@
             Name = "Empleados";
             Text = "Empleados";
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvEmployees).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
             panel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvEmployees).EndInit();
             ResumeLayout(false);
         }
 
@@ -428,8 +398,6 @@
         private Label label1;
         private TextBox TxtEmployeeName;
         private Button btnUpdateEmployee;
-        private Button btnDeleteEmployee;
-        private Button btnFiltlerEmployee;
         private TextBox txtUser;
         private Label label6;
         private TextBox txtPassword;

@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
-    public partial class Servicios : Form
+    public partial class InformacionCliente : Form
     {
-        public Servicios()
+        public InformacionCliente()
         {
             InitializeComponent();
         }
 
-        
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

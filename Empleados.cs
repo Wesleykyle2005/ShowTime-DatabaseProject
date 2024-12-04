@@ -23,10 +23,8 @@ namespace ShowTime_DatabseProject
             //CargarEmpleados();
             LoadDataToDataGridView();
             Utils.AgregarBordeInferiorConHover(btnRegisterEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-            Utils.AgregarBordeInferiorConHover(btnDeleteEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(btnUpdateEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-            Utils.AgregarBordeInferiorConHover(btnFiltlerEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-
+            
         }
 
         /*public void CargarEmpleados()
@@ -99,15 +97,7 @@ namespace ShowTime_DatabseProject
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRegisterEmployee_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnRegisterEmployee_Click_1(object sender, EventArgs e)
         {

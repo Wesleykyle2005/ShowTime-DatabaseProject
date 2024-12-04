@@ -17,27 +17,18 @@ namespace ShowTime_DatabseProject
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void registerEvent_Click(object sender, EventArgs e)
+        {
+            InformacionCliente informacionCliente = new InformacionCliente();
+            informacionCliente.ShowDialog(this);
+        }
+
+        private void editEvent_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gbEventDetails_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gbClienteInfo_Enter(object sender, EventArgs e)
+        private void payEvent_Click(object sender, EventArgs e)
         {
 
         }

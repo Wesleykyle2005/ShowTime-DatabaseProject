@@ -162,6 +162,7 @@
             paqueteButton.Text = "  Paquetes";
             paqueteButton.TextAlign = ContentAlignment.MiddleLeft;
             paqueteButton.UseVisualStyleBackColor = true;
+            paqueteButton.Click += paqueteButton_Click;
             // 
             // serviceButton
             // 
@@ -182,6 +183,7 @@
             serviceButton.Text = "  Servicio";
             serviceButton.TextAlign = ContentAlignment.MiddleLeft;
             serviceButton.UseVisualStyleBackColor = true;
+            serviceButton.Click += serviceButton_Click;
             // 
             // utileriaButton
             // 
@@ -224,6 +226,7 @@
             eventButton.Text = "  Eventos";
             eventButton.TextAlign = ContentAlignment.MiddleLeft;
             eventButton.UseVisualStyleBackColor = true;
+            eventButton.Click += eventButton_Click;
             // 
             // principalPanel
             // 

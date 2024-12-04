@@ -32,8 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dgvUtileria = new DataGridView();
-            btnFiltlerUtileria = new Button();
-            btnDeleteUtileria = new Button();
             btnUpdateUtileria = new Button();
             btnRegisterProp = new Button();
             label2 = new Label();
@@ -112,38 +110,12 @@
             dgvUtileria.TabIndex = 72;
             dgvUtileria.CellClick += dgvUtileria_CellClick;
             // 
-            // btnFiltlerUtileria
-            // 
-            btnFiltlerUtileria.FlatAppearance.BorderSize = 0;
-            btnFiltlerUtileria.FlatStyle = FlatStyle.Flat;
-            btnFiltlerUtileria.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnFiltlerUtileria.Location = new Point(251, 65);
-            btnFiltlerUtileria.Margin = new Padding(4);
-            btnFiltlerUtileria.Name = "btnFiltlerUtileria";
-            btnFiltlerUtileria.Size = new Size(149, 31);
-            btnFiltlerUtileria.TabIndex = 71;
-            btnFiltlerUtileria.Text = "Filtrar Utileria";
-            btnFiltlerUtileria.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteUtileria
-            // 
-            btnDeleteUtileria.FlatAppearance.BorderSize = 0;
-            btnDeleteUtileria.FlatStyle = FlatStyle.Flat;
-            btnDeleteUtileria.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnDeleteUtileria.Location = new Point(49, 65);
-            btnDeleteUtileria.Margin = new Padding(4);
-            btnDeleteUtileria.Name = "btnDeleteUtileria";
-            btnDeleteUtileria.Size = new Size(149, 31);
-            btnDeleteUtileria.TabIndex = 70;
-            btnDeleteUtileria.Text = "Eliminar Utileria";
-            btnDeleteUtileria.UseVisualStyleBackColor = true;
-            // 
             // btnUpdateUtileria
             // 
             btnUpdateUtileria.FlatAppearance.BorderSize = 0;
             btnUpdateUtileria.FlatStyle = FlatStyle.Flat;
             btnUpdateUtileria.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnUpdateUtileria.Location = new Point(251, 15);
+            btnUpdateUtileria.Location = new Point(251, 65);
             btnUpdateUtileria.Margin = new Padding(4);
             btnUpdateUtileria.Name = "btnUpdateUtileria";
             btnUpdateUtileria.Size = new Size(149, 31);
@@ -157,7 +129,7 @@
             btnRegisterProp.FlatAppearance.BorderSize = 0;
             btnRegisterProp.FlatStyle = FlatStyle.Flat;
             btnRegisterProp.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnRegisterProp.Location = new Point(49, 15);
+            btnRegisterProp.Location = new Point(49, 65);
             btnRegisterProp.Margin = new Padding(4);
             btnRegisterProp.Name = "btnRegisterProp";
             btnRegisterProp.Size = new Size(149, 31);
@@ -285,10 +257,8 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.Controls.Add(btnRegisterProp, 1, 1);
-            tableLayoutPanel4.Controls.Add(btnFiltlerUtileria, 3, 3);
-            tableLayoutPanel4.Controls.Add(btnUpdateUtileria, 3, 1);
-            tableLayoutPanel4.Controls.Add(btnDeleteUtileria, 1, 3);
+            tableLayoutPanel4.Controls.Add(btnRegisterProp, 1, 3);
+            tableLayoutPanel4.Controls.Add(btnUpdateUtileria, 3, 3);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 112);
             tableLayoutPanel4.Margin = new Padding(0);
@@ -368,8 +338,6 @@
         #endregion
 
         private DataGridView dgvUtileria;
-        private Button btnFiltlerUtileria;
-        private Button btnDeleteUtileria;
         private Button btnUpdateUtileria;
         private Button btnRegisterProp;
         private Label label2;

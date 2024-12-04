@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
-    public partial class Servicios : Form
+    public partial class InformacionPaquetesServicios : Form
     {
-        public Servicios()
+        public InformacionPaquetesServicios()
         {
             InitializeComponent();
         }
-
-        
     }
 }
