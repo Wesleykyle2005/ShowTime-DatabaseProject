@@ -15,13 +15,18 @@ namespace ShowTime_DatabseProject
     public partial class Empleados : Form
     {
 
-        private string connectionString = "Server=SILVIA\\SQLEXPRESS; Database=DB_TeamSmile_ShowInfantil; Integrated Security=True; TrustServerCertificate=True";
+        private string connectionString = "Server=.; Database=DB_TeamSmile_ShowInfantil; Integrated Security=True; TrustServerCertificate=True";
 
         public Empleados()
         {
             InitializeComponent();
             //CargarEmpleados();
             LoadDataToDataGridView();
+            Utils.AgregarBordeInferiorConHover(btnRegisterEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnDeleteEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnUpdateEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnFiltlerEmployee, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+
         }
 
         /*public void CargarEmpleados()

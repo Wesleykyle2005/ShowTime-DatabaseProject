@@ -20,7 +20,7 @@ namespace ShowTime_DatabseProject
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             Utils.AgregarBordeInferiorConHover(dashboardButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-            Utils.AgregarBordeInferiorConHover(eventButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10,   180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(eventButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(utileriaButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(serviceButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(paqueteButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
@@ -75,6 +75,14 @@ namespace ShowTime_DatabseProject
             CargarFormularioEnCelda(new Inicio(), PanelForm, 0, 1);
         }
 
+        private void utileriaButton_Click(object sender, EventArgs e)
+        {
+            CargarFormularioEnCelda(new Utileria(), PanelForm, 0, 1);
+        }
 
+        private void empleadoButton_Click(object sender, EventArgs e)
+        {
+            CargarFormularioEnCelda(new Empleados(), PanelForm, 0, 1);
+        }
     }
 }

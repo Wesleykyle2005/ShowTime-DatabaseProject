@@ -75,7 +75,6 @@ C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTi
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Paquetes.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Properties.Resources.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Servicios.resources
-C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Utileria_Form.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.csproj.GenerateResource.cache
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.AssemblyInfoInputs.cache
@@ -371,3 +370,4 @@ C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTi
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Inicio.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\bin\Debug\net8.0-windows\Krypton.Toolkit.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Utileria.resources

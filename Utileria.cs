@@ -14,24 +14,28 @@ using ShowTime_DatabseProject.Models;
 
 namespace ShowTime_DatabseProject
 {
-    public partial class Utileria_Form : Form
+    public partial class Utileria : Form
     {
         string sqlServerConnectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
 
-        private string connectionString = "Server=SILVIA\\SQLEXPRESS; Database=DB_TeamSmile_ShowInfantil; Integrated Security=True; TrustServerCertificate=True";
-
-        public Utileria_Form()
+        
+        public Utileria()
         {
             InitializeComponent();
             LoadDataToDataGridView();
+            Utils.AgregarBordeInferiorConHover(btnRegisterProp, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnUpdateUtileria, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnDeleteUtileria, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnFiltlerUtileria, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+
         }
 
-        public IEnumerable<Utileria> GetAll()
+        public IEnumerable<Models.Utileria> GetAll()
         {
-            List<Utileria> utilerias = new List<Utileria>();
+            List<Models.Utileria> utilerias = new List<Models.Utileria>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand("SELECT * FROM Utileria", connection);
@@ -39,7 +43,7 @@ namespace ShowTime_DatabseProject
                     {
                         while (reader.Read())
                         {
-                            Utileria utileria = new Utileria
+                            Models.Utileria utileria = new Models.Utileria
                             {
                                 IdUtileria = Convert.ToInt32(reader["Id_utileria"]),
                                 Nombre = reader["Nombre"].ToString(),
@@ -83,7 +87,7 @@ namespace ShowTime_DatabseProject
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(sqlServerConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand(queryInsert, conn);
                     cmd.Parameters.AddWithValue("@Nombre", propName);
@@ -125,7 +129,7 @@ namespace ShowTime_DatabseProject
                          SET Nombre = @Nombre, Cantidad = @Cantidad
                          WHERE Id_utileria = @Id";
 
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    using (SqlConnection conn = new SqlConnection(sqlServerConnectionString))
                     {
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@Id", id);

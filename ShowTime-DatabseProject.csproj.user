@@ -22,7 +22,7 @@
     <Compile Update="Servicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Utileria_Form.cs">
+    <Compile Update="Utileria.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

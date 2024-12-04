@@ -114,10 +114,10 @@
             // 
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(23, 2);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(20, 0);
+            pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(174, 96);
+            pictureBox1.Size = new Size(180, 100);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -141,6 +141,7 @@
             empleadoButton.Text = "  Empleados";
             empleadoButton.TextAlign = ContentAlignment.MiddleLeft;
             empleadoButton.UseVisualStyleBackColor = true;
+            empleadoButton.Click += empleadoButton_Click;
             // 
             // paqueteButton
             // 
@@ -201,6 +202,7 @@
             utileriaButton.Text = "  Utileria";
             utileriaButton.TextAlign = ContentAlignment.MiddleLeft;
             utileriaButton.UseVisualStyleBackColor = true;
+            utileriaButton.Click += utileriaButton_Click;
             // 
             // eventButton
             // 
