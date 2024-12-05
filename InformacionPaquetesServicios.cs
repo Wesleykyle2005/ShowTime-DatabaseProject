@@ -12,9 +12,11 @@ namespace ShowTime_DatabseProject
 {
     public partial class InformacionPaquetesServicios : Form
     {
-        public InformacionPaquetesServicios()
+        public InformacionPaquetesServicios(EventoTemporal evento)
         {
             InitializeComponent();
         }
+
+        
     }
 }

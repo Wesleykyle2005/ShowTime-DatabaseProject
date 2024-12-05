@@ -364,6 +364,7 @@
             CierreSesion.Size = new Size(48, 60);
             CierreSesion.TabIndex = 0;
             CierreSesion.UseVisualStyleBackColor = true;
+            CierreSesion.Click += CierreSesion_Click;
             // 
             // Dashboard
             // 

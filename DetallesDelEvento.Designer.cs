@@ -33,20 +33,20 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            nameTextbox = new TextBox();
-            secondNameTextbox = new TextBox();
+            txtUbicacion = new TextBox();
+            txtDireccion = new TextBox();
             label7 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtDetalles = new TextBox();
+            txtCantidadAsistentes = new TextBox();
             label6 = new Label();
-            numberTextBox = new TextBox();
             label5 = new Label();
-            EmailTextBox = new TextBox();
             label8 = new Label();
-            textBox3 = new TextBox();
+            dtpFechaReserva = new DateTimePicker();
+            txtHoraInicio = new DateTimePicker();
+            txtHoraFin = new DateTimePicker();
             tableLayoutPanel3 = new TableLayoutPanel();
             CloseButton = new Button();
-            button1 = new Button();
+            continueButton = new Button();
             label1 = new Label();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -85,17 +85,17 @@
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 1, 2);
-            tableLayoutPanel1.Controls.Add(nameTextbox, 3, 0);
-            tableLayoutPanel1.Controls.Add(secondNameTextbox, 3, 1);
+            tableLayoutPanel1.Controls.Add(txtUbicacion, 3, 0);
+            tableLayoutPanel1.Controls.Add(txtDireccion, 3, 1);
             tableLayoutPanel1.Controls.Add(label7, 1, 6);
-            tableLayoutPanel1.Controls.Add(textBox2, 3, 6);
-            tableLayoutPanel1.Controls.Add(textBox1, 3, 5);
+            tableLayoutPanel1.Controls.Add(txtDetalles, 3, 6);
+            tableLayoutPanel1.Controls.Add(txtCantidadAsistentes, 3, 5);
             tableLayoutPanel1.Controls.Add(label6, 1, 5);
-            tableLayoutPanel1.Controls.Add(numberTextBox, 3, 2);
             tableLayoutPanel1.Controls.Add(label5, 1, 3);
-            tableLayoutPanel1.Controls.Add(EmailTextBox, 3, 3);
             tableLayoutPanel1.Controls.Add(label8, 1, 4);
-            tableLayoutPanel1.Controls.Add(textBox3, 3, 4);
+            tableLayoutPanel1.Controls.Add(dtpFechaReserva, 3, 2);
+            tableLayoutPanel1.Controls.Add(txtHoraInicio, 3, 3);
+            tableLayoutPanel1.Controls.Add(txtHoraFin, 3, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 55);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -137,25 +137,31 @@
             label4.Location = new Point(44, 64);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(120, 32);
+            label4.Size = new Size(65, 21);
             label4.TabIndex = 5;
-            label4.Text = "Fecha del evento";
+            label4.Text = "Fecha";
             // 
-            // nameTextbox
+            // txtUbicacion
             // 
-            nameTextbox.Location = new Point(224, 4);
-            nameTextbox.Margin = new Padding(4, 4, 4, 4);
-            nameTextbox.Name = "nameTextbox";
-            nameTextbox.Size = new Size(132, 27);
-            nameTextbox.TabIndex = 7;
+            txtUbicacion.BorderStyle = BorderStyle.None;
+            txtUbicacion.Dock = DockStyle.Fill;
+            txtUbicacion.Location = new Point(224, 4);
+            txtUbicacion.Margin = new Padding(4);
+            txtUbicacion.Multiline = true;
+            txtUbicacion.Name = "txtUbicacion";
+            txtUbicacion.Size = new Size(132, 24);
+            txtUbicacion.TabIndex = 7;
             // 
-            // secondNameTextbox
+            // txtDireccion
             // 
-            secondNameTextbox.Location = new Point(224, 36);
-            secondNameTextbox.Margin = new Padding(4, 4, 4, 4);
-            secondNameTextbox.Name = "secondNameTextbox";
-            secondNameTextbox.Size = new Size(132, 27);
-            secondNameTextbox.TabIndex = 8;
+            txtDireccion.BorderStyle = BorderStyle.None;
+            txtDireccion.Dock = DockStyle.Fill;
+            txtDireccion.Location = new Point(224, 36);
+            txtDireccion.Margin = new Padding(4);
+            txtDireccion.Multiline = true;
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(132, 24);
+            txtDireccion.TabIndex = 8;
             // 
             // label7
             // 
@@ -167,21 +173,27 @@
             label7.TabIndex = 13;
             label7.Text = "Detalles Adicionales";
             // 
-            // textBox2
+            // txtDetalles
             // 
-            textBox2.Location = new Point(224, 196);
-            textBox2.Margin = new Padding(4, 4, 4, 4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(132, 27);
-            textBox2.TabIndex = 14;
+            txtDetalles.BorderStyle = BorderStyle.None;
+            txtDetalles.Dock = DockStyle.Fill;
+            txtDetalles.Location = new Point(224, 196);
+            txtDetalles.Margin = new Padding(4);
+            txtDetalles.Multiline = true;
+            txtDetalles.Name = "txtDetalles";
+            txtDetalles.Size = new Size(132, 20);
+            txtDetalles.TabIndex = 14;
             // 
-            // textBox1
+            // txtCantidadAsistentes
             // 
-            textBox1.Location = new Point(224, 164);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(132, 27);
-            textBox1.TabIndex = 12;
+            txtCantidadAsistentes.BorderStyle = BorderStyle.None;
+            txtCantidadAsistentes.Dock = DockStyle.Fill;
+            txtCantidadAsistentes.Location = new Point(224, 164);
+            txtCantidadAsistentes.Margin = new Padding(4);
+            txtCantidadAsistentes.Multiline = true;
+            txtCantidadAsistentes.Name = "txtCantidadAsistentes";
+            txtCantidadAsistentes.Size = new Size(132, 24);
+            txtCantidadAsistentes.TabIndex = 12;
             // 
             // label6
             // 
@@ -193,14 +205,6 @@
             label6.TabIndex = 11;
             label6.Text = "Asistentes";
             // 
-            // numberTextBox
-            // 
-            numberTextBox.Location = new Point(224, 68);
-            numberTextBox.Margin = new Padding(4, 4, 4, 4);
-            numberTextBox.Name = "numberTextBox";
-            numberTextBox.Size = new Size(132, 27);
-            numberTextBox.TabIndex = 9;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -210,14 +214,6 @@
             label5.Size = new Size(131, 21);
             label5.TabIndex = 6;
             label5.Text = "Hora inicio";
-            // 
-            // EmailTextBox
-            // 
-            EmailTextBox.Location = new Point(224, 100);
-            EmailTextBox.Margin = new Padding(4, 4, 4, 4);
-            EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(132, 27);
-            EmailTextBox.TabIndex = 10;
             // 
             // label8
             // 
@@ -229,13 +225,29 @@
             label8.TabIndex = 15;
             label8.Text = "Hora final";
             // 
-            // textBox3
+            // dtpFechaReserva
             // 
-            textBox3.Location = new Point(224, 132);
-            textBox3.Margin = new Padding(4, 4, 4, 4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(132, 27);
-            textBox3.TabIndex = 16;
+            dtpFechaReserva.Format = DateTimePickerFormat.Short;
+            dtpFechaReserva.Location = new Point(223, 67);
+            dtpFechaReserva.Name = "dtpFechaReserva";
+            dtpFechaReserva.Size = new Size(134, 27);
+            dtpFechaReserva.TabIndex = 17;
+            // 
+            // txtHoraInicio
+            // 
+            txtHoraInicio.Format = DateTimePickerFormat.Time;
+            txtHoraInicio.Location = new Point(223, 99);
+            txtHoraInicio.Name = "txtHoraInicio";
+            txtHoraInicio.Size = new Size(134, 27);
+            txtHoraInicio.TabIndex = 18;
+            // 
+            // txtHoraFin
+            // 
+            txtHoraFin.Format = DateTimePickerFormat.Time;
+            txtHoraFin.Location = new Point(223, 131);
+            txtHoraFin.Name = "txtHoraFin";
+            txtHoraFin.Size = new Size(134, 27);
+            txtHoraFin.TabIndex = 19;
             // 
             // tableLayoutPanel3
             // 
@@ -246,7 +258,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel3.Controls.Add(CloseButton, 1, 1);
-            tableLayoutPanel3.Controls.Add(button1, 3, 1);
+            tableLayoutPanel3.Controls.Add(continueButton, 3, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 302);
             tableLayoutPanel3.Margin = new Padding(0);
@@ -260,23 +272,30 @@
             // 
             // CloseButton
             // 
+            CloseButton.Dock = DockStyle.Fill;
+            CloseButton.FlatAppearance.BorderSize = 0;
+            CloseButton.FlatStyle = FlatStyle.Flat;
             CloseButton.Location = new Point(44, 61);
-            CloseButton.Margin = new Padding(4, 4, 4, 4);
+            CloseButton.Margin = new Padding(4);
             CloseButton.Name = "CloseButton";
-            CloseButton.Size = new Size(107, 31);
+            CloseButton.Size = new Size(132, 49);
             CloseButton.TabIndex = 0;
             CloseButton.Text = "Salir";
             CloseButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // continueButton
             // 
-            button1.Location = new Point(224, 61);
-            button1.Margin = new Padding(4, 4, 4, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(107, 31);
-            button1.TabIndex = 1;
-            button1.Text = "Continuar";
-            button1.UseVisualStyleBackColor = true;
+            continueButton.Dock = DockStyle.Fill;
+            continueButton.FlatAppearance.BorderSize = 0;
+            continueButton.FlatStyle = FlatStyle.Flat;
+            continueButton.Location = new Point(224, 61);
+            continueButton.Margin = new Padding(4);
+            continueButton.Name = "continueButton";
+            continueButton.Size = new Size(132, 49);
+            continueButton.TabIndex = 1;
+            continueButton.Text = "Continuar";
+            continueButton.UseVisualStyleBackColor = true;
+            continueButton.Click += continueButton_Click;
             // 
             // label1
             // 
@@ -297,7 +316,7 @@
             Controls.Add(tableLayoutPanel2);
             Font = new Font("Courier New", 13F, FontStyle.Bold);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "DetallesDelEvento";
             Text = "DetallesDelEvento";
             tableLayoutPanel2.ResumeLayout(false);
@@ -315,19 +334,21 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox nameTextbox;
-        private TextBox secondNameTextbox;
-        private TextBox numberTextBox;
+        private TextBox txtUbicacion;
+        private TextBox txtDireccion;
         private TextBox EmailTextBox;
         private TableLayoutPanel tableLayoutPanel3;
         private Button CloseButton;
-        private Button button1;
+        private Button continueButton;
         private Label label1;
         private Label label6;
-        private TextBox textBox1;
+        private TextBox txtCantidadAsistentes;
         private Label label7;
-        private TextBox textBox2;
+        private TextBox txtDetalles;
         private Label label8;
         private TextBox textBox3;
+        private DateTimePicker dtpFechaReserva;
+        private DateTimePicker txtHoraInicio;
+        private DateTimePicker txtHoraFin;
     }
 }

@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
-            dgvRolesEmpleados = new DataGridView();
+            dgvEventos = new DataGridView();
             label10 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             registerEvent = new FontAwesome.Sharp.IconButton();
             editEvent = new FontAwesome.Sharp.IconButton();
             payEvent = new FontAwesome.Sharp.IconButton();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvRolesEmpleados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEventos).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel1.Controls.Add(dgvRolesEmpleados, 0, 2);
+            tableLayoutPanel1.Controls.Add(dgvEventos, 0, 2);
             tableLayoutPanel1.Controls.Add(label10, 0, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -62,56 +62,56 @@
             tableLayoutPanel1.Size = new Size(700, 500);
             tableLayoutPanel1.TabIndex = 79;
             // 
-            // dgvRolesEmpleados
+            // dgvEventos
             // 
-            dgvRolesEmpleados.AllowUserToAddRows = false;
-            dgvRolesEmpleados.AllowUserToDeleteRows = false;
-            dgvRolesEmpleados.AllowUserToResizeColumns = false;
-            dgvRolesEmpleados.AllowUserToResizeRows = false;
-            dgvRolesEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvRolesEmpleados.BackgroundColor = Color.FromArgb(255, 202, 212);
-            dgvRolesEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvRolesEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle10.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
-            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgvRolesEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            dgvRolesEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle11.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle11.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgvRolesEmpleados.DefaultCellStyle = dataGridViewCellStyle11;
-            dgvRolesEmpleados.Dock = DockStyle.Fill;
-            dgvRolesEmpleados.EnableHeadersVisualStyles = false;
-            dgvRolesEmpleados.GridColor = Color.Black;
-            dgvRolesEmpleados.Location = new Point(0, 250);
-            dgvRolesEmpleados.Margin = new Padding(0);
-            dgvRolesEmpleados.MultiSelect = false;
-            dgvRolesEmpleados.Name = "dgvRolesEmpleados";
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle12.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
-            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgvRolesEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            dgvRolesEmpleados.RowHeadersVisible = false;
-            dgvRolesEmpleados.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgvRolesEmpleados.ScrollBars = ScrollBars.Vertical;
-            dgvRolesEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRolesEmpleados.ShowCellErrors = false;
-            dgvRolesEmpleados.ShowRowErrors = false;
-            dgvRolesEmpleados.Size = new Size(700, 250);
-            dgvRolesEmpleados.TabIndex = 77;
+            dgvEventos.AllowUserToAddRows = false;
+            dgvEventos.AllowUserToDeleteRows = false;
+            dgvEventos.AllowUserToResizeColumns = false;
+            dgvEventos.AllowUserToResizeRows = false;
+            dgvEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEventos.BackgroundColor = Color.FromArgb(255, 202, 212);
+            dgvEventos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvEventos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle4.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle5.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvEventos.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvEventos.Dock = DockStyle.Fill;
+            dgvEventos.EnableHeadersVisualStyles = false;
+            dgvEventos.GridColor = Color.Black;
+            dgvEventos.Location = new Point(0, 250);
+            dgvEventos.Margin = new Padding(0);
+            dgvEventos.MultiSelect = false;
+            dgvEventos.Name = "dgvEventos";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle6.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvEventos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgvEventos.RowHeadersVisible = false;
+            dgvEventos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgvEventos.ScrollBars = ScrollBars.Vertical;
+            dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEventos.ShowCellErrors = false;
+            dgvEventos.ShowRowErrors = false;
+            dgvEventos.Size = new Size(700, 250);
+            dgvEventos.TabIndex = 77;
             // 
             // label10
             // 
@@ -215,14 +215,14 @@
             Name = "Eventos";
             Text = "Eventos";
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvRolesEmpleados).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEventos).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView dgvRolesEmpleados;
+        private DataGridView dgvEventos;
         private Label label10;
         private TableLayoutPanel tableLayoutPanel2;
         private FontAwesome.Sharp.IconButton registerEvent;

@@ -25,7 +25,7 @@ namespace ShowTime_DatabseProject
             Utils.AgregarBordeInferiorConHover(serviceButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(paqueteButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(empleadoButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-            UserLabel.Text=username;
+            UserLabel.Text = username;
         }
 
         private void CargarFormularioEnCelda(Form nuevoFormulario, TableLayoutPanel tableLayoutPanel, int col, int row)
@@ -99,6 +99,13 @@ namespace ShowTime_DatabseProject
         {
             CargarFormularioEnCelda(new Eventos(), PanelForm, 0, 1);
 
+        }
+
+        private void CierreSesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
     }
 }

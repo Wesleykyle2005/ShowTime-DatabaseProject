@@ -34,14 +34,14 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            nameTextbox = new TextBox();
-            secondNameTextbox = new TextBox();
             numberTextBox = new TextBox();
             EmailTextBox = new TextBox();
+            ServiciosListBox = new ListBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             CloseButton = new Button();
             button1 = new Button();
             label1 = new Label();
+            PaquetesListBox = new ListBox();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -49,6 +49,7 @@
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.BackColor = Color.FromArgb(255, 229, 217);
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
@@ -56,6 +57,7 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 3);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Font = new Font("Courier New", 13F, FontStyle.Bold);
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -80,10 +82,10 @@
             tableLayoutPanel1.Controls.Add(label3, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 1, 2);
             tableLayoutPanel1.Controls.Add(label5, 1, 3);
-            tableLayoutPanel1.Controls.Add(nameTextbox, 3, 0);
-            tableLayoutPanel1.Controls.Add(secondNameTextbox, 3, 1);
             tableLayoutPanel1.Controls.Add(numberTextBox, 3, 2);
             tableLayoutPanel1.Controls.Add(EmailTextBox, 3, 3);
+            tableLayoutPanel1.Controls.Add(ServiciosListBox, 3, 0);
+            tableLayoutPanel1.Controls.Add(PaquetesListBox, 3, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 55);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -99,66 +101,75 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
             label2.Location = new Point(43, 0);
             label2.Name = "label2";
-            label2.Size = new Size(120, 15);
+            label2.Size = new Size(134, 48);
             label2.TabIndex = 3;
-            label2.Text = "Servicio seleccionado";
+            label2.Text = "Servicios";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
             label3.Location = new Point(43, 48);
             label3.Name = "label3";
-            label3.Size = new Size(122, 15);
+            label3.Size = new Size(134, 48);
             label3.TabIndex = 4;
-            label3.Text = "Paquete seleccionado";
+            label3.Text = "Paquetes";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Dock = DockStyle.Fill;
             label4.Location = new Point(43, 96);
             label4.Name = "label4";
-            label4.Size = new Size(65, 15);
+            label4.Size = new Size(134, 48);
             label4.TabIndex = 5;
             label4.Text = "Costo total";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Dock = DockStyle.Fill;
             label5.Location = new Point(43, 144);
             label5.Name = "label5";
-            label5.Size = new Size(68, 15);
+            label5.Size = new Size(134, 48);
             label5.TabIndex = 6;
             label5.Text = "Pago inicial";
             // 
-            // nameTextbox
-            // 
-            nameTextbox.Location = new Point(223, 3);
-            nameTextbox.Name = "nameTextbox";
-            nameTextbox.Size = new Size(100, 23);
-            nameTextbox.TabIndex = 7;
-            // 
-            // secondNameTextbox
-            // 
-            secondNameTextbox.Location = new Point(223, 51);
-            secondNameTextbox.Name = "secondNameTextbox";
-            secondNameTextbox.Size = new Size(100, 23);
-            secondNameTextbox.TabIndex = 8;
-            // 
             // numberTextBox
             // 
+            numberTextBox.BorderStyle = BorderStyle.None;
+            numberTextBox.Dock = DockStyle.Fill;
             numberTextBox.Location = new Point(223, 99);
+            numberTextBox.Multiline = true;
             numberTextBox.Name = "numberTextBox";
-            numberTextBox.Size = new Size(100, 23);
+            numberTextBox.Size = new Size(134, 42);
             numberTextBox.TabIndex = 9;
             // 
             // EmailTextBox
             // 
+            EmailTextBox.BorderStyle = BorderStyle.None;
+            EmailTextBox.Dock = DockStyle.Fill;
             EmailTextBox.Location = new Point(223, 147);
+            EmailTextBox.Multiline = true;
             EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(100, 23);
+            EmailTextBox.Size = new Size(134, 42);
             EmailTextBox.TabIndex = 10;
+            // 
+            // ServiciosListBox
+            // 
+            ServiciosListBox.BorderStyle = BorderStyle.None;
+            ServiciosListBox.Dock = DockStyle.Fill;
+            ServiciosListBox.FormattingEnabled = true;
+            ServiciosListBox.ItemHeight = 20;
+            ServiciosListBox.Location = new Point(223, 3);
+            ServiciosListBox.MultiColumn = true;
+            ServiciosListBox.Name = "ServiciosListBox";
+            ServiciosListBox.SelectionMode = SelectionMode.MultiSimple;
+            ServiciosListBox.Size = new Size(134, 42);
+            ServiciosListBox.TabIndex = 11;
             // 
             // tableLayoutPanel3
             // 
@@ -183,18 +194,24 @@
             // 
             // CloseButton
             // 
+            CloseButton.Dock = DockStyle.Fill;
+            CloseButton.FlatAppearance.BorderSize = 0;
+            CloseButton.FlatStyle = FlatStyle.Flat;
             CloseButton.Location = new Point(43, 60);
             CloseButton.Name = "CloseButton";
-            CloseButton.Size = new Size(75, 23);
+            CloseButton.Size = new Size(134, 51);
             CloseButton.TabIndex = 0;
             CloseButton.Text = "Salir";
             CloseButton.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            button1.Dock = DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Location = new Point(223, 60);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(134, 51);
             button1.TabIndex = 1;
             button1.Text = "Registrar evento";
             button1.UseVisualStyleBackColor = true;
@@ -204,9 +221,22 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(129, 15);
+            label1.Size = new Size(263, 21);
             label1.TabIndex = 2;
             label1.Text = "Informacion del cliente";
+            // 
+            // PaquetesListBox
+            // 
+            PaquetesListBox.BorderStyle = BorderStyle.None;
+            PaquetesListBox.Dock = DockStyle.Fill;
+            PaquetesListBox.FormattingEnabled = true;
+            PaquetesListBox.ItemHeight = 20;
+            PaquetesListBox.Location = new Point(223, 51);
+            PaquetesListBox.MultiColumn = true;
+            PaquetesListBox.Name = "PaquetesListBox";
+            PaquetesListBox.SelectionMode = SelectionMode.MultiSimple;
+            PaquetesListBox.Size = new Size(134, 42);
+            PaquetesListBox.TabIndex = 12;
             // 
             // InformacionPaquetesServicios
             // 
@@ -233,13 +263,13 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox nameTextbox;
-        private TextBox secondNameTextbox;
         private TextBox numberTextBox;
         private TextBox EmailTextBox;
         private TableLayoutPanel tableLayoutPanel3;
         private Button CloseButton;
         private Button button1;
         private Label label1;
+        private ListBox ServiciosListBox;
+        private ListBox PaquetesListBox;
     }
 }
