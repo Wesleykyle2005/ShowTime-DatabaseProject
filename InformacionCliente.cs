@@ -44,7 +44,7 @@ namespace ShowTime_DatabseProject
 
             // Pasar a la siguiente etapa
             DetallesDelEvento detalles = new DetallesDelEvento(eventoTemporal);
-            detalles.Show();
+            detalles.ShowDialog();
             this.Close();
         }
     }

@@ -22,13 +22,7 @@ namespace ShowTime_DatabseProject
 
         private void continueButton_Click(object sender, EventArgs e)
         {
-            /*if (dtpFechaInicio.Value <= dtpFechaReserva.Value ||
-       TimeSpan.Parse(txtHoraFin.Text) <= TimeSpan.Parse(txtHoraInicio.Text) ||
-       int.Parse(txtCantidadAsistentes.Text) <= 0)
-            {
-                MessageBox.Show("Verifica las fechas, horarios y la cantidad de asistentes.", "Validación");
-                return;
-            }*/
+
 
             eventoTemp.FechaReserva = DateTime.Now;
             eventoTemp.FechaInicio = txtHoraInicio.Value;
@@ -41,7 +35,12 @@ namespace ShowTime_DatabseProject
 
 
             var formPaquetes = new InformacionPaquetesServicios(eventoTemp);
-            formPaquetes.Show();
+            formPaquetes.ShowDialog();
+            this.Close();
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

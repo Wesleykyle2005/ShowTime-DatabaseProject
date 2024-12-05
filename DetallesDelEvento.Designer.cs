@@ -282,6 +282,7 @@
             CloseButton.TabIndex = 0;
             CloseButton.Text = "Salir";
             CloseButton.UseVisualStyleBackColor = true;
+            CloseButton.Click += CloseButton_Click;
             // 
             // continueButton
             // 
