@@ -13,7 +13,7 @@ public partial class Pago
 
     public DateOnly FechaPago { get; set; }
 
-    public string? MetodoPago { get; set; }
+    public string MetodoPago { get; set; } = null!;
 
     public virtual Evento IdEventoNavigation { get; set; } = null!;
 }

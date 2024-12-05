@@ -7,6 +7,12 @@ public partial class Evento
 {
     public int IdEvento { get; set; }
 
+    public int? IdPaquete { get; set; }
+
+    public int IdCliente { get; set; }
+
+    public DateOnly FechaReserva { get; set; }
+
     public DateOnly FechaInicio { get; set; }
 
     public TimeOnly HoraInicio { get; set; }
@@ -21,15 +27,9 @@ public partial class Evento
 
     public string? DetallesAdicionales { get; set; }
 
-    public DateOnly FechaReserva { get; set; }
-
-    public decimal PagoInicial { get; set; }
-
     public decimal CostoTotal { get; set; }
 
-    public int? IdPaquete { get; set; }
-
-    public int IdCliente { get; set; }
+    public string Estado { get; set; } = null!;
 
     public virtual ICollection<EventoServicio> EventoServicios { get; set; } = new List<EventoServicio>();
 

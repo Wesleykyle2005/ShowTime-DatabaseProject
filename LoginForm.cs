@@ -12,7 +12,6 @@ namespace ShowTime_DatabseProject
 
         public LoginForm()
         {
-            
             InitializeComponent();
             CenterForm();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -33,28 +32,41 @@ namespace ShowTime_DatabseProject
             }
         }
 
-        // Método para verificar el inicio de sesión
-        private bool VerifyLogin(string username, string password)
+        // Método para verificar el inicio de sesión en la tabla Usuarios
+        private bool VerifyLogin(string username, string password, out int idCargo, out string nombreEmpleado)
         {
-            string query = "SELECT * FROM Empleados WHERE Usuario = @Usuario";
+            idCargo = -1;
+            nombreEmpleado = string.Empty;
+
+            string query = @"
+                SELECT u.Id_Cargo, e.Nombre, u.Contraseña 
+                FROM Usuarios u
+                INNER JOIN Empleados e ON u.Id_empleado = e.Id_empleado
+                WHERE u.Nombre_usuario = @Nombre_usuario AND u.Estado = 1";
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Usuario", username);
+                    cmd.Parameters.AddWithValue("@Nombre_usuario", username);
                     conn.Open();
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        string storedPassword = reader["Contrasena"].ToString();
+                        string storedPassword = reader["Contraseña"].ToString();
                         string encryptedPassword = EncryptPassword(password);
 
-                        // Compara la contraseña cifrada
-                        return storedPassword == encryptedPassword;
+                        // Verifica la contraseña cifrada
+                        if (storedPassword == encryptedPassword)
+                        {
+                            idCargo = Convert.ToInt32(reader["Id_Cargo"]);
+                            nombreEmpleado = reader["Nombre"].ToString();
+                            return true;
+                        }
                     }
-                    return false; // Usuario no encontrado
+                    return false; // Usuario no encontrado o contraseña incorrecta
                 }
             }
             catch (Exception ex)
@@ -77,18 +89,15 @@ namespace ShowTime_DatabseProject
             }
 
             // Verifica el login
-            bool isLoginSuccessful = VerifyLogin(username, password);
+            bool isLoginSuccessful = VerifyLogin(username, password, out int idCargo, out string nombreEmpleado);
 
             if (isLoginSuccessful)
             {
                 // Si el inicio de sesión es exitoso, abre el siguiente formulario
-                MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Inicio de sesión exitoso. Bienvenido, {nombreEmpleado}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Pasa el nombre de usuario al siguiente formulario
-                string userName = username; // Guardar el nombre de usuario
-
-                // Aquí se abre el nuevo formulario y se cierra el formulario actual
-                Dashboard dashboard = new Dashboard(userName); // Asume que el formulario que sigue es MainForm
+                // Pasa el ID del cargo y el nombre del empleado al siguiente formulario
+                Dashboard dashboard = new Dashboard(nombreEmpleado);
                 dashboard.Show();
                 this.Hide(); // Cierra el formulario actual de Login
             }

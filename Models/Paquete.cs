@@ -11,6 +11,8 @@ public partial class Paquete
 
     public string? Descripcion { get; set; }
 
+    public int? Cantidad { get; set; }
+
     public bool Disponibilidad { get; set; }
 
     public decimal Costo { get; set; }

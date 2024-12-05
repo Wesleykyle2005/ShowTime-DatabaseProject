@@ -66,17 +66,18 @@ namespace ShowTime_DatabseProject
                 {
                     connection.Open();
                     string query = @"
-                        SELECT 
-                            P.Id_paquete, 
-                            P.Nombre_paquete, 
-                            P.Descripcion, 
-                            P.Disponibilidad, 
-                            P.Costo, 
-                            STRING_AGG(S.Nombre_servicio, ', ') AS Servicios
-                        FROM Paquetes P
-                        LEFT JOIN Paquete_Servicios PS ON P.Id_paquete = PS.Id_paquete
-                        LEFT JOIN Servicios S ON PS.Id_servicio = S.Id_servicio
-                        GROUP BY P.Id_paquete, P.Nombre_paquete, P.Descripcion, P.Disponibilidad, P.Costo";
+    SELECT 
+        P.Id_paquete, 
+        P.Nombre_paquete, 
+        P.Descripcion, 
+        P.Disponibilidad, 
+        P.Costo, 
+        P.Cantidad, 
+        STRING_AGG(S.Nombre_servicio, ', ') AS Servicios
+    FROM Paquetes P
+    LEFT JOIN Paquete_Servicios PS ON P.Id_paquete = PS.Id_paquete
+    LEFT JOIN Servicios S ON PS.Id_servicio = S.Id_servicio
+    GROUP BY P.Id_paquete, P.Nombre_paquete, P.Descripcion, P.Disponibilidad, P.Costo, P.Cantidad";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
@@ -95,6 +96,7 @@ namespace ShowTime_DatabseProject
             string packageName = txtPackageName.Text.Trim();
             string packageDescription = txtPackageDescription.Text.Trim();
             decimal packageCost;
+            int cantidad= int.Parse(comboboxCantidad.Text.ToString());
             if (!decimal.TryParse(txtPackageCost.Text.Trim(), out packageCost))
             {
                 MessageBox.Show("El costo del paquete debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -122,14 +124,15 @@ namespace ShowTime_DatabseProject
 
                     // Inserta el paquete
                     string insertPackageQuery = @"
-                        INSERT INTO Paquetes (Nombre_paquete, Descripcion, Disponibilidad, Costo)
+                        INSERT INTO Paquetes (Nombre_paquete, Descripcion, Disponibilidad, Costo, Cantidad)
                         OUTPUT INSERTED.Id_paquete
-                        VALUES (@Nombre_paquete, @Descripcion, @Disponibilidad, @Costo)";
+                        VALUES (@Nombre_paquete, @Descripcion, @Disponibilidad, @Costo, @Cantidad)";
                     SqlCommand cmd = new SqlCommand(insertPackageQuery, connection);
                     cmd.Parameters.AddWithValue("@Nombre_paquete", packageName);
                     cmd.Parameters.AddWithValue("@Descripcion", packageDescription);
                     cmd.Parameters.AddWithValue("@Disponibilidad", disponibilidad);
                     cmd.Parameters.AddWithValue("@Costo", packageCost);
+                    cmd.Parameters.AddWithValue("@Cantidad", cantidad);
 
                     int packageId = (int)cmd.ExecuteScalar();
 
@@ -167,6 +170,7 @@ namespace ShowTime_DatabseProject
             string packageName = txtPackageName.Text.Trim();
             string packageDescription = txtPackageDescription.Text.Trim();
             decimal packageCost;
+            int Cantidad= int.Parse(comboboxCantidad.Text.ToString());
             if (!decimal.TryParse(txtPackageCost.Text.Trim(), out packageCost))
             {
                 MessageBox.Show("El costo del paquete debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -198,13 +202,15 @@ namespace ShowTime_DatabseProject
                         SET Nombre_paquete = @Nombre_paquete, 
                             Descripcion = @Descripcion, 
                             Disponibilidad = @Disponibilidad, 
-                            Costo = @Costo
+                            Costo = @Costo,
+                            Cantidad=@Cantidad
                         WHERE Id_paquete = @Id_paquete";
                     SqlCommand cmd = new SqlCommand(updatePackageQuery, connection);
                     cmd.Parameters.AddWithValue("@Nombre_paquete", packageName);
                     cmd.Parameters.AddWithValue("@Descripcion", packageDescription);
                     cmd.Parameters.AddWithValue("@Disponibilidad", disponibilidad);
                     cmd.Parameters.AddWithValue("@Costo", packageCost);
+                    cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
                     cmd.Parameters.AddWithValue("@Id_paquete", packageId);
                     cmd.ExecuteNonQuery();
 

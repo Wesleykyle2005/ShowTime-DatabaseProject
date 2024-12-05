@@ -15,11 +15,13 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
     {
     }
 
+    public virtual DbSet<Cargo> Cargos { get; set; }
+
     public virtual DbSet<Cliente> Clientes { get; set; }
 
-    public virtual DbSet<CostosTotalesEvento> CostosTotalesEventos { get; set; }
-
     public virtual DbSet<Empleado> Empleados { get; set; }
+
+    public virtual DbSet<EstadoEmpleado> EstadoEmpleados { get; set; }
 
     public virtual DbSet<Evento> Eventos { get; set; }
 
@@ -43,19 +45,30 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
     public virtual DbSet<Utilerium> Utileria { get; set; }
 
-    public virtual DbSet<VistaEventosDisponiblesPorPaquete> VistaEventosDisponiblesPorPaquetes { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=DESKTOP-2308JBE;Database=DB_TeamSmile_ShowInfantil;Trusted_Connection=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Cargo>(entity =>
+        {
+            entity.HasKey(e => e.IdCargo).HasName("PK__Cargos__170A99B48EEA8684");
+
+            entity.Property(e => e.IdCargo).HasColumnName("Id_cargo");
+            entity.Property(e => e.NombreCargo)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("Nombre_cargo");
+        });
+
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.IdCliente).HasName("PK__Clientes__FCE03992BB85D82F");
+            entity.HasKey(e => e.IdCliente).HasName("PK__Clientes__FCE03992ED180FE7");
 
             entity.HasIndex(e => e.CorreoElectronico, "UC_Correo").IsUnique();
+
+            entity.HasIndex(e => e.Telefono, "UC_Telefono").IsUnique();
 
             entity.Property(e => e.IdCliente).HasColumnName("Id_cliente");
             entity.Property(e => e.Apellido)
@@ -69,74 +82,77 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.Telefono)
-                .HasMaxLength(15)
+                .HasMaxLength(20)
                 .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<CostosTotalesEvento>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Costos_Totales_Eventos");
-
-            entity.Property(e => e.VentasTotales).HasColumnType("decimal(38, 2)");
         });
 
         modelBuilder.Entity<Empleado>(entity =>
         {
-            entity.HasKey(e => e.IdEmpleado).HasName("PK__Empleado__01AC2829F0ECC8F9");
+            entity.HasKey(e => e.IdEmpleado).HasName("PK__Empleado__01AC28293352ED90");
+
+            entity.HasIndex(e => e.Email, "UC_Email").IsUnique();
+
+            entity.HasIndex(e => e.Telefono, "UC_telefono_Empleado").IsUnique();
 
             entity.Property(e => e.IdEmpleado).HasColumnName("Id_empleado");
             entity.Property(e => e.Apellido)
                 .HasMaxLength(100)
                 .IsUnicode(false);
-            entity.Property(e => e.Contrasena)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasDefaultValue("default_pass");
             entity.Property(e => e.Email)
                 .HasMaxLength(100)
                 .IsUnicode(false);
+            entity.Property(e => e.EstadoEmpleado)
+                .HasDefaultValue(3)
+                .HasColumnName("Estado_Empleado");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.Telefono)
-                .HasMaxLength(15)
+                .HasMaxLength(20)
                 .IsUnicode(false);
-            entity.Property(e => e.Usuario)
-                .HasMaxLength(15)
+
+            entity.HasOne(d => d.EstadoEmpleadoNavigation).WithMany(p => p.Empleados)
+                .HasForeignKey(d => d.EstadoEmpleado)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Empleados_Estado_Empleado");
+        });
+
+        modelBuilder.Entity<EstadoEmpleado>(entity =>
+        {
+            entity.HasKey(e => e.IdEstado).HasName("PK__Estado_E__AD3E5E1BF8D282B5");
+
+            entity.ToTable("Estado_Empleado");
+
+            entity.Property(e => e.IdEstado).HasColumnName("Id_estado");
+            entity.Property(e => e.TipoEstado)
+                .HasMaxLength(50)
                 .IsUnicode(false)
-                .HasDefaultValue("default_user");
+                .HasColumnName("Tipo_estado");
         });
 
         modelBuilder.Entity<Evento>(entity =>
         {
-            entity.HasKey(e => e.IdEvento).HasName("PK__Eventos__D44FA6DE33D26023");
-
-            entity.ToTable(tb =>
-                {
-                    tb.HasTrigger("trg_ActualizarDisponibilidadPaquetes");
-                    tb.HasTrigger("trg_ValidarPagoInicial");
-                });
+            entity.HasKey(e => e.IdEvento).HasName("PK__Eventos__D44FA6DE32066FE8");
 
             entity.Property(e => e.IdEvento).HasColumnName("Id_evento");
             entity.Property(e => e.CantidadDeAsistentes).HasColumnName("Cantidad_de_asistentes");
             entity.Property(e => e.CostoTotal)
-                .HasColumnType("decimal(10, 2)")
+                .HasColumnType("decimal(18, 2)")
                 .HasColumnName("Costo_total");
             entity.Property(e => e.DetallesAdicionales)
-                .HasColumnType("text")
+                .IsUnicode(false)
                 .HasColumnName("Detalles_adicionales");
             entity.Property(e => e.Direccion).HasColumnType("text");
+            entity.Property(e => e.Estado)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasDefaultValue("Pendiente");
             entity.Property(e => e.FechaInicio).HasColumnName("Fecha_inicio");
             entity.Property(e => e.FechaReserva).HasColumnName("Fecha_reserva");
             entity.Property(e => e.HoraFin).HasColumnName("Hora_fin");
             entity.Property(e => e.HoraInicio).HasColumnName("Hora_inicio");
             entity.Property(e => e.IdCliente).HasColumnName("Id_cliente");
             entity.Property(e => e.IdPaquete).HasColumnName("Id_paquete");
-            entity.Property(e => e.PagoInicial)
-                .HasColumnType("decimal(10, 2)")
-                .HasColumnName("Pago_inicial");
             entity.Property(e => e.Ubicacion)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -153,7 +169,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<EventoServicio>(entity =>
         {
-            entity.HasKey(e => e.IdEventoServicios).HasName("PK__Evento_S__5E2105118E7C4C2E");
+            entity.HasKey(e => e.IdEventoServicios).HasName("PK__Evento_S__5E210511B93A456A");
 
             entity.ToTable("Evento_Servicios");
 
@@ -174,7 +190,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<Pago>(entity =>
         {
-            entity.HasKey(e => e.IdPago).HasName("PK__Pagos__405F9B777D8118BC");
+            entity.HasKey(e => e.IdPago).HasName("PK__Pagos__405F9B772C65B964");
 
             entity.Property(e => e.IdPago).HasColumnName("Id_pago");
             entity.Property(e => e.FechaPago).HasColumnName("Fecha_pago");
@@ -183,7 +199,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("Metodo_pago");
-            entity.Property(e => e.Monto).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Monto).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.IdEventoNavigation).WithMany(p => p.Pagos)
                 .HasForeignKey(d => d.IdEvento)
@@ -193,10 +209,10 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<Paquete>(entity =>
         {
-            entity.HasKey(e => e.IdPaquete).HasName("PK__Paquetes__C967EF228F3D6A24");
+            entity.HasKey(e => e.IdPaquete).HasName("PK__Paquetes__C967EF22AB6C5FAB");
 
             entity.Property(e => e.IdPaquete).HasColumnName("Id_paquete");
-            entity.Property(e => e.Costo).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Costo).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Descripcion).IsUnicode(false);
             entity.Property(e => e.NombrePaquete)
                 .HasMaxLength(100)
@@ -206,7 +222,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<PaqueteServicio>(entity =>
         {
-            entity.HasKey(e => e.IdPaqueteServicios).HasName("PK__Paquete___B42790D01AEF17A3");
+            entity.HasKey(e => e.IdPaqueteServicios).HasName("PK__Paquete___B42790D04337FDE8");
 
             entity.ToTable("Paquete_Servicios");
 
@@ -227,7 +243,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<RolEmpleadoEvento>(entity =>
         {
-            entity.HasKey(e => e.IdRolEmpleadoEvento).HasName("PK__Rol_Empl__2950BF2FB6779E49");
+            entity.HasKey(e => e.IdRolEmpleadoEvento).HasName("PK__Rol_Empl__2950BF2FB765570E");
 
             entity.ToTable("Rol_Empleado_Evento");
 
@@ -254,7 +270,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.IdRol).HasName("PK__Roles__2D95A8941E27C83B");
+            entity.HasKey(e => e.IdRol).HasName("PK__Roles__2D95A8946E4BBD77");
 
             entity.Property(e => e.IdRol).HasColumnName("Id_rol");
             entity.Property(e => e.Descripcion).HasColumnType("text");
@@ -266,11 +282,11 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<Servicio>(entity =>
         {
-            entity.HasKey(e => e.IdServicio).HasName("PK__Servicio__A8B83B4DEB288C78");
+            entity.HasKey(e => e.IdServicio).HasName("PK__Servicio__A8B83B4DCE7F0C78");
 
             entity.Property(e => e.IdServicio).HasColumnName("Id_servicio");
-            entity.Property(e => e.Costo).HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.Descripcion).IsUnicode(false);
+            entity.Property(e => e.Costo).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.Descripcion).HasColumnType("text");
             entity.Property(e => e.NombreServicio)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -279,7 +295,7 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<ServicioUtilerium>(entity =>
         {
-            entity.HasKey(e => e.IdServicioUtileria).HasName("PK__Servicio__257D5CB3F9A3A68F");
+            entity.HasKey(e => e.IdServicioUtileria).HasName("PK__Servicio__257D5CB3BEFB8C8A");
 
             entity.ToTable("Servicio_Utileria");
 
@@ -300,20 +316,26 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__EF59F7620861B6B9");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__EF59F762D4E46934");
 
             entity.HasIndex(e => e.NombreUsuario, "UC_NombreUsuario").IsUnique();
 
             entity.Property(e => e.IdUsuario).HasColumnName("Id_usuario");
-            entity.Property(e => e.Activo).HasDefaultValue(true);
             entity.Property(e => e.Contraseña)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.Estado).HasDefaultValue(true);
+            entity.Property(e => e.IdCargo).HasColumnName("Id_Cargo");
             entity.Property(e => e.IdEmpleado).HasColumnName("Id_empleado");
             entity.Property(e => e.NombreUsuario)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("Nombre_usuario");
+
+            entity.HasOne(d => d.IdCargoNavigation).WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.IdCargo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Usuarios_Cargos");
 
             entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdEmpleado)
@@ -323,38 +345,11 @@ public partial class DbTeamSmileShowInfantilContext : DbContext
 
         modelBuilder.Entity<Utilerium>(entity =>
         {
-            entity.HasKey(e => e.IdUtileria).HasName("PK__Utileria__0903F316712EBA65");
+            entity.HasKey(e => e.IdUtileria).HasName("PK__Utileria__0903F31676ABC069");
 
             entity.Property(e => e.IdUtileria).HasColumnName("Id_utileria");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<VistaEventosDisponiblesPorPaquete>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Vista_EventosDisponiblesPorPaquete");
-
-            entity.Property(e => e.CantidadDeAsistentes).HasColumnName("Cantidad_de_asistentes");
-            entity.Property(e => e.CostoPaquete)
-                .HasColumnType("decimal(10, 2)")
-                .HasColumnName("Costo_Paquete");
-            entity.Property(e => e.DetallesAdicionales)
-                .HasColumnType("text")
-                .HasColumnName("Detalles_adicionales");
-            entity.Property(e => e.Direccion).HasColumnType("text");
-            entity.Property(e => e.FechaInicio).HasColumnName("Fecha_inicio");
-            entity.Property(e => e.HoraFin).HasColumnName("Hora_fin");
-            entity.Property(e => e.HoraInicio).HasColumnName("Hora_inicio");
-            entity.Property(e => e.IdEvento).HasColumnName("Id_evento");
-            entity.Property(e => e.NombrePaquete)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("Nombre_paquete");
-            entity.Property(e => e.Ubicacion)
-                .HasMaxLength(255)
                 .IsUnicode(false);
         });
 

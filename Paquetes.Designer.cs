@@ -43,10 +43,12 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             dgvPackages = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
-            comboBoxDisponibilidad = new ComboBox();
-            label5 = new Label();
             label6 = new Label();
+            label5 = new Label();
+            comboBoxDisponibilidad = new ComboBox();
             ServicesListBox = new ListBox();
+            label7 = new Label();
+            comboboxCantidad = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
             tableLayoutPanel2.SuspendLayout();
@@ -55,7 +57,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(4, 40);
+            label3.Location = new Point(4, 33);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(131, 21);
@@ -65,11 +67,11 @@
             // txtPackageDescription
             // 
             txtPackageDescription.Dock = DockStyle.Fill;
-            txtPackageDescription.Location = new Point(144, 44);
+            txtPackageDescription.Location = new Point(144, 37);
             txtPackageDescription.Margin = new Padding(4);
             txtPackageDescription.Multiline = true;
             txtPackageDescription.Name = "txtPackageDescription";
-            txtPackageDescription.Size = new Size(412, 32);
+            txtPackageDescription.Size = new Size(412, 25);
             txtPackageDescription.TabIndex = 33;
             // 
             // label1
@@ -90,13 +92,13 @@
             txtPackageName.Margin = new Padding(4);
             txtPackageName.Multiline = true;
             txtPackageName.Name = "txtPackageName";
-            txtPackageName.Size = new Size(412, 32);
+            txtPackageName.Size = new Size(412, 25);
             txtPackageName.TabIndex = 29;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(4, 80);
+            label2.Location = new Point(4, 66);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(65, 21);
@@ -106,11 +108,11 @@
             // txtPackageCost
             // 
             txtPackageCost.Dock = DockStyle.Fill;
-            txtPackageCost.Location = new Point(144, 84);
+            txtPackageCost.Location = new Point(144, 70);
             txtPackageCost.Margin = new Padding(4);
             txtPackageCost.Multiline = true;
             txtPackageCost.Name = "txtPackageCost";
-            txtPackageCost.Size = new Size(412, 32);
+            txtPackageCost.Size = new Size(412, 25);
             txtPackageCost.TabIndex = 39;
             // 
             // btnUpdatePackage
@@ -119,10 +121,10 @@
             btnUpdatePackage.FlatAppearance.BorderSize = 0;
             btnUpdatePackage.FlatStyle = FlatStyle.Flat;
             btnUpdatePackage.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnUpdatePackage.Location = new Point(564, 44);
+            btnUpdatePackage.Location = new Point(564, 37);
             btnUpdatePackage.Margin = new Padding(4);
             btnUpdatePackage.Name = "btnUpdatePackage";
-            btnUpdatePackage.Size = new Size(132, 32);
+            btnUpdatePackage.Size = new Size(132, 25);
             btnUpdatePackage.TabIndex = 44;
             btnUpdatePackage.Text = "Actualizar Paquete";
             btnUpdatePackage.UseVisualStyleBackColor = true;
@@ -137,7 +139,7 @@
             btnRegisterPackage.Location = new Point(564, 4);
             btnRegisterPackage.Margin = new Padding(4);
             btnRegisterPackage.Name = "btnRegisterPackage";
-            btnRegisterPackage.Size = new Size(132, 32);
+            btnRegisterPackage.Size = new Size(132, 25);
             btnRegisterPackage.TabIndex = 43;
             btnRegisterPackage.Text = "Registrar Paquete";
             btnRegisterPackage.UseVisualStyleBackColor = true;
@@ -146,10 +148,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(4, 120);
+            label4.Location = new Point(4, 132);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(120, 40);
+            label4.Size = new Size(120, 33);
             label4.TabIndex = 63;
             label4.Text = "Servicios incluidos";
             // 
@@ -231,9 +233,6 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.Controls.Add(comboBoxDisponibilidad, 1, 4);
-            tableLayoutPanel2.Controls.Add(label5, 0, 4);
-            tableLayoutPanel2.Controls.Add(label4, 0, 3);
             tableLayoutPanel2.Controls.Add(label3, 0, 1);
             tableLayoutPanel2.Controls.Add(btnUpdatePackage, 2, 1);
             tableLayoutPanel2.Controls.Add(label2, 0, 2);
@@ -242,41 +241,25 @@
             tableLayoutPanel2.Controls.Add(txtPackageDescription, 1, 1);
             tableLayoutPanel2.Controls.Add(txtPackageCost, 1, 2);
             tableLayoutPanel2.Controls.Add(label6, 0, 0);
-            tableLayoutPanel2.Controls.Add(ServicesListBox, 1, 3);
+            tableLayoutPanel2.Controls.Add(label5, 0, 5);
+            tableLayoutPanel2.Controls.Add(comboBoxDisponibilidad, 1, 5);
+            tableLayoutPanel2.Controls.Add(ServicesListBox, 1, 4);
+            tableLayoutPanel2.Controls.Add(label4, 0, 4);
+            tableLayoutPanel2.Controls.Add(label7, 0, 3);
+            tableLayoutPanel2.Controls.Add(comboboxCantidad, 1, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 50);
             tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 5;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel2.Size = new Size(700, 200);
             tableLayoutPanel2.TabIndex = 75;
-            // 
-            // comboBoxDisponibilidad
-            // 
-            comboBoxDisponibilidad.Dock = DockStyle.Fill;
-            comboBoxDisponibilidad.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxDisponibilidad.FlatStyle = FlatStyle.Flat;
-            comboBoxDisponibilidad.FormattingEnabled = true;
-            comboBoxDisponibilidad.Location = new Point(144, 164);
-            comboBoxDisponibilidad.Margin = new Padding(4);
-            comboBoxDisponibilidad.Name = "comboBoxDisponibilidad";
-            comboBoxDisponibilidad.Size = new Size(412, 28);
-            comboBoxDisponibilidad.TabIndex = 66;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(4, 160);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(131, 40);
-            label5.TabIndex = 65;
-            label5.Text = "Disponibilidad";
             // 
             // label6
             // 
@@ -288,6 +271,28 @@
             label6.TabIndex = 67;
             label6.Text = "Nombre";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(4, 165);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(131, 35);
+            label5.TabIndex = 65;
+            label5.Text = "Disponibilidad";
+            // 
+            // comboBoxDisponibilidad
+            // 
+            comboBoxDisponibilidad.Dock = DockStyle.Fill;
+            comboBoxDisponibilidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDisponibilidad.FlatStyle = FlatStyle.Flat;
+            comboBoxDisponibilidad.FormattingEnabled = true;
+            comboBoxDisponibilidad.Location = new Point(144, 169);
+            comboBoxDisponibilidad.Margin = new Padding(4);
+            comboBoxDisponibilidad.Name = "comboBoxDisponibilidad";
+            comboBoxDisponibilidad.Size = new Size(412, 28);
+            comboBoxDisponibilidad.TabIndex = 66;
+            // 
             // ServicesListBox
             // 
             ServicesListBox.BorderStyle = BorderStyle.None;
@@ -295,12 +300,32 @@
             ServicesListBox.FormattingEnabled = true;
             ServicesListBox.ItemHeight = 20;
             ServicesListBox.Items.AddRange(new object[] { "as", "as", "as", "as", "as", "as", "as", "as" });
-            ServicesListBox.Location = new Point(140, 120);
+            ServicesListBox.Location = new Point(140, 132);
             ServicesListBox.Margin = new Padding(0);
             ServicesListBox.Name = "ServicesListBox";
             ServicesListBox.SelectionMode = SelectionMode.MultiSimple;
-            ServicesListBox.Size = new Size(420, 40);
+            ServicesListBox.Size = new Size(420, 33);
             ServicesListBox.TabIndex = 68;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(4, 99);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(98, 21);
+            label7.TabIndex = 69;
+            label7.Text = "Cantidad";
+            // 
+            // comboboxCantidad
+            // 
+            comboboxCantidad.Dock = DockStyle.Fill;
+            comboboxCantidad.Location = new Point(144, 103);
+            comboboxCantidad.Margin = new Padding(4);
+            comboboxCantidad.Multiline = true;
+            comboboxCantidad.Name = "comboboxCantidad";
+            comboboxCantidad.Size = new Size(412, 25);
+            comboboxCantidad.TabIndex = 70;
             // 
             // Paquetes
             // 
@@ -340,5 +365,7 @@
         private Label label5;
         private Label label6;
         private ListBox ServicesListBox;
+        private Label label7;
+        private TextBox comboboxCantidad;
     }
 }
