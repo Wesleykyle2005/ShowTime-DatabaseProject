@@ -15,7 +15,7 @@ namespace ShowTime_DatabseProject
 
         private Form formularioActual; // Para rastrear el formulario actualmente cargado en la celda
 
-        public Dashboard()
+        public Dashboard(string username)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -25,7 +25,7 @@ namespace ShowTime_DatabseProject
             Utils.AgregarBordeInferiorConHover(serviceButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(paqueteButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(empleadoButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-
+            UserLabel.Text=username;
         }
 
         private void CargarFormularioEnCelda(Form nuevoFormulario, TableLayoutPanel tableLayoutPanel, int col, int row)

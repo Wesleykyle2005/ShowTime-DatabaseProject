@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using ShowTime_DatabseProject.Models;
-
 
 namespace ShowTime_DatabseProject
 {
@@ -18,16 +12,31 @@ namespace ShowTime_DatabseProject
     {
         string sqlServerConnectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
 
-        
         public Utileria()
         {
             InitializeComponent();
             LoadDataToDataGridView();
             Utils.AgregarBordeInferiorConHover(btnRegisterProp, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(btnUpdateUtileria, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-            Utils.AgregarBordeInferiorConHover(btnDeleteUtileria, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-            Utils.AgregarBordeInferiorConHover(btnFiltlerUtileria, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
 
+            // Inicialmente desactivar botones
+            btnRegisterProp.Enabled = false;
+            btnUpdateUtileria.Enabled = false;
+
+            // Validar entrada de texto en tiempo real
+            txtPropName.TextChanged += ValidateInputs;
+            txtPropQuantity.TextChanged += ValidateInputs;
+        }
+
+        private void ValidateInputs(object sender, EventArgs e)
+        {
+            // Validar campos vacíos y entrada numérica para cantidad
+            btnRegisterProp.Enabled = !string.IsNullOrWhiteSpace(txtPropName.Text) &&
+                                       int.TryParse(txtPropQuantity.Text, out _);
+
+            btnUpdateUtileria.Enabled = dgvUtileria.SelectedRows.Count > 0 &&
+                                        !string.IsNullOrWhiteSpace(txtPropName.Text) &&
+                                        int.TryParse(txtPropQuantity.Text, out _);
         }
 
         public IEnumerable<Models.Utileria> GetAll()
@@ -53,12 +62,10 @@ namespace ShowTime_DatabseProject
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
-
-                Console.WriteLine($"Error al obtener la utileria: {ex.Message}");
+                MessageBox.Show($"Error al obtener la utilería: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return utilerias;
         }
@@ -67,8 +74,7 @@ namespace ShowTime_DatabseProject
         {
             try
             {
-                var utilerias = GetAll();
-                dgvUtileria.DataSource = utilerias.ToList();
+                dgvUtileria.DataSource = GetAll().ToList();
             }
             catch (Exception ex)
             {
@@ -78,12 +84,16 @@ namespace ShowTime_DatabseProject
 
         private void btnRegisterProp_Click(object sender, EventArgs e)
         {
+            string propName = txtPropName.Text.Trim();
+            int propQuantity;
 
-            string propName = txtPropName.Text;
-            string propQuantity = txtPropQuantity.Text;
+            if (!int.TryParse(txtPropQuantity.Text, out propQuantity))
+            {
+                MessageBox.Show("Ingrese una cantidad válida (número entero).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             string queryInsert = "INSERT INTO Utileria (Nombre, Cantidad) VALUES (@Nombre, @Cantidad)";
-            MessageBox.Show("Utileria añadida correctamente");
 
             try
             {
@@ -96,14 +106,14 @@ namespace ShowTime_DatabseProject
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
+                    MessageBox.Show("Utilería añadida correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataToDataGridView();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show($"Error al añadir la utilería: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void dgvUtileria_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -111,8 +121,8 @@ namespace ShowTime_DatabseProject
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvUtileria.Rows[e.RowIndex];
-                txtPropName.Text = row.Cells["Nombre"].Value.ToString();
-                txtPropQuantity.Text = row.Cells["Cantidad"].Value.ToString();
+                txtPropName.Text = row.Cells["Nombre"].Value?.ToString() ?? string.Empty;
+                txtPropQuantity.Text = row.Cells["Cantidad"].Value?.ToString() ?? string.Empty;
             }
         }
 
@@ -124,28 +134,36 @@ namespace ShowTime_DatabseProject
                 {
                     DataGridViewRow row = dgvUtileria.SelectedRows[0];
                     int id = Convert.ToInt32(row.Cells["IdUtileria"].Value);
+                    string propName = txtPropName.Text.Trim();
+                    int propQuantity;
 
-                    string query = @"UPDATE Utileria
-                         SET Nombre = @Nombre, Cantidad = @Cantidad
-                         WHERE Id_utileria = @Id";
+                    if (!int.TryParse(txtPropQuantity.Text, out propQuantity))
+                    {
+                        MessageBox.Show("Ingrese una cantidad válida (número entero).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    string queryUpdate = @"UPDATE Utileria
+                                           SET Nombre = @Nombre, Cantidad = @Cantidad
+                                           WHERE Id_utileria = @Id";
 
                     using (SqlConnection conn = new SqlConnection(sqlServerConnectionString))
                     {
-                        SqlCommand cmd = new SqlCommand(query, conn);
+                        SqlCommand cmd = new SqlCommand(queryUpdate, conn);
                         cmd.Parameters.AddWithValue("@Id", id);
-                        cmd.Parameters.AddWithValue("@Nombre", txtPropName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Cantidad", txtPropQuantity.Text);
+                        cmd.Parameters.AddWithValue("@Nombre", propName);
+                        cmd.Parameters.AddWithValue("@Cantidad", propQuantity);
 
                         conn.Open();
                         cmd.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Utileria actualizada correctamente.");
+                    MessageBox.Show("Utilería actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataToDataGridView();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al actualizar la Utileria: " + ex.Message);
+                    MessageBox.Show($"Error al actualizar la utilería: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

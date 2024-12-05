@@ -13,5 +13,5 @@ public partial class ServicioUtilerium
 
     public virtual Servicio IdServicioNavigation { get; set; } = null!;
 
-    public virtual Utileria IdUtileriaNavigation { get; set; } = null!;
+    public virtual Utilerium IdUtileriaNavigation { get; set; } = null!;
 }

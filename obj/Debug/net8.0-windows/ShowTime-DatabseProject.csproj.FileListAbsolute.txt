@@ -375,3 +375,4 @@ C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTi
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.InformacionCliente.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.InformacionPaquetesServicios.resources
 C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.RegistrarPagosDeEventos.resources
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.LoginForm.resources

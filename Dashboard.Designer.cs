@@ -43,7 +43,7 @@
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             iconButton1 = new FontAwesome.Sharp.IconButton();
-            Usuario1 = new Label();
+            UserLabel = new Label();
             CierreSesion = new FontAwesome.Sharp.IconButton();
             sidebarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -308,7 +308,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.Controls.Add(iconButton1, 0, 0);
-            tableLayoutPanel2.Controls.Add(Usuario1, 1, 0);
+            tableLayoutPanel2.Controls.Add(UserLabel, 1, 0);
             tableLayoutPanel2.Controls.Add(CierreSesion, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(360, 40);
@@ -337,17 +337,17 @@
             iconButton1.TabIndex = 1;
             iconButton1.UseVisualStyleBackColor = true;
             // 
-            // Usuario1
+            // UserLabel
             // 
-            Usuario1.Dock = DockStyle.Fill;
-            Usuario1.FlatStyle = FlatStyle.Flat;
-            Usuario1.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            Usuario1.Location = new Point(51, 0);
-            Usuario1.Name = "Usuario1";
-            Usuario1.Size = new Size(138, 60);
-            Usuario1.TabIndex = 2;
-            Usuario1.Text = "Usuario ";
-            Usuario1.TextAlign = ContentAlignment.MiddleCenter;
+            UserLabel.Dock = DockStyle.Fill;
+            UserLabel.FlatStyle = FlatStyle.Flat;
+            UserLabel.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            UserLabel.Location = new Point(51, 0);
+            UserLabel.Name = "UserLabel";
+            UserLabel.Size = new Size(138, 60);
+            UserLabel.TabIndex = 2;
+            UserLabel.Text = "Usuario ";
+            UserLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // CierreSesion
             // 
@@ -404,6 +404,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private FontAwesome.Sharp.IconButton CierreSesion;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private Label Usuario1;
+        private Label UserLabel;
     }
 }

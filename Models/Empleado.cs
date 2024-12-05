@@ -15,6 +15,10 @@ public partial class Empleado
 
     public string Email { get; set; } = null!;
 
+    public string Usuario { get; set; } = null!;
+
+    public string Contrasena { get; set; } = null!;
+
     public virtual ICollection<RolEmpleadoEvento> RolEmpleadoEventos { get; set; } = new List<RolEmpleadoEvento>();
 
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();

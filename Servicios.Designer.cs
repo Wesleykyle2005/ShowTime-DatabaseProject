@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            btnFiltlerService = new Button();
-            btnDeleteService = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             btnUpdateService = new Button();
             btnRegisterService = new Button();
             label2 = new Label();
@@ -46,37 +44,11 @@
             dgvServices = new DataGridView();
             label5 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            Utileria = new ListBox();
+            UtileriaList = new ListBox();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // btnFiltlerService
-            // 
-            btnFiltlerService.FlatAppearance.BorderSize = 0;
-            btnFiltlerService.FlatStyle = FlatStyle.Flat;
-            btnFiltlerService.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnFiltlerService.Location = new Point(564, 154);
-            btnFiltlerService.Margin = new Padding(4);
-            btnFiltlerService.Name = "btnFiltlerService";
-            btnFiltlerService.Size = new Size(132, 41);
-            btnFiltlerService.TabIndex = 59;
-            btnFiltlerService.Text = "Filtrar Servicio";
-            btnFiltlerService.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteService
-            // 
-            btnDeleteService.FlatAppearance.BorderSize = 0;
-            btnDeleteService.FlatStyle = FlatStyle.Flat;
-            btnDeleteService.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnDeleteService.Location = new Point(564, 104);
-            btnDeleteService.Margin = new Padding(4);
-            btnDeleteService.Name = "btnDeleteService";
-            btnDeleteService.Size = new Size(132, 41);
-            btnDeleteService.TabIndex = 58;
-            btnDeleteService.Text = "Eliminar Servicio";
-            btnDeleteService.UseVisualStyleBackColor = true;
             // 
             // btnUpdateService
             // 
@@ -90,6 +62,7 @@
             btnUpdateService.TabIndex = 57;
             btnUpdateService.Text = "Actualizar Servicio";
             btnUpdateService.UseVisualStyleBackColor = true;
+            btnUpdateService.Click += btnUpdateService_Click;
             // 
             // btnRegisterService
             // 
@@ -103,6 +76,7 @@
             btnRegisterService.TabIndex = 56;
             btnRegisterService.Text = "Registrar Servicio";
             btnRegisterService.UseVisualStyleBackColor = true;
+            btnRegisterService.Click += btnRegisterService_Click;
             // 
             // label2
             // 
@@ -202,23 +176,23 @@
             dgvServices.BackgroundColor = Color.FromArgb(255, 202, 212);
             dgvServices.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvServices.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle1.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle10.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgvServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle2.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvServices.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle11.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle11.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgvServices.DefaultCellStyle = dataGridViewCellStyle11;
             dgvServices.Dock = DockStyle.Fill;
             dgvServices.EnableHeadersVisualStyles = false;
             dgvServices.GridColor = Color.Black;
@@ -226,14 +200,14 @@
             dgvServices.Margin = new Padding(0);
             dgvServices.MultiSelect = false;
             dgvServices.Name = "dgvServices";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle3.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvServices.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle12.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgvServices.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             dgvServices.RowHeadersVisible = false;
             dgvServices.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvServices.ScrollBars = ScrollBars.Vertical;
@@ -251,7 +225,7 @@
             label5.Name = "label5";
             label5.Size = new Size(692, 50);
             label5.TabIndex = 62;
-            label5.Text = "Administrar empleados";
+            label5.Text = "Administrar servicios";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -261,9 +235,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.Controls.Add(label4, 0, 3);
-            tableLayoutPanel2.Controls.Add(btnFiltlerService, 2, 3);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(btnDeleteService, 2, 2);
             tableLayoutPanel2.Controls.Add(txtServiceName, 1, 0);
             tableLayoutPanel2.Controls.Add(btnUpdateService, 2, 1);
             tableLayoutPanel2.Controls.Add(txtServiceCost, 1, 2);
@@ -271,7 +243,7 @@
             tableLayoutPanel2.Controls.Add(label2, 0, 2);
             tableLayoutPanel2.Controls.Add(label3, 0, 1);
             tableLayoutPanel2.Controls.Add(txtServiceDescription, 1, 1);
-            tableLayoutPanel2.Controls.Add(Utileria, 1, 3);
+            tableLayoutPanel2.Controls.Add(UtileriaList, 1, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 50);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -284,17 +256,18 @@
             tableLayoutPanel2.Size = new Size(700, 200);
             tableLayoutPanel2.TabIndex = 61;
             // 
-            // Utileria
+            // UtileriaList
             // 
-            Utileria.BorderStyle = BorderStyle.None;
-            Utileria.Dock = DockStyle.Top;
-            Utileria.FormattingEnabled = true;
-            Utileria.ItemHeight = 20;
-            Utileria.Location = new Point(143, 153);
-            Utileria.Name = "Utileria";
-            Utileria.SelectionMode = SelectionMode.MultiSimple;
-            Utileria.Size = new Size(414, 40);
-            Utileria.TabIndex = 63;
+            UtileriaList.BorderStyle = BorderStyle.None;
+            UtileriaList.Dock = DockStyle.Top;
+            UtileriaList.FormattingEnabled = true;
+            UtileriaList.ItemHeight = 20;
+            UtileriaList.Items.AddRange(new object[] { "as", "as", "as", "as", "as", "as", "as", "as" });
+            UtileriaList.Location = new Point(143, 153);
+            UtileriaList.Name = "UtileriaList";
+            UtileriaList.SelectionMode = SelectionMode.MultiSimple;
+            UtileriaList.Size = new Size(414, 40);
+            UtileriaList.TabIndex = 63;
             // 
             // Servicios
             // 
@@ -331,6 +304,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Label label5;
         private DataGridView dgvServices;
-        private ListBox Utileria;
+        private ListBox UtileriaList;
     }
 }
