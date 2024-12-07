@@ -37,7 +37,6 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             registerEvent = new FontAwesome.Sharp.IconButton();
             editEvent = new FontAwesome.Sharp.IconButton();
-            payEvent = new FontAwesome.Sharp.IconButton();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEventos).BeginInit();
             tableLayoutPanel2.SuspendLayout();
@@ -136,7 +135,6 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel2.Controls.Add(registerEvent, 1, 1);
             tableLayoutPanel2.Controls.Add(editEvent, 3, 1);
-            tableLayoutPanel2.Controls.Add(payEvent, 5, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 50);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -184,24 +182,6 @@
             editEvent.UseVisualStyleBackColor = true;
             editEvent.Click += editEvent_Click;
             // 
-            // payEvent
-            // 
-            payEvent.Dock = DockStyle.Fill;
-            payEvent.FlatAppearance.BorderSize = 0;
-            payEvent.FlatStyle = FlatStyle.Flat;
-            payEvent.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            payEvent.IconChar = FontAwesome.Sharp.IconChar.None;
-            payEvent.IconColor = Color.Black;
-            payEvent.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            payEvent.Location = new Point(494, 44);
-            payEvent.Margin = new Padding(4);
-            payEvent.Name = "payEvent";
-            payEvent.Size = new Size(132, 112);
-            payEvent.TabIndex = 2;
-            payEvent.Text = "Registrar pagos de eventos";
-            payEvent.UseVisualStyleBackColor = true;
-            payEvent.Click += payEvent_Click;
-            // 
             // Eventos
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
@@ -227,6 +207,5 @@
         private TableLayoutPanel tableLayoutPanel2;
         private FontAwesome.Sharp.IconButton registerEvent;
         private FontAwesome.Sharp.IconButton editEvent;
-        private FontAwesome.Sharp.IconButton payEvent;
     }
 }

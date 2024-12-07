@@ -55,7 +55,7 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.BackColor = Color.FromArgb(255, 229, 217);
+            tableLayoutPanel2.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
@@ -71,11 +71,12 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel2.Size = new Size(400, 550);
+            tableLayoutPanel2.Size = new Size(600, 550);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
@@ -108,13 +109,14 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel1.Size = new Size(400, 220);
+            tableLayoutPanel1.Size = new Size(600, 220);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(44, 0);
+            label2.BackColor = Color.FromArgb(157, 129, 137);
+            label2.Location = new Point(64, 0);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(109, 21);
@@ -124,7 +126,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(44, 32);
+            label3.BackColor = Color.FromArgb(157, 129, 137);
+            label3.Location = new Point(64, 32);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(109, 21);
@@ -134,7 +137,8 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(44, 64);
+            label4.BackColor = Color.FromArgb(157, 129, 137);
+            label4.Location = new Point(64, 64);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(65, 21);
@@ -143,30 +147,33 @@
             // 
             // txtUbicacion
             // 
+            txtUbicacion.BackColor = Color.White;
             txtUbicacion.BorderStyle = BorderStyle.None;
             txtUbicacion.Dock = DockStyle.Fill;
-            txtUbicacion.Location = new Point(224, 4);
+            txtUbicacion.Location = new Point(334, 4);
             txtUbicacion.Margin = new Padding(4);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
-            txtUbicacion.Size = new Size(132, 24);
+            txtUbicacion.Size = new Size(202, 24);
             txtUbicacion.TabIndex = 7;
             // 
             // txtDireccion
             // 
+            txtDireccion.BackColor = Color.White;
             txtDireccion.BorderStyle = BorderStyle.None;
             txtDireccion.Dock = DockStyle.Fill;
-            txtDireccion.Location = new Point(224, 36);
+            txtDireccion.Location = new Point(334, 36);
             txtDireccion.Margin = new Padding(4);
             txtDireccion.Multiline = true;
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(132, 24);
+            txtDireccion.Size = new Size(202, 24);
             txtDireccion.TabIndex = 8;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(44, 192);
+            label7.BackColor = Color.FromArgb(157, 129, 137);
+            label7.Location = new Point(64, 192);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(131, 28);
@@ -175,30 +182,33 @@
             // 
             // txtDetalles
             // 
+            txtDetalles.BackColor = Color.White;
             txtDetalles.BorderStyle = BorderStyle.None;
             txtDetalles.Dock = DockStyle.Fill;
-            txtDetalles.Location = new Point(224, 196);
+            txtDetalles.Location = new Point(334, 196);
             txtDetalles.Margin = new Padding(4);
             txtDetalles.Multiline = true;
             txtDetalles.Name = "txtDetalles";
-            txtDetalles.Size = new Size(132, 20);
+            txtDetalles.Size = new Size(202, 20);
             txtDetalles.TabIndex = 14;
             // 
             // txtCantidadAsistentes
             // 
+            txtCantidadAsistentes.BackColor = Color.White;
             txtCantidadAsistentes.BorderStyle = BorderStyle.None;
             txtCantidadAsistentes.Dock = DockStyle.Fill;
-            txtCantidadAsistentes.Location = new Point(224, 164);
+            txtCantidadAsistentes.Location = new Point(334, 164);
             txtCantidadAsistentes.Margin = new Padding(4);
             txtCantidadAsistentes.Multiline = true;
             txtCantidadAsistentes.Name = "txtCantidadAsistentes";
-            txtCantidadAsistentes.Size = new Size(132, 24);
+            txtCantidadAsistentes.Size = new Size(202, 24);
             txtCantidadAsistentes.TabIndex = 12;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(44, 160);
+            label6.BackColor = Color.FromArgb(157, 129, 137);
+            label6.Location = new Point(64, 160);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(120, 21);
@@ -208,7 +218,8 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(44, 96);
+            label5.BackColor = Color.FromArgb(157, 129, 137);
+            label5.Location = new Point(64, 96);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(131, 21);
@@ -218,7 +229,8 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(44, 128);
+            label8.BackColor = Color.FromArgb(157, 129, 137);
+            label8.Location = new Point(64, 128);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(120, 21);
@@ -227,30 +239,35 @@
             // 
             // dtpFechaReserva
             // 
+            dtpFechaReserva.Dock = DockStyle.Fill;
             dtpFechaReserva.Format = DateTimePickerFormat.Short;
-            dtpFechaReserva.Location = new Point(223, 67);
+            dtpFechaReserva.Location = new Point(333, 67);
             dtpFechaReserva.Name = "dtpFechaReserva";
-            dtpFechaReserva.Size = new Size(134, 27);
+            dtpFechaReserva.Size = new Size(204, 27);
             dtpFechaReserva.TabIndex = 17;
+            dtpFechaReserva.ValueChanged += dtpFechaReserva_ValueChanged;
             // 
             // txtHoraInicio
             // 
+            txtHoraInicio.Dock = DockStyle.Fill;
             txtHoraInicio.Format = DateTimePickerFormat.Time;
-            txtHoraInicio.Location = new Point(223, 99);
+            txtHoraInicio.Location = new Point(333, 99);
             txtHoraInicio.Name = "txtHoraInicio";
-            txtHoraInicio.Size = new Size(134, 27);
+            txtHoraInicio.Size = new Size(204, 27);
             txtHoraInicio.TabIndex = 18;
             // 
             // txtHoraFin
             // 
+            txtHoraFin.Dock = DockStyle.Fill;
             txtHoraFin.Format = DateTimePickerFormat.Time;
-            txtHoraFin.Location = new Point(223, 131);
+            txtHoraFin.Location = new Point(333, 131);
             txtHoraFin.Name = "txtHoraFin";
-            txtHoraFin.Size = new Size(134, 27);
+            txtHoraFin.Size = new Size(204, 27);
             txtHoraFin.TabIndex = 19;
             // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel3.ColumnCount = 5;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
@@ -267,53 +284,58 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel3.Size = new Size(400, 192);
+            tableLayoutPanel3.Size = new Size(600, 192);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // CloseButton
             // 
+            CloseButton.BackColor = Color.FromArgb(157, 129, 137);
             CloseButton.Dock = DockStyle.Fill;
             CloseButton.FlatAppearance.BorderSize = 0;
             CloseButton.FlatStyle = FlatStyle.Flat;
-            CloseButton.Location = new Point(44, 61);
+            CloseButton.Location = new Point(64, 61);
             CloseButton.Margin = new Padding(4);
             CloseButton.Name = "CloseButton";
-            CloseButton.Size = new Size(132, 49);
+            CloseButton.Size = new Size(202, 49);
             CloseButton.TabIndex = 0;
             CloseButton.Text = "Salir";
-            CloseButton.UseVisualStyleBackColor = true;
+            CloseButton.UseVisualStyleBackColor = false;
             CloseButton.Click += CloseButton_Click;
             // 
             // continueButton
             // 
+            continueButton.BackColor = Color.FromArgb(157, 129, 137);
             continueButton.Dock = DockStyle.Fill;
             continueButton.FlatAppearance.BorderSize = 0;
             continueButton.FlatStyle = FlatStyle.Flat;
-            continueButton.Location = new Point(224, 61);
+            continueButton.Location = new Point(334, 61);
             continueButton.Margin = new Padding(4);
             continueButton.Name = "continueButton";
-            continueButton.Size = new Size(132, 49);
+            continueButton.Size = new Size(202, 49);
             continueButton.TabIndex = 1;
             continueButton.Text = "Continuar";
-            continueButton.UseVisualStyleBackColor = true;
+            continueButton.UseVisualStyleBackColor = false;
             continueButton.Click += continueButton_Click;
             // 
             // label1
             // 
+            label1.BackColor = Color.FromArgb(157, 129, 137);
             label1.Dock = DockStyle.Fill;
             label1.Location = new Point(4, 0);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(392, 55);
+            label1.Size = new Size(592, 55);
             label1.TabIndex = 2;
             label1.Text = "Informacion del evento";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // DetallesDelEvento
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 550);
+            BackColor = Color.FromArgb(157, 129, 137);
+            ClientSize = new Size(600, 550);
             Controls.Add(tableLayoutPanel2);
             Font = new Font("Courier New", 13F, FontStyle.Bold);
             FormBorderStyle = FormBorderStyle.None;

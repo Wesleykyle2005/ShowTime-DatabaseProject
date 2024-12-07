@@ -1,135 +1,117 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
     public partial class Inicio : Form
     {
-        private List<DateTime> fechasResaltadas;
+        private List<EventoInfo> eventosProximos;
+
         public Inicio()
         {
-            InicializarFechas();
             InitializeComponent();
+            InicializarEventosDesdeBD();
             ConfigurarMonthCalendar();
-            ConfigurarToolTip();
-            AgregarTextBoxesAFlowPanel(textos, flowLayoutPanelActvity);
-            AgregarTextBoxesAFlowPanel(textos, flowLayoutPanelLog);
-
-
+            AgregarTextBoxesAFlowPanel(eventosProximos, flowLayoutPanelActvity);
         }
 
-        List<string> textos = new List<string>
+        private class EventoInfo
         {
-            "Evento 1",
-            "Evento 2",
-            "Evento 3",
-            "Evento 4"
-        };
+            public DateTime Fecha { get; set; }
+            public string Descripcion { get; set; }
+            public int CantidadInvitados { get; set; }
+        }
 
-
-
-        private void InicializarFechas()
+        private void InicializarEventosDesdeBD()
         {
-            // Simula fechas obtenidas de la base de datos
-            fechasResaltadas = new List<DateTime>
+            string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
+            eventosProximos = new List<EventoInfo>();
+
+            using (var connection = new SqlConnection(connectionString))
             {
-                new DateTime(2024, 12, 5),
-                new DateTime(2024, 12, 12),
-                new DateTime(2024, 12, 25),
-                new DateTime(2025, 1, 1)
-            };
+                connection.Open();
+
+                string query = @"
+                    SELECT 
+                        Fecha_inicio AS Fecha,
+                        Detalles_adicionales AS Descripcion,
+                        Cantidad_de_asistentes AS CantidadInvitados
+                    FROM Eventos
+                    WHERE Fecha_inicio >= GETDATE()"; // Solo obtén eventos futuros
+
+                using (var command = new SqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        eventosProximos.Add(new EventoInfo
+                        {
+                            Fecha = reader.GetDateTime(0),
+                            Descripcion = reader.IsDBNull(1) ? "Sin descripción" : reader.GetString(1),
+                            CantidadInvitados = reader.GetInt32(2)
+                        });
+                    }
+                }
+            }
         }
 
         private void ConfigurarMonthCalendar()
         {
-           
-
-            // Configura el MonthCalendar
             eventsCalendar.MaxSelectionCount = 1; // Deshabilita selecciones múltiples
-
-            // Asocia el evento DateChanged para mostrar los días resaltados
             eventsCalendar.DateChanged += MonthCalendar1_DateChanged;
-
-            // Llama al método para resaltar las fechas
             ResaltarFechas();
-        }
-
-
-
-        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            // Verifica si la fecha seleccionada está en la lista de fechas resaltadas
-            if (fechasResaltadas.Contains(e.Start.Date))
-            {
-               
-            }
         }
 
         private void ResaltarFechas()
         {
-            // Itera sobre las fechas resaltadas y selecciona cada una de ellas
-            foreach (var fecha in fechasResaltadas)
+            foreach (var evento in eventosProximos)
             {
-                eventsCalendar.AddBoldedDate(fecha);
-                // Marca las fechas como "bold"
+                eventsCalendar.AddBoldedDate(evento.Fecha);
             }
 
-             // Actualiza el calendario con las fechas resaltadas
-        }
-
-        private ToolTip toolTip = new ToolTip();
-
-        private void ConfigurarToolTip()
-        {
-            eventsCalendar.DateChanged += (s, e) =>
-            {
-                // Verifica si la fecha está en la lista
-                if (fechasResaltadas.Contains(e.Start.Date))
-                {
-                    toolTip.SetToolTip(eventsCalendar, $"Evento especial en {e.Start.ToShortDateString()}");
-                }
-                else
-                {
-                    toolTip.SetToolTip(eventsCalendar, string.Empty);
-                }
-            };
-        }
-
-        private void AgregarTextBoxesAFlowPanel(List<string> textos, FlowLayoutPanel flowLayoutPanel)
-        {
-            // Limpiar el FlowLayoutPanel antes de agregar nuevos controles, si es necesario
-            flowLayoutPanel.Controls.Clear();
             
+        }
 
-            foreach (string texto in textos)
+        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            var eventosDelDia = eventosProximos
+                .Where(ev => ev.Fecha.Date == e.Start.Date)
+                .ToList();
+
+            if (eventosDelDia.Any())
             {
-                // Crear un nuevo TextBox
+                string detalles = string.Join(Environment.NewLine, eventosDelDia.Select(ev =>
+                    $"{ev.Fecha.ToShortDateString()}: {ev.Descripcion} ({ev.CantidadInvitados} invitados)"));
+
+                MessageBox.Show(detalles, "Eventos del Día");
+            }
+        }
+
+        private void AgregarTextBoxesAFlowPanel(List<EventoInfo> eventos, FlowLayoutPanel flowLayoutPanel)
+        {
+            flowLayoutPanel.Controls.Clear();
+
+            foreach (var evento in eventos)
+            {
                 TextBox textBox = new TextBox
                 {
-                    Text = texto, // Establece el texto del TextBox con el contenido de la lista
-                    Width = 200, // Establece el ancho (puedes ajustar según necesites)
-                    Margin = new Padding(5), // Espaciado entre los elementos en el FlowLayoutPanel
-                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    Text = $"{evento.Fecha.ToShortDateString()} - {evento.Descripcion} ({evento.CantidadInvitados} invitados)",
+                    Width = 300,
+                    Margin = new Padding(5),
+                    Font = new Font("Arial", 10, FontStyle.Regular),
                     BackColor = Color.LightYellow,
                     ForeColor = Color.DarkBlue,
-
-
+                    ReadOnly = true // Hacer que los TextBox sean de solo lectura
                 };
 
-                // Agregar el TextBox al FlowLayoutPanel
-
                 flowLayoutPanel.Controls.Add(textBox);
-                
             }
         }
-
-
     }
 }

@@ -16,6 +16,7 @@ namespace ShowTime_DatabseProject
         public InformacionCliente()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

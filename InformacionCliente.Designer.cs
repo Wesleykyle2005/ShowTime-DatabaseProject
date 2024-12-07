@@ -49,6 +49,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
@@ -72,13 +73,14 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Size = new Size(400, 192);
+            tableLayoutPanel1.Size = new Size(600, 192);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(44, 0);
+            label2.BackColor = Color.FromArgb(157, 129, 137);
+            label2.Location = new Point(64, 0);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(76, 21);
@@ -88,7 +90,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(44, 48);
+            label3.BackColor = Color.FromArgb(157, 129, 137);
+            label3.Location = new Point(64, 48);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(98, 21);
@@ -98,7 +101,8 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(44, 96);
+            label4.BackColor = Color.FromArgb(157, 129, 137);
+            label4.Location = new Point(64, 96);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(76, 21);
@@ -108,7 +112,8 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(44, 144);
+            label5.BackColor = Color.FromArgb(157, 129, 137);
+            label5.Location = new Point(64, 144);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(76, 21);
@@ -117,50 +122,55 @@
             // 
             // txtNombre
             // 
+            txtNombre.BackColor = Color.White;
             txtNombre.BorderStyle = BorderStyle.None;
             txtNombre.Dock = DockStyle.Fill;
-            txtNombre.Location = new Point(224, 4);
+            txtNombre.Location = new Point(334, 4);
             txtNombre.Margin = new Padding(4);
             txtNombre.Multiline = true;
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(132, 40);
+            txtNombre.Size = new Size(202, 40);
             txtNombre.TabIndex = 7;
             // 
             // txtApellido
             // 
+            txtApellido.BackColor = Color.White;
             txtApellido.BorderStyle = BorderStyle.None;
             txtApellido.Dock = DockStyle.Fill;
-            txtApellido.Location = new Point(224, 52);
+            txtApellido.Location = new Point(334, 52);
             txtApellido.Margin = new Padding(4);
             txtApellido.Multiline = true;
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(132, 40);
+            txtApellido.Size = new Size(202, 40);
             txtApellido.TabIndex = 8;
             // 
             // txtTelefono
             // 
+            txtTelefono.BackColor = Color.White;
             txtTelefono.BorderStyle = BorderStyle.None;
             txtTelefono.Dock = DockStyle.Fill;
-            txtTelefono.Location = new Point(224, 100);
+            txtTelefono.Location = new Point(334, 100);
             txtTelefono.Margin = new Padding(4);
             txtTelefono.Multiline = true;
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(132, 40);
+            txtTelefono.Size = new Size(202, 40);
             txtTelefono.TabIndex = 9;
             // 
             // txtCorreo
             // 
+            txtCorreo.BackColor = Color.White;
             txtCorreo.BorderStyle = BorderStyle.None;
             txtCorreo.Dock = DockStyle.Fill;
-            txtCorreo.Location = new Point(224, 148);
+            txtCorreo.Location = new Point(334, 148);
             txtCorreo.Margin = new Padding(4);
             txtCorreo.Multiline = true;
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(132, 40);
+            txtCorreo.Size = new Size(202, 40);
             txtCorreo.TabIndex = 10;
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
@@ -177,11 +187,12 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel2.Size = new Size(400, 550);
+            tableLayoutPanel2.Size = new Size(600, 550);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel3.ColumnCount = 5;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
@@ -198,40 +209,43 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel3.Size = new Size(400, 192);
+            tableLayoutPanel3.Size = new Size(600, 192);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // CloseButton
             // 
+            CloseButton.BackColor = Color.FromArgb(157, 129, 137);
             CloseButton.Dock = DockStyle.Fill;
             CloseButton.FlatAppearance.BorderSize = 0;
             CloseButton.FlatStyle = FlatStyle.Flat;
-            CloseButton.Location = new Point(44, 61);
+            CloseButton.Location = new Point(64, 61);
             CloseButton.Margin = new Padding(4);
             CloseButton.Name = "CloseButton";
-            CloseButton.Size = new Size(132, 49);
+            CloseButton.Size = new Size(202, 49);
             CloseButton.TabIndex = 0;
             CloseButton.Text = "Salir";
-            CloseButton.UseVisualStyleBackColor = true;
+            CloseButton.UseVisualStyleBackColor = false;
             CloseButton.Click += CloseButton_Click;
             // 
             // continueButton
             // 
+            continueButton.BackColor = Color.FromArgb(157, 129, 137);
             continueButton.Dock = DockStyle.Fill;
             continueButton.FlatAppearance.BorderSize = 0;
             continueButton.FlatStyle = FlatStyle.Flat;
-            continueButton.Location = new Point(224, 61);
+            continueButton.Location = new Point(334, 61);
             continueButton.Margin = new Padding(4);
             continueButton.Name = "continueButton";
-            continueButton.Size = new Size(132, 49);
+            continueButton.Size = new Size(202, 49);
             continueButton.TabIndex = 1;
             continueButton.Text = "Continuar";
-            continueButton.UseVisualStyleBackColor = true;
+            continueButton.UseVisualStyleBackColor = false;
             continueButton.Click += continueButton_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(157, 129, 137);
             label1.Location = new Point(4, 0);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -243,8 +257,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 229, 217);
-            ClientSize = new Size(400, 550);
+            BackColor = Color.White;
+            ClientSize = new Size(600, 550);
             Controls.Add(tableLayoutPanel2);
             Font = new Font("Courier New", 13F, FontStyle.Bold);
             FormBorderStyle = FormBorderStyle.None;

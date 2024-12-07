@@ -31,14 +31,15 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            comboBox3 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            comboBoxRol = new ComboBox();
+            comboBoxEmpleado = new ComboBox();
+            comboBoxEvento = new ComboBox();
             label1 = new Label();
-            button3 = new Button();
+            Registerrol = new Button();
             label2 = new Label();
             label3 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            CierreSesion = new FontAwesome.Sharp.IconButton();
             dgvRolesEmpleados = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
@@ -46,67 +47,73 @@
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
-            // comboBox3
+            // comboBoxRol
             // 
-            comboBox3.Dock = DockStyle.Fill;
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FlatStyle = FlatStyle.Flat;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(140, 132);
-            comboBox3.Margin = new Padding(0);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(420, 28);
-            comboBox3.TabIndex = 6;
+            comboBoxRol.BackColor = Color.White;
+            comboBoxRol.Dock = DockStyle.Fill;
+            comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRol.FlatStyle = FlatStyle.Flat;
+            comboBoxRol.FormattingEnabled = true;
+            comboBoxRol.Location = new Point(140, 132);
+            comboBoxRol.Margin = new Padding(0);
+            comboBoxRol.Name = "comboBoxRol";
+            comboBoxRol.Size = new Size(420, 28);
+            comboBoxRol.TabIndex = 6;
             // 
-            // comboBox2
+            // comboBoxEmpleado
             // 
-            comboBox2.Dock = DockStyle.Fill;
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FlatStyle = FlatStyle.Flat;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(140, 66);
-            comboBox2.Margin = new Padding(0);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(420, 28);
-            comboBox2.TabIndex = 5;
+            comboBoxEmpleado.BackColor = Color.White;
+            comboBoxEmpleado.Dock = DockStyle.Fill;
+            comboBoxEmpleado.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEmpleado.FlatStyle = FlatStyle.Flat;
+            comboBoxEmpleado.FormattingEnabled = true;
+            comboBoxEmpleado.Location = new Point(140, 66);
+            comboBoxEmpleado.Margin = new Padding(0);
+            comboBoxEmpleado.Name = "comboBoxEmpleado";
+            comboBoxEmpleado.Size = new Size(420, 28);
+            comboBoxEmpleado.TabIndex = 5;
             // 
-            // comboBox1
+            // comboBoxEvento
             // 
-            comboBox1.Dock = DockStyle.Fill;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(140, 0);
-            comboBox1.Margin = new Padding(0);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(420, 28);
-            comboBox1.TabIndex = 4;
+            comboBoxEvento.BackColor = Color.White;
+            comboBoxEvento.Dock = DockStyle.Fill;
+            comboBoxEvento.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEvento.FlatStyle = FlatStyle.Flat;
+            comboBoxEvento.FormattingEnabled = true;
+            comboBoxEvento.Location = new Point(140, 0);
+            comboBoxEvento.Margin = new Padding(0);
+            comboBoxEvento.Name = "comboBoxEvento";
+            comboBoxEvento.Size = new Size(420, 28);
+            comboBoxEvento.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(157, 129, 137);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
             label1.Size = new Size(76, 21);
             label1.TabIndex = 62;
             label1.Text = "Evento";
             // 
-            // button3
+            // Registerrol
             // 
-            button3.Dock = DockStyle.Fill;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(563, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(134, 60);
-            button3.TabIndex = 0;
-            button3.Text = "Registrar";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            Registerrol.BackColor = Color.FromArgb(157, 129, 137);
+            Registerrol.Dock = DockStyle.Fill;
+            Registerrol.FlatAppearance.BorderSize = 0;
+            Registerrol.FlatStyle = FlatStyle.Flat;
+            Registerrol.Location = new Point(563, 3);
+            Registerrol.Name = "Registerrol";
+            Registerrol.Size = new Size(134, 60);
+            Registerrol.TabIndex = 0;
+            Registerrol.Text = "Registrar";
+            Registerrol.UseVisualStyleBackColor = false;
+            Registerrol.Click += Registerrol_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(157, 129, 137);
             label2.Location = new Point(3, 66);
             label2.Name = "label2";
             label2.Size = new Size(98, 21);
@@ -116,6 +123,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(157, 129, 137);
             label3.Location = new Point(3, 132);
             label3.Name = "label3";
             label3.Size = new Size(43, 21);
@@ -124,9 +132,10 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(255, 229, 217);
+            tableLayoutPanel1.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(CierreSesion, 0, 0);
             tableLayoutPanel1.Controls.Add(dgvRolesEmpleados, 0, 2);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -138,8 +147,28 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(700, 500);
             tableLayoutPanel1.TabIndex = 75;
+            // 
+            // CierreSesion
+            // 
+            CierreSesion.BackColor = Color.FromArgb(157, 129, 137);
+            CierreSesion.Dock = DockStyle.Fill;
+            CierreSesion.FlatAppearance.BorderSize = 0;
+            CierreSesion.FlatStyle = FlatStyle.Flat;
+            CierreSesion.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            CierreSesion.IconColor = Color.Black;
+            CierreSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            CierreSesion.IconSize = 30;
+            CierreSesion.ImageAlign = ContentAlignment.TopRight;
+            CierreSesion.Location = new Point(0, 0);
+            CierreSesion.Margin = new Padding(0);
+            CierreSesion.Name = "CierreSesion";
+            CierreSesion.Size = new Size(700, 50);
+            CierreSesion.TabIndex = 78;
+            CierreSesion.UseVisualStyleBackColor = false;
+            CierreSesion.Click += CierreSesion_Click;
             // 
             // dgvRolesEmpleados
             // 
@@ -193,15 +222,16 @@
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.BackColor = Color.FromArgb(157, 129, 137);
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.Controls.Add(comboBox1, 1, 0);
-            tableLayoutPanel2.Controls.Add(comboBox2, 1, 1);
-            tableLayoutPanel2.Controls.Add(comboBox3, 1, 2);
+            tableLayoutPanel2.Controls.Add(comboBoxEvento, 1, 0);
+            tableLayoutPanel2.Controls.Add(comboBoxEmpleado, 1, 1);
+            tableLayoutPanel2.Controls.Add(comboBoxRol, 1, 2);
             tableLayoutPanel2.Controls.Add(label3, 0, 2);
-            tableLayoutPanel2.Controls.Add(button3, 2, 0);
+            tableLayoutPanel2.Controls.Add(Registerrol, 2, 0);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
@@ -219,6 +249,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(157, 129, 137);
             ClientSize = new Size(700, 500);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -232,15 +263,16 @@
         }
 
         #endregion
-        private ComboBox comboBox3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxRol;
+        private ComboBox comboBoxEmpleado;
+        private ComboBox comboBoxEvento;
         private Label label1;
-        private Button button3;
+        private Button Registerrol;
         private Label label2;
         private Label label3;
         private TableLayoutPanel tableLayoutPanel1;
         private DataGridView dgvRolesEmpleados;
         private TableLayoutPanel tableLayoutPanel2;
+        private FontAwesome.Sharp.IconButton CierreSesion;
     }
 }
