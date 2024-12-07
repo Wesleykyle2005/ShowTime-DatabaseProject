@@ -15,6 +15,9 @@ namespace ShowTime_DatabseProject
             InitializeComponent();
             CenterForm();
             this.StartPosition = FormStartPosition.CenterScreen;
+            Utils.AgregarBordeInferiorConHover(LoginButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(CloseButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+
         }
 
         // Método para cifrar la contraseña

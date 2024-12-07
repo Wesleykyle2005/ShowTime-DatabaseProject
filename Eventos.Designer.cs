@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             dgvEventos = new DataGridView();
             label10 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             registerEvent = new FontAwesome.Sharp.IconButton();
-            editEvent = new FontAwesome.Sharp.IconButton();
+            btnAsignarEmpleado = new FontAwesome.Sharp.IconButton();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEventos).BeginInit();
             tableLayoutPanel2.SuspendLayout();
@@ -71,23 +71,23 @@
             dgvEventos.BackgroundColor = Color.FromArgb(255, 202, 212);
             dgvEventos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvEventos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle1.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle4.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle2.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvEventos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle5.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvEventos.DefaultCellStyle = dataGridViewCellStyle5;
             dgvEventos.Dock = DockStyle.Fill;
             dgvEventos.EnableHeadersVisualStyles = false;
             dgvEventos.GridColor = Color.Black;
@@ -95,14 +95,14 @@
             dgvEventos.Margin = new Padding(0);
             dgvEventos.MultiSelect = false;
             dgvEventos.Name = "dgvEventos";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 202, 212);
-            dataGridViewCellStyle3.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvEventos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(255, 202, 212);
+            dataGridViewCellStyle6.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(10, 180, 180, 180);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvEventos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvEventos.RowHeadersVisible = false;
             dgvEventos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvEventos.ScrollBars = ScrollBars.Vertical;
@@ -134,7 +134,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel2.Controls.Add(registerEvent, 1, 1);
-            tableLayoutPanel2.Controls.Add(editEvent, 3, 1);
+            tableLayoutPanel2.Controls.Add(btnAsignarEmpleado, 3, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 50);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -164,23 +164,23 @@
             registerEvent.UseVisualStyleBackColor = true;
             registerEvent.Click += registerEvent_Click;
             // 
-            // editEvent
+            // btnAsignarEmpleado
             // 
-            editEvent.Dock = DockStyle.Fill;
-            editEvent.FlatAppearance.BorderSize = 0;
-            editEvent.FlatStyle = FlatStyle.Flat;
-            editEvent.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            editEvent.IconChar = FontAwesome.Sharp.IconChar.None;
-            editEvent.IconColor = Color.Black;
-            editEvent.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            editEvent.Location = new Point(284, 44);
-            editEvent.Margin = new Padding(4);
-            editEvent.Name = "editEvent";
-            editEvent.Size = new Size(132, 112);
-            editEvent.TabIndex = 1;
-            editEvent.Text = "Asignar empleados";
-            editEvent.UseVisualStyleBackColor = true;
-            editEvent.Click += editEvent_Click;
+            btnAsignarEmpleado.Dock = DockStyle.Fill;
+            btnAsignarEmpleado.FlatAppearance.BorderSize = 0;
+            btnAsignarEmpleado.FlatStyle = FlatStyle.Flat;
+            btnAsignarEmpleado.Font = new Font("Courier New", 13F, FontStyle.Bold);
+            btnAsignarEmpleado.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnAsignarEmpleado.IconColor = Color.Black;
+            btnAsignarEmpleado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAsignarEmpleado.Location = new Point(284, 44);
+            btnAsignarEmpleado.Margin = new Padding(4);
+            btnAsignarEmpleado.Name = "btnAsignarEmpleado";
+            btnAsignarEmpleado.Size = new Size(132, 112);
+            btnAsignarEmpleado.TabIndex = 1;
+            btnAsignarEmpleado.Text = "Asignar empleados";
+            btnAsignarEmpleado.UseVisualStyleBackColor = true;
+            btnAsignarEmpleado.Click += editEvent_Click;
             // 
             // Eventos
             // 
@@ -206,6 +206,6 @@
         private Label label10;
         private TableLayoutPanel tableLayoutPanel2;
         private FontAwesome.Sharp.IconButton registerEvent;
-        private FontAwesome.Sharp.IconButton editEvent;
+        private FontAwesome.Sharp.IconButton btnAsignarEmpleado;
     }
 }

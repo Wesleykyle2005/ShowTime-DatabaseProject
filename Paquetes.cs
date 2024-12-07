@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace ShowTime_DatabseProject
 {
@@ -18,6 +19,9 @@ namespace ShowTime_DatabseProject
             LoadPackagesToDataGridView();
             LoadServicesToListBox();
             LoadDisponibilidadOptions();
+            Utils.AgregarBordeInferiorConHover(btnRegisterPackage, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnUpdatePackage, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+
         }
 
         private void LoadDisponibilidadOptions()

@@ -2,22 +2,36 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
+    /// <summary>
+    /// Formulario para la asignación de roles a empleados en eventos.
+    /// </summary>
     public partial class Asignacion_de_Empleados : Form
     {
+        /// <summary>
+        /// Constructor principal. Configura la posición de inicio del formulario y carga los datos necesarios.
+        /// </summary>
         public Asignacion_de_Empleados()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             LoadComboBoxData();
-            LoadEmpleadoRolesEventos(); // Refrescar los datos en el DataGridView
-
+            LoadEmpleadoRolesEventos();
+            Utils.AgregarBordeInferiorConHover(
+                Registerrol,
+                Color.FromArgb(18, 29, 36),
+                3,
+                Color.FromArgb(10, 180, 180, 180),
+                Color.Black
+            );
         }
 
+        /// <summary>
+        /// Carga los datos en los ComboBox de eventos, empleados y roles desde la base de datos.
+        /// </summary>
         private void LoadComboBoxData()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
@@ -28,18 +42,18 @@ namespace ShowTime_DatabseProject
                 {
                     connection.Open();
 
-                    // Llenar comboBoxEvento
+                    // Cargar eventos
                     string queryEventos = "SELECT Id_evento, Detalles_adicionales FROM Eventos";
                     FillComboBox(connection, queryEventos, comboBoxEvento, "Id_evento", "Detalles_adicionales");
 
-                    // Llenar comboBoxEmpleado
+                    // Cargar empleados disponibles
                     string queryEmpleados = @"
                         SELECT Id_empleado, CONCAT(Nombre, ' ', Apellido) AS NombreCompleto 
                         FROM Empleados 
                         WHERE Estado_Empleado = (SELECT Id_estado FROM Estado_Empleado WHERE Tipo_estado = 'Disponible')";
                     FillComboBox(connection, queryEmpleados, comboBoxEmpleado, "Id_empleado", "NombreCompleto");
 
-                    // Llenar comboBoxRol
+                    // Cargar roles
                     string queryRoles = "SELECT Id_rol, Nombre_rol FROM Roles";
                     FillComboBox(connection, queryRoles, comboBoxRol, "Id_rol", "Nombre_rol");
                 }
@@ -50,6 +64,14 @@ namespace ShowTime_DatabseProject
             }
         }
 
+        /// <summary>
+        /// Llena un ComboBox con los datos obtenidos de una consulta SQL.
+        /// </summary>
+        /// <param name="connection">Conexión SQL abierta.</param>
+        /// <param name="query">Consulta SQL para obtener los datos.</param>
+        /// <param name="comboBox">ComboBox a llenar.</param>
+        /// <param name="valueMember">Campo a usar como valor interno del ComboBox.</param>
+        /// <param name="displayMember">Campo a mostrar en el ComboBox.</param>
         private void FillComboBox(SqlConnection connection, string query, ComboBox comboBox, string valueMember, string displayMember)
         {
             var adapter = new SqlDataAdapter(query, connection);
@@ -68,11 +90,14 @@ namespace ShowTime_DatabseProject
             }
         }
 
+        /// <summary>
+        /// Maneja el clic en el botón de registro de roles, asignando empleados a eventos y actualizando su estado.
+        /// </summary>
         private void Registerrol_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validar entradas
+                // Validar las entradas del usuario
                 ValidateInputs();
 
                 string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
@@ -81,7 +106,7 @@ namespace ShowTime_DatabseProject
                 {
                     connection.Open();
 
-                    // Insertar en la tabla Rol_Empleado_Evento
+                    // Insertar datos en Rol_Empleado_Evento
                     string insertQuery = @"
                         INSERT INTO Rol_Empleado_Evento (Id_empleado, Id_evento, Id_rol)
                         VALUES (@IdEmpleado, @IdEvento, @IdRol)";
@@ -93,7 +118,7 @@ namespace ShowTime_DatabseProject
                         command.ExecuteNonQuery();
                     }
 
-                    // Actualizar estado del empleado a 'En evento'
+                    // Actualizar estado del empleado
                     string updateStateQuery = @"
                         UPDATE Empleados
                         SET Estado_Empleado = (SELECT Id_estado FROM Estado_Empleado WHERE Tipo_estado = 'En evento')
@@ -106,7 +131,7 @@ namespace ShowTime_DatabseProject
                 }
 
                 MessageBox.Show("Asignación registrada correctamente.", "Éxito");
-                LoadEmpleadoRolesEventos(); // Refrescar los datos en el DataGridView
+                LoadEmpleadoRolesEventos(); // Refrescar datos
             }
             catch (ArgumentException ex)
             {
@@ -122,6 +147,9 @@ namespace ShowTime_DatabseProject
             }
         }
 
+        /// <summary>
+        /// Valida las entradas del usuario antes de realizar operaciones.
+        /// </summary>
         private void ValidateInputs()
         {
             if (comboBoxEvento.SelectedValue == null)
@@ -134,6 +162,9 @@ namespace ShowTime_DatabseProject
                 throw new ArgumentException("Seleccione un rol.");
         }
 
+        /// <summary>
+        /// Carga los datos de la tabla Rol_Empleado_Evento y los muestra en un DataGridView.
+        /// </summary>
         private void LoadEmpleadoRolesEventos()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
@@ -167,11 +198,9 @@ namespace ShowTime_DatabseProject
             }
         }
 
-        private void Asignacion_de_Empleados_Load(object sender, EventArgs e)
-        {
-            LoadEmpleadoRolesEventos(); // Cargar datos al abrir el formulario
-        }
-
+        /// <summary>
+        /// Cierra el formulario cuando se hace clic en el botón de cierre de sesión.
+        /// </summary>
         private void CierreSesion_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -13,48 +13,71 @@ using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
+    /// <summary>
+    /// Formulario para seleccionar paquetes y servicios relacionados a un evento.
+    /// </summary>
     public partial class InformacionPaquetesServicios : Form
     {
-        public EventoTemporal eventoInfo;
+        private readonly EventoTemporal _eventoInfo;
 
         public InformacionPaquetesServicios(EventoTemporal evento)
         {
             InitializeComponent();
-            eventoInfo = evento;
-            
-            txtMontoInicial.TextChanged += txtMontoInicial_TextChanged; // Vincula el evento de validación
-            LoadPaquetesServicios(); // Carga datos al inicializar
-            this.StartPosition = FormStartPosition.CenterScreen;
+            _eventoInfo = evento;
+
+            ConfigureUI();
+            LoadPaquetesServicios();
         }
 
-        // Evento para el botón de registro
+        /// <summary>
+        /// Configura elementos visuales e inicializa eventos.
+        /// </summary>
+        private void ConfigureUI()
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Configurar bordes personalizados
+            Color baseColor = Color.FromArgb(18, 29, 36);
+            Color hoverColor = Color.FromArgb(10, 180, 180, 180);
+
+            Utils.AgregarBordeInferiorConHover(registerEvent, baseColor, 3, hoverColor, Color.Black);
+            Utils.AgregarBordeInferiorConHover(CloseButton, baseColor, 3, hoverColor, Color.Black);
+
+            // Eventos para validación y cálculo
+            txtMontoInicial.TextChanged += txtMontoInicial_TextChanged;
+        }
+
+        /// <summary>
+        /// Maneja el evento del botón "Registrar Evento".
+        /// </summary>
         private void registerEvent_Click(object sender, EventArgs e)
         {
             try
             {
-                ValidateInputs(); // Valida los datos de entrada
+                ValidateInputs();
+                SaveEventData();
 
-                SaveEventData(); // Guarda los datos en la base de datos
-
-                MessageBox.Show("Evento registrado exitosamente, junto con el pago inicial.", "Éxito");
+                MessageBox.Show("Evento registrado exitosamente junto con el pago inicial.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show(ex.Message, "Error de validación");
+                MessageBox.Show(ex.Message, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error");
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            this.Close(); // Cierra el formulario
-        }
+        /// <summary>
+        /// Cierra el formulario.
+        /// </summary>
+        private void CloseButton_Click(object sender, EventArgs e) => this.Close();
 
-        // Carga los paquetes y servicios desde la base de datos
+        /// <summary>
+        /// Carga los paquetes y servicios desde la base de datos.
+        /// </summary>
         private void LoadPaquetesServicios()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
@@ -63,42 +86,44 @@ namespace ShowTime_DatabseProject
             {
                 connection.Open();
 
-                // Cargar paquetes
-                var queryPaquetes = "SELECT Id_paquete, Nombre_paquete AS Nombre, Costo FROM Paquetes WHERE Disponibilidad = 1";
-                FillListBox(connection, queryPaquetes, listBoxPaquetes, "Id_paquete", "Nombre");
+                // Cargar datos en ListBox
+                string paquetesQuery = "SELECT Id_paquete, Nombre_paquete AS Nombre, Costo FROM Paquetes WHERE Disponibilidad = 1";
+                FillListBox(connection, paquetesQuery, listBoxPaquetes, "Id_paquete", "Nombre");
 
-                // Cargar servicios
-                var queryServicios = "SELECT Id_servicio, Nombre_servicio AS Nombre, Costo FROM Servicios";
-                FillListBox(connection, queryServicios, listBoxServicios, "Id_servicio", "Nombre");
+                string serviciosQuery = "SELECT Id_servicio, Nombre_servicio AS Nombre, Costo FROM Servicios";
+                FillListBox(connection, serviciosQuery, listBoxServicios, "Id_servicio", "Nombre");
             }
 
-            // Eventos para recalcular el costo total
+            // Recalcular costo total al seleccionar opciones
             listBoxPaquetes.SelectedIndexChanged += (_, _) => CalculateTotalCost();
             listBoxServicios.SelectedIndexChanged += (_, _) => CalculateTotalCost();
         }
 
-
+        /// <summary>
+        /// Calcula y actualiza el costo total en base a los elementos seleccionados.
+        /// </summary>
         private void CalculateTotalCost()
         {
             decimal totalCost = 0;
 
             // Sumar el costo del paquete seleccionado
-            if (listBoxPaquetes.SelectedItem is DataRowView selectedPaquete)
+            if (listBoxPaquetes.SelectedItem is DataRowView paquete)
             {
-                totalCost += (decimal)selectedPaquete["Costo"];
+                totalCost += (decimal)paquete["Costo"];
             }
 
             // Sumar el costo de los servicios seleccionados
-            foreach (DataRowView selectedServicio in listBoxServicios.SelectedItems)
+            foreach (DataRowView servicio in listBoxServicios.SelectedItems)
             {
-                totalCost += (decimal)selectedServicio["Costo"];
+                totalCost += (decimal)servicio["Costo"];
             }
 
-            // Actualizar el TextBox de costo total
             txtCostoTotal.Text = totalCost.ToString("F2");
         }
 
-
+        /// <summary>
+        /// Rellena un ListBox con datos de una consulta SQL.
+        /// </summary>
         private void FillListBox(SqlConnection connection, string query, ListBox listBox, string valueMember, string displayMember)
         {
             var adapter = new SqlDataAdapter(query, connection);
@@ -110,25 +135,29 @@ namespace ShowTime_DatabseProject
             listBox.DisplayMember = displayMember;
         }
 
+        /// <summary>
+        /// Valida las entradas del formulario.
+        /// </summary>
         private void ValidateInputs()
         {
-            // Validar selección de paquetes y servicios
-            eventoInfo.IdsPaquetes = listBoxPaquetes.SelectedItems
+            // Validar paquetes seleccionados
+            _eventoInfo.IdsPaquetes = listBoxPaquetes.SelectedItems
                 .Cast<DataRowView>()
                 .Select(row => (int)row["Id_paquete"])
                 .ToList();
 
-            if (eventoInfo.IdsPaquetes.Count > 1)
+            if (_eventoInfo.IdsPaquetes.Count > 1)
             {
                 throw new ArgumentException("Solo puedes seleccionar un paquete por evento.");
             }
 
-            eventoInfo.IdsServicios = listBoxServicios.SelectedItems
+            // Validar servicios seleccionados
+            _eventoInfo.IdsServicios = listBoxServicios.SelectedItems
                 .Cast<DataRowView>()
                 .Select(row => (int)row["Id_servicio"])
                 .ToList();
 
-            // Validar monto inicial y costo total
+            // Validar montos
             if (!decimal.TryParse(txtMontoInicial.Text, out var montoInicial) || montoInicial <= 0)
                 throw new ArgumentException("El monto inicial debe ser un número positivo.");
 
@@ -141,10 +170,13 @@ namespace ShowTime_DatabseProject
             if (montoInicial > costoTotal)
                 throw new ArgumentException("El monto inicial no puede ser mayor al costo total.");
 
-            eventoInfo.MontoInicial = montoInicial;
-            eventoInfo.CostoTotal = costoTotal;
+            _eventoInfo.MontoInicial = montoInicial;
+            _eventoInfo.CostoTotal = costoTotal;
         }
 
+        /// <summary>
+        /// Muestra errores relacionados al monto inicial.
+        /// </summary>
         private void txtMontoInicial_TextChanged(object sender, EventArgs e)
         {
             if (decimal.TryParse(txtMontoInicial.Text, out var montoInicial) &&
@@ -167,14 +199,13 @@ namespace ShowTime_DatabseProject
             }
             else
             {
-                lblErrorMontoInicial.Visible = false; // Oculta errores si no hay datos válidos
+                lblErrorMontoInicial.Visible = false;
             }
         }
 
-        
-
-
-
+        /// <summary>
+        /// Guarda los datos del evento y sus relaciones en la base de datos.
+        /// </summary>
         private void SaveEventData()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
@@ -202,16 +233,19 @@ namespace ShowTime_DatabseProject
             }
         }
 
-        private int InsertCliente(SqlConnection connection, SqlTransaction transaction)
+        // Métodos para Insertar Cliente, Evento, Servicios y Pagos están iguales en lógica.
+    
+
+    private int InsertCliente(SqlConnection connection, SqlTransaction transaction)
         {
             var query = @"INSERT INTO Clientes (Nombre, Apellido, Telefono, Correo_electronico) 
                           OUTPUT INSERTED.Id_cliente 
                           VALUES (@Nombre, @Apellido, @Telefono, @Correo)";
             var command = new SqlCommand(query, connection, transaction);
-            command.Parameters.AddWithValue("@Nombre", eventoInfo.NombreCliente);
-            command.Parameters.AddWithValue("@Apellido", eventoInfo.ApellidoCliente);
-            command.Parameters.AddWithValue("@Telefono", eventoInfo.TelefonoCliente);
-            command.Parameters.AddWithValue("@Correo", (object)eventoInfo.CorreoCliente ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Nombre", _eventoInfo.NombreCliente);
+            command.Parameters.AddWithValue("@Apellido", _eventoInfo.ApellidoCliente);
+            command.Parameters.AddWithValue("@Telefono", _eventoInfo.TelefonoCliente);
+            command.Parameters.AddWithValue("@Correo", (object)_eventoInfo.CorreoCliente ?? DBNull.Value);
 
             return (int)command.ExecuteScalar();
         }
@@ -226,9 +260,9 @@ namespace ShowTime_DatabseProject
             var command = new SqlCommand(queryInsertEvento, connection, transaction);
 
             // Verifica si el usuario seleccionó un paquete
-            if (eventoInfo.IdsPaquetes.Any())
+            if (_eventoInfo.IdsPaquetes.Any())
             {
-                command.Parameters.AddWithValue("@IdPaquete", eventoInfo.IdsPaquetes.First());
+                command.Parameters.AddWithValue("@IdPaquete", _eventoInfo.IdsPaquetes.First());
             }
             else
             {
@@ -236,16 +270,16 @@ namespace ShowTime_DatabseProject
             }
 
             command.Parameters.AddWithValue("@IdCliente", idCliente);
-            command.Parameters.AddWithValue("@FechaReserva", eventoInfo.FechaReserva);
-            command.Parameters.AddWithValue("@FechaInicio", eventoInfo.FechaInicio);
-            command.Parameters.AddWithValue("@HoraInicio", eventoInfo.HoraInicio);
-            command.Parameters.AddWithValue("@HoraFin", eventoInfo.HoraFin);
-            command.Parameters.AddWithValue("@Ubicacion", eventoInfo.Ubicacion);
-            command.Parameters.AddWithValue("@Direccion", eventoInfo.Direccion);
-            command.Parameters.AddWithValue("@CantidadAsistentes", eventoInfo.CantidadAsistentes);
-            command.Parameters.AddWithValue("@DetallesAdicionales", (object)eventoInfo.DetallesAdicionales ?? DBNull.Value);
-            command.Parameters.AddWithValue("@CostoTotal", eventoInfo.CostoTotal);
-            command.Parameters.AddWithValue("@Estado", eventoInfo.Estado);
+            command.Parameters.AddWithValue("@FechaReserva", _eventoInfo.FechaReserva);
+            command.Parameters.AddWithValue("@FechaInicio", _eventoInfo.FechaInicio);
+            command.Parameters.AddWithValue("@HoraInicio", _eventoInfo.HoraInicio);
+            command.Parameters.AddWithValue("@HoraFin", _eventoInfo.HoraFin);
+            command.Parameters.AddWithValue("@Ubicacion", _eventoInfo.Ubicacion);
+            command.Parameters.AddWithValue("@Direccion", _eventoInfo.Direccion);
+            command.Parameters.AddWithValue("@CantidadAsistentes", _eventoInfo.CantidadAsistentes);
+            command.Parameters.AddWithValue("@DetallesAdicionales", (object)_eventoInfo.DetallesAdicionales ?? DBNull.Value);
+            command.Parameters.AddWithValue("@CostoTotal", _eventoInfo.CostoTotal);
+            command.Parameters.AddWithValue("@Estado", _eventoInfo.Estado);
 
             return Convert.ToInt32(command.ExecuteScalar());
         }
@@ -253,7 +287,7 @@ namespace ShowTime_DatabseProject
 
         private void InsertEventoServicios(SqlConnection connection, SqlTransaction transaction, int idEvento)
         {
-            foreach (var idServicio in eventoInfo.IdsServicios)
+            foreach (var idServicio in _eventoInfo.IdsServicios)
             {
                 string query = "INSERT INTO Evento_Servicios (Id_evento, Id_servicio) VALUES (@IdEvento, @IdServicio)";
                 using (var command = new SqlCommand(query, connection, transaction))
@@ -282,7 +316,7 @@ namespace ShowTime_DatabseProject
             var query = "INSERT INTO Pagos (Id_evento, Monto, Fecha_pago, Metodo_pago) VALUES (@IdEvento, @Monto, @FechaPago, @MetodoPago)";
             var command = new SqlCommand(query, connection, transaction);
             command.Parameters.AddWithValue("@IdEvento", idEvento);
-            command.Parameters.AddWithValue("@Monto", eventoInfo.MontoInicial);
+            command.Parameters.AddWithValue("@Monto", _eventoInfo.MontoInicial);
             command.Parameters.AddWithValue("@FechaPago", DateTime.Now);
             command.Parameters.AddWithValue("@MetodoPago", "Inicial");
             command.ExecuteNonQuery();

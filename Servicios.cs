@@ -17,6 +17,9 @@ namespace ShowTime_DatabseProject
             InitializeComponent();
             LoadServicesWithUtileria();
             LoadUtileriaList();
+            Utils.AgregarBordeInferiorConHover(btnRegisterService, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnUpdateService, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
+
         }
 
         private void LoadServicesWithUtileria()
