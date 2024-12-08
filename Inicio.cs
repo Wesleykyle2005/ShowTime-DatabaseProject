@@ -126,14 +126,23 @@ namespace ShowTime_DatabseProject
         }
 
         /// <summary>
-        /// Muestra los eventos en un panel fluido, añadiendo un cuadro de texto para cada evento.
+        /// Muestra los eventos hasta dentro de un mes en un panel fluido, añadiendo un cuadro de texto para cada evento.
         /// </summary>
         private void AgregarTextBoxesAFlowPanel(List<EventoInfo> eventos, FlowLayoutPanel flowLayoutPanel)
         {
             // Limpia el panel antes de agregar nuevos elementos
             flowLayoutPanel.Controls.Clear();
 
-            foreach (var evento in eventos)
+            // Filtrar eventos dentro del próximo mes
+            DateTime hoy = DateTime.Now;
+            DateTime dentroDeUnMes = hoy.AddMonths(1);
+
+            var eventosFiltrados = eventos
+                .Where(e => e.Fecha >= hoy && e.Fecha < dentroDeUnMes)
+                .OrderBy(e => e.Fecha) // Ordenar por fecha de inicio
+                .ToList();
+
+            foreach (var evento in eventosFiltrados)
             {
                 // Crea un TextBox para representar los detalles del evento
                 TextBox textBox = new TextBox
@@ -145,7 +154,7 @@ namespace ShowTime_DatabseProject
                     BackColor = Color.FromArgb(150, 150, 150),
                     ForeColor = Color.Black,
                     BorderStyle = BorderStyle.None,
-                    Height = 50,                   
+                    Height = 50,
                     Multiline = true,
                     ReadOnly = true // Hacer que los TextBox sean de solo lectura
                 };
@@ -153,5 +162,6 @@ namespace ShowTime_DatabseProject
                 flowLayoutPanel.Controls.Add(textBox);
             }
         }
+
     }
 }

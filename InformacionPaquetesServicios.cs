@@ -237,21 +237,48 @@ namespace ShowTime_DatabseProject
         }
 
         // Métodos para Insertar Cliente, Evento, Servicios y Pagos están iguales en lógica.
-    
 
-    private int InsertCliente(SqlConnection connection, SqlTransaction transaction)
+
+        private int InsertCliente(SqlConnection connection, SqlTransaction transaction)
         {
-            var query = @"INSERT INTO Clientes (Nombre, Apellido, Telefono, Correo_electronico) 
-                          OUTPUT INSERTED.Id_cliente 
-                          VALUES (@Nombre, @Apellido, @Telefono, @Correo)";
-            var command = new SqlCommand(query, connection, transaction);
-            command.Parameters.AddWithValue("@Nombre", _eventoInfo.NombreCliente);
-            command.Parameters.AddWithValue("@Apellido", _eventoInfo.ApellidoCliente);
-            command.Parameters.AddWithValue("@Telefono", _eventoInfo.TelefonoCliente);
-            command.Parameters.AddWithValue("@Correo", (object)_eventoInfo.CorreoCliente ?? DBNull.Value);
+            // Consulta para verificar si el cliente ya existe
+            var checkQuery = @"SELECT Id_cliente 
+                       FROM Clientes 
+                       WHERE Nombre = @Nombre 
+                         AND Apellido = @Apellido 
+                         AND Telefono = @Telefono 
+                         AND Correo_electronico = @Correo";
 
-            return (int)command.ExecuteScalar();
+            // Creamos el comando para verificar la existencia
+            var checkCommand = new SqlCommand(checkQuery, connection, transaction);
+            checkCommand.Parameters.AddWithValue("@Nombre", _eventoInfo.NombreCliente);
+            checkCommand.Parameters.AddWithValue("@Apellido", _eventoInfo.ApellidoCliente);
+            checkCommand.Parameters.AddWithValue("@Telefono", _eventoInfo.TelefonoCliente);
+            checkCommand.Parameters.AddWithValue("@Correo", (object)_eventoInfo.CorreoCliente ?? DBNull.Value);
+
+            // Ejecutamos la consulta y verificamos si el cliente ya existe
+            var existingClientId = checkCommand.ExecuteScalar();
+            if (existingClientId != null)
+            {
+                // Si el cliente ya existe, devolvemos el Id_cliente del cliente existente
+                return (int)existingClientId;
+            }
+
+            // Si el cliente no existe, lo insertamos
+            var insertQuery = @"INSERT INTO Clientes (Nombre, Apellido, Telefono, Correo_electronico) 
+                        OUTPUT INSERTED.Id_cliente 
+                        VALUES (@Nombre, @Apellido, @Telefono, @Correo)";
+
+            var insertCommand = new SqlCommand(insertQuery, connection, transaction);
+            insertCommand.Parameters.AddWithValue("@Nombre", _eventoInfo.NombreCliente);
+            insertCommand.Parameters.AddWithValue("@Apellido", _eventoInfo.ApellidoCliente);
+            insertCommand.Parameters.AddWithValue("@Telefono", _eventoInfo.TelefonoCliente);
+            insertCommand.Parameters.AddWithValue("@Correo", (object)_eventoInfo.CorreoCliente ?? DBNull.Value);
+
+            // Ejecutamos el insert y devolvemos el Id_cliente insertado
+            return (int)insertCommand.ExecuteScalar();
         }
+
 
         private int InsertEvento(SqlConnection connection, SqlTransaction transaction, int idCliente)
         {
