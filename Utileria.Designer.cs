@@ -76,7 +76,7 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvUtileria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvUtileria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvUtileria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 202, 212);
             dataGridViewCellStyle2.Font = new Font("Courier New", 13F, FontStyle.Bold);
@@ -102,7 +102,6 @@
             dgvUtileria.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvUtileria.RowHeadersVisible = false;
             dgvUtileria.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgvUtileria.ScrollBars = ScrollBars.Vertical;
             dgvUtileria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUtileria.ShowCellErrors = false;
             dgvUtileria.ShowRowErrors = false;

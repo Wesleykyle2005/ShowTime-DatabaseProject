@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShowTime-DatabseProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd0e79902bad3fcfea69bb8de86f474ba4db816f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c6ba64fed87d273415ebbd0b1177d44e557d09f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShowTime-DatabseProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShowTime-DatabseProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

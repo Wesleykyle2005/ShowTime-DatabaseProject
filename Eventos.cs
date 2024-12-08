@@ -46,34 +46,34 @@ namespace ShowTime_DatabseProject
         {
             const string query = @"
                 SELECT 
-    e.Id_evento, 
-    c.Nombre AS Cliente, 
-    e.Fecha_reserva AS 'Reservado', 
-    e.Fecha_inicio AS 'Inicio', 
-    e.Hora_inicio AS 'Hora de inicio', 
-    e.Hora_fin AS 'Hora final', 
-    e.Cantidad_de_asistentes AS 'Asistentes', 
-    e.Costo_total AS 'Costo', 
-    p.Nombre_paquete AS Paquete, 
-    COALESCE(STRING_AGG(s.Nombre_servicio, ', '), 'sin servicios') AS 'Servicios',  -- Reemplaza NULL con 'sin servicios'
-    e.Estado
-FROM 
-    Eventos e
-INNER JOIN 
-    Paquetes p ON e.Id_paquete = p.Id_paquete
-INNER JOIN 
-    Clientes c ON e.Id_cliente = c.Id_cliente
-LEFT JOIN 
-    Evento_Servicios es ON e.Id_evento = es.Id_evento
-LEFT JOIN 
-    Servicios s ON es.Id_servicio = s.Id_servicio
-GROUP BY
-    e.Id_evento, c.Nombre, e.Fecha_reserva, e.Fecha_inicio, e.Hora_inicio, e.Hora_fin, 
-    e.Cantidad_de_asistentes, e.Costo_total, p.Nombre_paquete, e.Estado
-ORDER BY 
-    e.Fecha_reserva DESC
+                e.Id_evento, 
+                c.Nombre AS Cliente, 
+                e.Fecha_reserva AS 'Reservado', 
+                e.Fecha_inicio AS 'Fecha del evento', 
+                e.Hora_inicio AS 'Hora de inicio', 
+                e.Hora_fin AS 'Hora de finalización', 
+                e.Cantidad_de_asistentes AS 'Asistentes', 
+                e.Costo_total AS 'Costo', 
+                p.Nombre_paquete AS Paquete, 
+                COALESCE(STRING_AGG(s.Nombre_servicio, ', '), 'sin servicios') AS 'Servicios',  -- Reemplaza NULL con 'sin servicios'
+                e.Estado
+            FROM 
+                Eventos e
+            INNER JOIN 
+                Paquetes p ON e.Id_paquete = p.Id_paquete
+            INNER JOIN 
+                Clientes c ON e.Id_cliente = c.Id_cliente
+            LEFT JOIN 
+                Evento_Servicios es ON e.Id_evento = es.Id_evento
+            LEFT JOIN 
+                Servicios s ON es.Id_servicio = s.Id_servicio
+            GROUP BY
+                e.Id_evento, c.Nombre, e.Fecha_reserva, e.Fecha_inicio, e.Hora_inicio, e.Hora_fin, 
+                e.Cantidad_de_asistentes, e.Costo_total, p.Nombre_paquete, e.Estado
+            ORDER BY 
+                e.Fecha_reserva DESC
 
-";
+            ";
 
             try
             {

@@ -89,7 +89,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvEventos.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvEventos.Dock = DockStyle.Bottom;
+            dgvEventos.Dock = DockStyle.Fill;
             dgvEventos.EnableHeadersVisualStyles = false;
             dgvEventos.GridColor = Color.Black;
             dgvEventos.Location = new Point(0, 250);

@@ -209,7 +209,7 @@
             dgvEventos.AllowUserToDeleteRows = false;
             dgvEventos.AllowUserToResizeColumns = false;
             dgvEventos.AllowUserToResizeRows = false;
-            dgvEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dgvEventos.BackgroundColor = Color.FromArgb(255, 202, 212);
             dgvEventos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvEventos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -221,7 +221,7 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 202, 212);
             dataGridViewCellStyle2.Font = new Font("Courier New", 13F, FontStyle.Bold);
@@ -247,7 +247,6 @@
             dgvEventos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvEventos.RowHeadersVisible = false;
             dgvEventos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgvEventos.ScrollBars = ScrollBars.Vertical;
             dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEventos.ShowCellErrors = false;
             dgvEventos.ShowRowErrors = false;
