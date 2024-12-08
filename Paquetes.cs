@@ -99,6 +99,9 @@ namespace ShowTime_DatabseProject
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     dgvPackages.DataSource = dataTable;
+                    if (dgvPackages.Columns["Id_paquete"] != null)
+                        dgvPackages.Columns["Id_paquete"].Visible = false;
+
                 }
             }
             catch (Exception ex)

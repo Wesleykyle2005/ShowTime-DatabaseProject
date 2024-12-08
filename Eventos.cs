@@ -29,11 +29,14 @@ namespace ShowTime_DatabseProject
         /// </summary>
         private void ConfigureUI()
         {
+
+
             Color baseColor = Color.FromArgb(18, 29, 36);
             Color hoverColor = Color.FromArgb(10, 180, 180, 180);
 
             Utils.AgregarBordeInferiorConHover(registerEvent, baseColor, 3, hoverColor, Color.Black);
             Utils.AgregarBordeInferiorConHover(btnAsignarEmpleado, baseColor, 3, hoverColor, Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnRealizarPago, baseColor, 3, hoverColor, Color.Black);
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace ShowTime_DatabseProject
             const string query = @"
                 SELECT 
                     e.Id_evento, 
-                    p.Nombre_paquete AS Paquete, 
+                    
                     c.Nombre AS Cliente, 
                     e.Fecha_reserva, 
                     e.Fecha_inicio, 
@@ -52,6 +55,7 @@ namespace ShowTime_DatabseProject
                     e.Hora_fin, 
                     e.Cantidad_de_asistentes, 
                     e.Costo_total, 
+                    p.Nombre_paquete AS Paquete, 
                     e.Estado
                 FROM 
                     Eventos e
@@ -73,6 +77,14 @@ namespace ShowTime_DatabseProject
 
                     // Asignar los datos al DataGridView
                     dgvEventos.DataSource = dataTable;
+
+                    if (dgvEventos.Columns["Id_evento"] != null)
+                    {
+                        dgvEventos.Columns["Id_evento"].Visible = false;
+                    }
+
+                    
+
                 }
             }
             catch (Exception ex)
@@ -123,6 +135,21 @@ namespace ShowTime_DatabseProject
         private void payEvent_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Función de pago aún no implementada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnRealizarPago_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var registrarPagosDeEventos = new RegistrarPagosDeEventos())
+                {
+                    registrarPagosDeEventos.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al registrar un evento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

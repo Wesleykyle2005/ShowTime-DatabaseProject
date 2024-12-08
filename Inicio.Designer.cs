@@ -94,7 +94,7 @@
             // 
             label2.BackColor = Color.FromArgb(255, 229, 217);
             label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Courier New", 14.25F, FontStyle.Bold | FontStyle.Underline);
+            label2.Font = new Font("Courier New", 13F, FontStyle.Bold | FontStyle.Underline);
             label2.Location = new Point(4, 0);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -104,6 +104,7 @@
             // 
             // flowLayoutPanelActvity
             // 
+            flowLayoutPanelActvity.AutoScroll = true;
             flowLayoutPanelActvity.Dock = DockStyle.Fill;
             flowLayoutPanelActvity.Location = new Point(0, 25);
             flowLayoutPanelActvity.Margin = new Padding(0);
@@ -132,7 +133,7 @@
             // 
             label3.BackColor = Color.FromArgb(255, 229, 217);
             label3.Dock = DockStyle.Fill;
-            label3.Font = new Font("Courier New", 14.25F, FontStyle.Bold | FontStyle.Underline);
+            label3.Font = new Font("Courier New", 13F, FontStyle.Bold | FontStyle.Underline);
             label3.Location = new Point(4, 0);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";

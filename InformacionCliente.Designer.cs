@@ -320,7 +320,7 @@
             dgvClientes.ShowRowErrors = false;
             dgvClientes.Size = new Size(600, 331);
             dgvClientes.TabIndex = 74;
-             // 
+            // 
             // InformacionCliente
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);

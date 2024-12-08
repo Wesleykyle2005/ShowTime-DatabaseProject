@@ -99,6 +99,13 @@ namespace ShowTime_DatabseProject
             try
             {
                 dgvUtileria.DataSource = GetAll().ToList();
+
+                if (dgvUtileria.Columns["IdUtileria"] != null)
+                    dgvUtileria.Columns["IdUtileria"].Visible = false;
+
+                if (dgvUtileria.Columns["ServicioUtileria"] != null)
+                    dgvUtileria.Columns["ServicioUtileria"].Visible = false;
+
             }
             catch (Exception ex)
             {

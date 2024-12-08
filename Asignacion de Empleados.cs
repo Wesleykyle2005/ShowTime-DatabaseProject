@@ -19,7 +19,8 @@ namespace ShowTime_DatabseProject
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             LoadComboBoxData();
-            LoadEmpleadoRolesEventos();
+            LoadEventosData();
+
             Utils.AgregarBordeInferiorConHover(
                 Registerrol,
                 Color.FromArgb(18, 29, 36),
@@ -41,10 +42,6 @@ namespace ShowTime_DatabseProject
                 try
                 {
                     connection.Open();
-
-                    // Cargar eventos
-                    string queryEventos = "SELECT Id_evento, Detalles_adicionales FROM Eventos";
-                    FillComboBox(connection, queryEventos, comboBoxEvento, "Id_evento", "Detalles_adicionales");
 
                     // Cargar empleados disponibles
                     string queryEmpleados = @"
@@ -91,13 +88,21 @@ namespace ShowTime_DatabseProject
         }
 
         /// <summary>
-        /// Maneja el clic en el botón de registro de roles, asignando empleados a eventos y actualizando su estado.
+        /// Registra la asignación de un rol a un empleado para un evento seleccionado.
         /// </summary>
-        private void Registerrol_Click(object sender, EventArgs e)
+        private void InsertEmpleadoEvento()
         {
             try
             {
-                // Validar las entradas del usuario
+                // Validar que se haya seleccionado una fila
+                if (dgvEventos.SelectedRows.Count == 0)
+                    throw new ArgumentException("Debe seleccionar un evento.");
+
+                // Obtener el Id_evento de la fila seleccionada
+                var selectedRow = dgvEventos.SelectedRows[0];
+                int idEvento = Convert.ToInt32(selectedRow.Cells["Id_evento"].Value);
+
+                // Validar las entradas adicionales
                 ValidateInputs();
 
                 string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
@@ -113,7 +118,7 @@ namespace ShowTime_DatabseProject
                     using (var command = new SqlCommand(insertQuery, connection))
                     {
                         command.Parameters.AddWithValue("@IdEmpleado", comboBoxEmpleado.SelectedValue);
-                        command.Parameters.AddWithValue("@IdEvento", comboBoxEvento.SelectedValue);
+                        command.Parameters.AddWithValue("@IdEvento", idEvento);
                         command.Parameters.AddWithValue("@IdRol", comboBoxRol.SelectedValue);
                         command.ExecuteNonQuery();
                     }
@@ -131,7 +136,7 @@ namespace ShowTime_DatabseProject
                 }
 
                 MessageBox.Show("Asignación registrada correctamente.", "Éxito");
-                LoadEmpleadoRolesEventos(); // Refrescar datos
+                LoadEventosData(); // Refrescar datos
             }
             catch (ArgumentException ex)
             {
@@ -147,13 +152,12 @@ namespace ShowTime_DatabseProject
             }
         }
 
+
         /// <summary>
         /// Valida las entradas del usuario antes de realizar operaciones.
         /// </summary>
         private void ValidateInputs()
         {
-            if (comboBoxEvento.SelectedValue == null)
-                throw new ArgumentException("Seleccione un evento.");
 
             if (comboBoxEmpleado.SelectedValue == null)
                 throw new ArgumentException("Seleccione un empleado.");
@@ -162,48 +166,77 @@ namespace ShowTime_DatabseProject
                 throw new ArgumentException("Seleccione un rol.");
         }
 
-        /// <summary>
-        /// Carga los datos de la tabla Rol_Empleado_Evento y los muestra en un DataGridView.
-        /// </summary>
-        private void LoadEmpleadoRolesEventos()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
 
-            using (var connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = @"
-                        SELECT 
-                            REE.Id_evento AS EventoID,
-                            CONCAT(E.Nombre, ' ', E.Apellido) AS Empleado,
-                            R.Nombre_rol AS Rol,
-                            EV.Detalles_adicionales AS Evento
-                        FROM Rol_Empleado_Evento REE
-                        INNER JOIN Empleados E ON REE.Id_empleado = E.Id_empleado
-                        INNER JOIN Roles R ON REE.Id_rol = R.Id_rol
-                        INNER JOIN Eventos EV ON REE.Id_evento = EV.Id_evento";
-
-                    var adapter = new SqlDataAdapter(query, connection);
-                    var dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    dgvRolesEmpleados.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar datos de roles: {ex.Message}", "Error");
-                }
-            }
-        }
 
         /// <summary>
         /// Cierra el formulario cuando se hace clic en el botón de cierre de sesión.
         /// </summary>
-        private void CierreSesion_Click(object sender, EventArgs e)
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Carga los datos de eventos en el DataGridView junto con los empleados asignados.
+        /// </summary>
+        private void LoadEventosData()
+        {
+            const string query = @"
+        SELECT 
+            e.Id_evento, 
+            c.Nombre AS Cliente, 
+            e.Fecha_inicio, 
+            e.Hora_inicio, 
+            e.Hora_fin, 
+            STRING_AGG(CONCAT(emp.Nombre, ' ', emp.Apellido), ', ') AS EmpleadosAsignados
+        FROM 
+            Eventos e
+        INNER JOIN 
+            Clientes c ON e.Id_cliente = c.Id_cliente
+        LEFT JOIN 
+            Rol_Empleado_Evento ree ON e.Id_evento = ree.Id_evento
+        LEFT JOIN 
+            Empleados emp ON ree.Id_empleado = emp.Id_empleado
+        GROUP BY 
+            e.Id_evento, c.Nombre, e.Fecha_inicio, e.Hora_inicio, e.Hora_fin
+        ORDER BY 
+            e.Fecha_inicio DESC";
+
+            try
+            {
+                using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString))
+                {
+                    connection.Open();
+                    var adapter = new SqlDataAdapter(query, connection);
+                    var dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dgvEventos.DataSource = dataTable;
+
+                    // Ajustar nombres de columnas para mayor claridad
+                    dgvEventos.Columns["Id_evento"].HeaderText = "ID Evento";
+                    dgvEventos.Columns["Cliente"].HeaderText = "Cliente";
+                    dgvEventos.Columns["Fecha_inicio"].HeaderText = "Fecha Inicio";
+                    dgvEventos.Columns["Hora_inicio"].HeaderText = "Hora Inicio";
+                    dgvEventos.Columns["Hora_fin"].HeaderText = "Hora Fin";
+                    dgvEventos.Columns["EmpleadosAsignados"].HeaderText = "Empleados Asignados";
+
+                    // Ocultar columnas sensibles si es necesario
+                    if (dgvEventos.Columns["Id_evento"] != null)
+                        dgvEventos.Columns["Id_evento"].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los eventos: {ex.Message}", "Error");
+            }
+        }
+
+
+        private void Registerrol_Click(object sender, EventArgs e)
+        {
+            InsertEmpleadoEvento();
         }
     }
 }

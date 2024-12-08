@@ -91,10 +91,59 @@ namespace ShowTime_DatabseProject
             try
             {
                 dgvEmployees.DataSource = GetAllEmployees().ToList();
+                if (dgvEmployees.Columns["EstadoEmpleado"] != null)
+                {
+                    dgvEmployees.Columns["EstadoEmpleado"].HeaderText = "Estado";
+                    dgvEmployees.CellFormatting += DgvEmployees_CellFormatting;
+                }
+                if (dgvEmployees.Columns["EstadoEmpleadoNavigation"] != null)
+                    dgvEmployees.Columns["EstadoEmpleadoNavigation"].Visible = false;
+
+                if (dgvEmployees.Columns["RolEmpleadoEventos"] != null)
+                    dgvEmployees.Columns["RolEmpleadoEventos"].Visible = false;
+
+                if (dgvEmployees.Columns["Usuarios"] != null)
+                    dgvEmployees.Columns["Usuarios"].Visible = false;
+
+                if (dgvEmployees.Columns["IdEmpleado"] != null)
+                    dgvEmployees.Columns["IdEmpleado"].Visible = false;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+
+        /// <summary>
+        /// Evento para formatear las celdas del DataGridView.
+        /// Reemplaza los valores numéricos en la columna EstadoEmpleado con descripciones.
+        /// </summary>
+        private void DgvEmployees_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvEmployees.Columns[e.ColumnIndex].Name == "EstadoEmpleado" && e.Value != null)
+            {
+                // Convertir los valores numéricos a descripciones
+                switch (e.Value)
+                {
+                    case 1:
+                        e.Value = "Disponible";
+                        break;
+                    case 2:
+                        e.Value = "En Evento";
+                        break;
+                    case 3:
+                        e.Value = "Inactivo";
+                        break;
+                    default:
+                        e.Value = "Desconocido";
+                        break;
+                }
+
+                e.FormattingApplied = true; // Indica que el formato personalizado se ha aplicado
             }
         }
 

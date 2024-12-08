@@ -52,6 +52,8 @@ namespace ShowTime_DatabseProject
                     adapter.Fill(dataTable);
 
                     dgvServices.DataSource = dataTable;
+                    if (dgvServices.Columns["Id_servicio"] != null)
+                        dgvServices.Columns["Id_servicio"].Visible = false;
                 }
             }
             catch (Exception ex)

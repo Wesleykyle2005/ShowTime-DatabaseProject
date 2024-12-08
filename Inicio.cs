@@ -57,7 +57,9 @@ namespace ShowTime_DatabseProject
                             Detalles_adicionales AS Descripcion,
                             Cantidad_de_asistentes AS CantidadInvitados
                         FROM Eventos
-                        WHERE Fecha_inicio >= GETDATE()"; // Solo eventos futuros
+                        WHERE Fecha_inicio >= GETDATE()
+                        ORDER BY Fecha_inicio ASC
+                           "; // Solo eventos futuros
 
                     using (var command = new SqlCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -139,9 +141,12 @@ namespace ShowTime_DatabseProject
                     Text = $"{evento.Fecha.ToShortDateString()} - {evento.Descripcion} ({evento.CantidadInvitados} invitados)",
                     Width = 300,
                     Margin = new Padding(5),
-                    Font = new Font("Arial", 10, FontStyle.Regular),
-                    BackColor = Color.LightYellow,
-                    ForeColor = Color.DarkBlue,
+                    Font = new Font("Courier New", 10, FontStyle.Bold),
+                    BackColor = Color.FromArgb(150, 150, 150),
+                    ForeColor = Color.Black,
+                    BorderStyle = BorderStyle.None,
+                    Height = 50,                   
+                    Multiline = true,
                     ReadOnly = true // Hacer que los TextBox sean de solo lectura
                 };
 
