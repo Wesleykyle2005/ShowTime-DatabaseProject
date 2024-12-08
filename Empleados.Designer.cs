@@ -400,6 +400,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 229, 217);
             ClientSize = new Size(700, 500);
             Controls.Add(tableLayoutPanel1);
             Font = new Font("Courier New", 13F, FontStyle.Bold);

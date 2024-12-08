@@ -2,6 +2,7 @@
 using ShowTime_DatabseProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,7 +18,7 @@ namespace ShowTime_DatabseProject
         /// <summary>
         /// Cadena de conexión a la base de datos.
         /// </summary>
-        private readonly string connectionString = "Server=.; Database=DB_TeamSmile_ShowInfantil; Integrated Security=True; TrustServerCertificate=True";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
 
         public Empleados()
         {
@@ -100,7 +101,7 @@ namespace ShowTime_DatabseProject
         /// <summary>
         /// Maneja el evento de clic en el botón de registro de empleados.
         /// </summary>
-        private void btnRegisterEmployee_Click(object sender, EventArgs e)
+        private void btnRegisterEmployee_Click_1(object sender, EventArgs e)
         {
             if (!ValidateInputs()) return;
 

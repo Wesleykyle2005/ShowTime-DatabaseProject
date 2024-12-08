@@ -29,6 +29,9 @@ namespace ShowTime_DatabseProject
             LoadPaquetesServicios();
         }
 
+
+        
+
         /// <summary>
         /// Configura elementos visuales e inicializa eventos.
         /// </summary>

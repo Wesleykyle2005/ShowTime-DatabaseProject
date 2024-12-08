@@ -27,6 +27,7 @@ namespace ShowTime_DatabseProject
             this.StartPosition = FormStartPosition.CenterScreen;
             ConfigurarBotones();
             UpdateHorariosConFechaReserva();
+            CargarDepartamentosEnComboBox();
         }
 
         /// <summary>
@@ -84,8 +85,13 @@ namespace ShowTime_DatabseProject
                 throw new ArgumentException("La cantidad de asistentes debe ser un número mayor a 0.");
 
             // Validar Ubicación
-            if (string.IsNullOrWhiteSpace(txtUbicacion.Text))
-                throw new ArgumentException("La ubicación no puede estar vacía.");
+            // Validar que se haya seleccionado una ubicación en el ListBox
+            // Asignar la ubicación seleccionada desde el ComboBox
+            if (comboBoxDepartamentos.SelectedItem == null)
+                throw new ArgumentException("Debe seleccionar una ubicación válida.");
+
+            EventoTemp.Ubicacion = comboBoxDepartamentos.SelectedItem.ToString();
+
 
             // Validar Dirección
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
@@ -96,7 +102,7 @@ namespace ShowTime_DatabseProject
             EventoTemp.FechaInicio = txtHoraInicio.Value.Date;
             EventoTemp.HoraInicio = txtHoraInicio.Value.TimeOfDay;
             EventoTemp.HoraFin = txtHoraFin.Value.TimeOfDay;
-            EventoTemp.Ubicacion = txtUbicacion.Text.Trim();
+            EventoTemp.Ubicacion = comboBoxDepartamentos.SelectedItem.ToString();
             EventoTemp.Direccion = txtDireccion.Text.Trim();
             EventoTemp.CantidadAsistentes = cantidadAsistentes;
             EventoTemp.DetallesAdicionales = string.IsNullOrWhiteSpace(txtDetalles.Text) ? null : txtDetalles.Text.Trim();
@@ -134,5 +140,41 @@ namespace ShowTime_DatabseProject
         {
             UpdateHorariosConFechaReserva();
         }
+
+        private void CargarDepartamentosEnComboBox()
+        {
+            // Lista de departamentos y regiones autónomas de Nicaragua
+            List<string> departamentos = new List<string>
+    {
+        "Boaco",
+        "Carazo",
+        "Chinandega",
+        "Chontales",
+        "Estelí",
+        "Granada",
+        "Jinotega",
+        "León",
+        "Madriz",
+        "Managua",
+        "Masaya",
+        "Matagalpa",
+        "Nueva Segovia",
+        "Rivas",
+        "Río San Juan",
+        "Región Autónoma de la Costa Caribe Norte",
+        "Región Autónoma de la Costa Caribe Sur"
+    };
+
+            // Cargar la lista en el ComboBox
+            comboBoxDepartamentos.Items.AddRange(departamentos.ToArray());
+        }
+
+        // Llamar este método al iniciar el formulario
+        
+
+
+        // Llamar este método al iniciar el formulario
+       
+
     }
 }

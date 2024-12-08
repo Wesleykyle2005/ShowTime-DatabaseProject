@@ -124,6 +124,7 @@
             Passwordtexbox.Location = new Point(226, 115);
             Passwordtexbox.Margin = new Padding(6, 5, 6, 5);
             Passwordtexbox.Name = "Passwordtexbox";
+            Passwordtexbox.PasswordChar = '*';
             Passwordtexbox.Size = new Size(128, 27);
             Passwordtexbox.TabIndex = 8;
             // 
@@ -196,7 +197,7 @@
             Controls.Add(tableLayoutPanel2);
             Font = new Font("Courier New", 13F, FontStyle.Bold);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "LoginForm";
             Text = "LoginForm";
             tableLayoutPanel2.ResumeLayout(false);

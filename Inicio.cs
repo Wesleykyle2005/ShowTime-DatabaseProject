@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ShowTime_DatabseProject.Models;
 
 namespace ShowTime_DatabseProject
 {
@@ -33,12 +34,7 @@ namespace ShowTime_DatabseProject
         /// <summary>
         /// Clase que representa la información básica de un evento.
         /// </summary>
-        private class EventoInfo
-        {
-            public DateTime Fecha { get; set; }
-            public string Descripcion { get; set; }
-            public int CantidadInvitados { get; set; }
-        }
+        
 
         /// <summary>
         /// Carga los eventos futuros desde la base de datos y los almacena en una lista.

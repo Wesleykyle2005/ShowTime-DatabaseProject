@@ -8,20 +8,30 @@ using Microsoft.Data.SqlClient;
 
 namespace ShowTime_DatabseProject
 {
+    /// <summary>
+    /// Formulario para la gestión de servicios y sus relaciones con la utilería.
+    /// </summary>
     public partial class Servicios : Form
     {
-        string sqlServerConnectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
+        // Cadena de conexión a la base de datos, configurada en App.config
+        private readonly string sqlServerConnectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
 
+        /// <summary>
+        /// Constructor del formulario Servicios.
+        /// </summary>
         public Servicios()
         {
             InitializeComponent();
             LoadServicesWithUtileria();
             LoadUtileriaList();
+            // Aplica estilos a los botones utilizando un método auxiliar
             Utils.AgregarBordeInferiorConHover(btnRegisterService, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
             Utils.AgregarBordeInferiorConHover(btnUpdateService, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
-
         }
 
+        /// <summary>
+        /// Carga los servicios desde la base de datos, junto con su relación con utilería, y los muestra en el DataGridView.
+        /// </summary>
         private void LoadServicesWithUtileria()
         {
             try
@@ -29,8 +39,7 @@ namespace ShowTime_DatabseProject
                 using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
                 {
                     connection.Open();
-
-                    string query = @"
+                    const string query = @"
                         SELECT S.Id_servicio, S.Nombre_servicio, S.Descripcion, S.Costo, 
                                STRING_AGG(U.Nombre, ', ') AS Utilerias
                         FROM Servicios S
@@ -51,6 +60,9 @@ namespace ShowTime_DatabseProject
             }
         }
 
+        /// <summary>
+        /// Carga la lista de utilería disponible desde la base de datos y la muestra en un ListBox.
+        /// </summary>
         private void LoadUtileriaList()
         {
             try
@@ -58,15 +70,15 @@ namespace ShowTime_DatabseProject
                 using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
                 {
                     connection.Open();
+                    const string query = "SELECT Id_utileria, Nombre FROM Utileria";
 
-                    string query = "SELECT Id_utileria, Nombre FROM Utileria";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
 
                     UtileriaList.DataSource = dataTable;
-                    UtileriaList.DisplayMember = "Nombre";
-                    UtileriaList.ValueMember = "Id_utileria";
+                    UtileriaList.DisplayMember = "Nombre"; // Mostrar el nombre de la utilería
+                    UtileriaList.ValueMember = "Id_utileria"; // Usar el ID de la utilería como valor
                 }
             }
             catch (Exception ex)
@@ -75,13 +87,14 @@ namespace ShowTime_DatabseProject
             }
         }
 
+        /// <summary>
+        /// Maneja el registro de un nuevo servicio, incluyendo la asociación con utilería seleccionada.
+        /// </summary>
         private void btnRegisterService_Click(object sender, EventArgs e)
         {
             string serviceName = txtServiceName.Text.Trim();
             string serviceDescription = txtServiceDescription.Text.Trim();
-            decimal serviceCost;
-
-            if (!decimal.TryParse(txtServiceCost.Text, out serviceCost))
+            if (!decimal.TryParse(txtServiceCost.Text.Trim(), out decimal serviceCost))
             {
                 MessageBox.Show("Ingrese un costo válido (número decimal).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -98,31 +111,27 @@ namespace ShowTime_DatabseProject
                 using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
                 {
                     connection.Open();
-
-                    // Insertar el nuevo servicio
-                    string insertServiceQuery = @"
+                    // Inserta el servicio
+                    const string insertServiceQuery = @"
                         INSERT INTO Servicios (Nombre_servicio, Descripcion, Costo) 
                         VALUES (@Nombre, @Descripcion, @Costo);
                         SELECT SCOPE_IDENTITY();";
-
                     SqlCommand cmd = new SqlCommand(insertServiceQuery, connection);
                     cmd.Parameters.AddWithValue("@Nombre", serviceName);
                     cmd.Parameters.AddWithValue("@Descripcion", serviceDescription);
                     cmd.Parameters.AddWithValue("@Costo", serviceCost);
 
-                    // Obtener el ID del servicio recién insertado
                     int serviceId = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    // Insertar las relaciones en Servicio_Utileria
+                    // Inserta relaciones con utilería
                     foreach (var selectedUtileria in UtileriaList.SelectedItems)
                     {
                         DataRowView row = selectedUtileria as DataRowView;
                         int utileriaId = Convert.ToInt32(row["Id_utileria"]);
 
-                        string insertRelationQuery = @"
+                        const string insertRelationQuery = @"
                             INSERT INTO Servicio_Utileria (Id_servicio, Id_utileria) 
                             VALUES (@ServiceId, @UtileriaId)";
-
                         SqlCommand relationCmd = new SqlCommand(insertRelationQuery, connection);
                         relationCmd.Parameters.AddWithValue("@ServiceId", serviceId);
                         relationCmd.Parameters.AddWithValue("@UtileriaId", utileriaId);
@@ -139,81 +148,78 @@ namespace ShowTime_DatabseProject
             }
         }
 
+        /// <summary>
+        /// Maneja la actualización de un servicio existente y sus relaciones con utilería.
+        /// </summary>
         private void btnUpdateService_Click(object sender, EventArgs e)
         {
-            if (dgvServices.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvServices.SelectedRows[0];
-                int serviceId = Convert.ToInt32(selectedRow.Cells["Id_servicio"].Value);
-                string serviceName = txtServiceName.Text.Trim();
-                string serviceDescription = txtServiceDescription.Text.Trim();
-                decimal serviceCost;
-
-                if (!decimal.TryParse(txtServiceCost.Text, out serviceCost))
-                {
-                    MessageBox.Show("Ingrese un costo válido (número decimal).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (UtileriaList.SelectedItems.Count == 0)
-                {
-                    MessageBox.Show("Seleccione al menos una utilería para el servicio.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
-                    {
-                        connection.Open();
-
-                        // Actualizar los datos del servicio
-                        string updateServiceQuery = @"
-                            UPDATE Servicios 
-                            SET Nombre_servicio = @Nombre, Descripcion = @Descripcion, Costo = @Costo
-                            WHERE Id_servicio = @ServiceId";
-
-                        SqlCommand cmd = new SqlCommand(updateServiceQuery, connection);
-                        cmd.Parameters.AddWithValue("@Nombre", serviceName);
-                        cmd.Parameters.AddWithValue("@Descripcion", serviceDescription);
-                        cmd.Parameters.AddWithValue("@Costo", serviceCost);
-                        cmd.Parameters.AddWithValue("@ServiceId", serviceId);
-                        cmd.ExecuteNonQuery();
-
-                        // Eliminar las relaciones existentes en Servicio_Utileria
-                        string deleteRelationsQuery = "DELETE FROM Servicio_Utileria WHERE Id_servicio = @ServiceId";
-                        SqlCommand deleteCmd = new SqlCommand(deleteRelationsQuery, connection);
-                        deleteCmd.Parameters.AddWithValue("@ServiceId", serviceId);
-                        deleteCmd.ExecuteNonQuery();
-
-                        // Insertar las nuevas relaciones
-                        foreach (var selectedUtileria in UtileriaList.SelectedItems)
-                        {
-                            DataRowView row = selectedUtileria as DataRowView;
-                            int utileriaId = Convert.ToInt32(row["Id_utileria"]);
-
-                            string insertRelationQuery = @"
-                                INSERT INTO Servicio_Utileria (Id_servicio, Id_utileria) 
-                                VALUES (@ServiceId, @UtileriaId)";
-
-                            SqlCommand relationCmd = new SqlCommand(insertRelationQuery, connection);
-                            relationCmd.Parameters.AddWithValue("@ServiceId", serviceId);
-                            relationCmd.Parameters.AddWithValue("@UtileriaId", utileriaId);
-                            relationCmd.ExecuteNonQuery();
-                        }
-
-                        MessageBox.Show("Servicio actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadServicesWithUtileria();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al actualizar el servicio: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
+            if (dgvServices.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un servicio para actualizar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow selectedRow = dgvServices.SelectedRows[0];
+            int serviceId = Convert.ToInt32(selectedRow.Cells["Id_servicio"].Value);
+            string serviceName = txtServiceName.Text.Trim();
+            string serviceDescription = txtServiceDescription.Text.Trim();
+            if (!decimal.TryParse(txtServiceCost.Text.Trim(), out decimal serviceCost))
+            {
+                MessageBox.Show("Ingrese un costo válido (número decimal).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (UtileriaList.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Seleccione al menos una utilería para el servicio.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
+                {
+                    connection.Open();
+                    // Actualiza el servicio
+                    const string updateServiceQuery = @"
+                        UPDATE Servicios 
+                        SET Nombre_servicio = @Nombre, Descripcion = @Descripcion, Costo = @Costo
+                        WHERE Id_servicio = @ServiceId";
+                    SqlCommand cmd = new SqlCommand(updateServiceQuery, connection);
+                    cmd.Parameters.AddWithValue("@Nombre", serviceName);
+                    cmd.Parameters.AddWithValue("@Descripcion", serviceDescription);
+                    cmd.Parameters.AddWithValue("@Costo", serviceCost);
+                    cmd.Parameters.AddWithValue("@ServiceId", serviceId);
+                    cmd.ExecuteNonQuery();
+
+                    // Elimina relaciones existentes
+                    const string deleteRelationsQuery = "DELETE FROM Servicio_Utileria WHERE Id_servicio = @ServiceId";
+                    SqlCommand deleteCmd = new SqlCommand(deleteRelationsQuery, connection);
+                    deleteCmd.Parameters.AddWithValue("@ServiceId", serviceId);
+                    deleteCmd.ExecuteNonQuery();
+
+                    // Inserta nuevas relaciones
+                    foreach (var selectedUtileria in UtileriaList.SelectedItems)
+                    {
+                        DataRowView row = selectedUtileria as DataRowView;
+                        int utileriaId = Convert.ToInt32(row["Id_utileria"]);
+
+                        const string insertRelationQuery = @"
+                            INSERT INTO Servicio_Utileria (Id_servicio, Id_utileria) 
+                            VALUES (@ServiceId, @UtileriaId)";
+                        SqlCommand relationCmd = new SqlCommand(insertRelationQuery, connection);
+                        relationCmd.Parameters.AddWithValue("@ServiceId", serviceId);
+                        relationCmd.Parameters.AddWithValue("@UtileriaId", utileriaId);
+                        relationCmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Servicio actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadServicesWithUtileria();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el servicio: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

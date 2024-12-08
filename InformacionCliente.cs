@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,10 +12,15 @@ namespace ShowTime_DatabseProject
     /// </summary>
     public partial class InformacionCliente : Form
     {
+
+        private readonly string sqlServerConnectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
+
         public InformacionCliente()
         {
             InitializeComponent();
             ConfigureUI();
+            LoadClientesToDataGridView();
+            dgvClientes.CellClick += dgvClientes_CellClick;
         }
 
         /// <summary>
@@ -83,5 +91,49 @@ namespace ShowTime_DatabseProject
                      string.IsNullOrWhiteSpace(txtApellido.Text) ||
                      string.IsNullOrWhiteSpace(txtTelefono.Text));
         }
+
+
+
+        private void LoadClientesToDataGridView()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(sqlServerConnectionString))
+                {
+                    connection.Open();
+                    // Actualizamos la consulta para reflejar los campos correctos
+                    string query = "SELECT Nombre, Apellido, Telefono, Correo_electronico FROM Clientes";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dgvClientes.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los clientes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Asegúrate de que se ha seleccionado una fila válida
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = dgvClientes.Rows[e.RowIndex];
+
+                // Carga los datos de la fila seleccionada en los TextBox
+                txtNombre.Text = row.Cells["Nombre"].Value?.ToString() ?? string.Empty;
+                txtApellido.Text = row.Cells["Apellido"].Value?.ToString() ?? string.Empty;
+                txtTelefono.Text = row.Cells["Telefono"].Value?.ToString() ?? string.Empty;
+                txtCorreo.Text = row.Cells["Correo_electronico"].Value?.ToString() ?? string.Empty;
+            }
+        }
+
+        
     }
+
+
+
 }

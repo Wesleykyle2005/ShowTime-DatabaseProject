@@ -33,7 +33,6 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            txtUbicacion = new TextBox();
             txtDireccion = new TextBox();
             label7 = new Label();
             txtDetalles = new TextBox();
@@ -44,6 +43,7 @@
             dtpFechaReserva = new DateTimePicker();
             txtHoraInicio = new DateTimePicker();
             txtHoraFin = new DateTimePicker();
+            comboBoxDepartamentos = new ComboBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             CloseButton = new Button();
             continueButton = new Button();
@@ -86,7 +86,6 @@
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 1, 2);
-            tableLayoutPanel1.Controls.Add(txtUbicacion, 3, 0);
             tableLayoutPanel1.Controls.Add(txtDireccion, 3, 1);
             tableLayoutPanel1.Controls.Add(label7, 1, 6);
             tableLayoutPanel1.Controls.Add(txtDetalles, 3, 6);
@@ -97,6 +96,7 @@
             tableLayoutPanel1.Controls.Add(dtpFechaReserva, 3, 2);
             tableLayoutPanel1.Controls.Add(txtHoraInicio, 3, 3);
             tableLayoutPanel1.Controls.Add(txtHoraFin, 3, 4);
+            tableLayoutPanel1.Controls.Add(comboBoxDepartamentos, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 55);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -144,18 +144,6 @@
             label4.Size = new Size(65, 21);
             label4.TabIndex = 5;
             label4.Text = "Fecha";
-            // 
-            // txtUbicacion
-            // 
-            txtUbicacion.BackColor = Color.White;
-            txtUbicacion.BorderStyle = BorderStyle.None;
-            txtUbicacion.Dock = DockStyle.Fill;
-            txtUbicacion.Location = new Point(334, 4);
-            txtUbicacion.Margin = new Padding(4);
-            txtUbicacion.Multiline = true;
-            txtUbicacion.Name = "txtUbicacion";
-            txtUbicacion.Size = new Size(202, 24);
-            txtUbicacion.TabIndex = 7;
             // 
             // txtDireccion
             // 
@@ -265,6 +253,16 @@
             txtHoraFin.Size = new Size(204, 27);
             txtHoraFin.TabIndex = 19;
             // 
+            // comboBoxDepartamentos
+            // 
+            comboBoxDepartamentos.Dock = DockStyle.Fill;
+            comboBoxDepartamentos.FormattingEnabled = true;
+            comboBoxDepartamentos.Location = new Point(330, 0);
+            comboBoxDepartamentos.Margin = new Padding(0);
+            comboBoxDepartamentos.Name = "comboBoxDepartamentos";
+            comboBoxDepartamentos.Size = new Size(210, 28);
+            comboBoxDepartamentos.TabIndex = 20;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.BackColor = Color.FromArgb(157, 129, 137);
@@ -328,7 +326,6 @@
             label1.TabIndex = 2;
             label1.Text = "Informacion del evento";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            
             // 
             // DetallesDelEvento
             // 
@@ -357,7 +354,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox txtUbicacion;
         private TextBox txtDireccion;
         private TextBox EmailTextBox;
         private TableLayoutPanel tableLayoutPanel3;
@@ -373,5 +369,6 @@
         private DateTimePicker dtpFechaReserva;
         private DateTimePicker txtHoraInicio;
         private DateTimePicker txtHoraFin;
+        private ComboBox comboBoxDepartamentos;
     }
 }
