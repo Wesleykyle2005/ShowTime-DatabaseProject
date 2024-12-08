@@ -53,9 +53,6 @@ CREATE TABLE Eventos (
     CONSTRAINT FK_Evento_Paquete FOREIGN KEY (Id_paquete) REFERENCES Paquetes(Id_paquete)
 );
 
-
-
-
 -- 4. Tabla Servicios
 -- Almacena los servicios individuales que se pueden incluir en paquetes o eventos personalizados.
 CREATE TABLE Servicios (
@@ -66,8 +63,6 @@ CREATE TABLE Servicios (
 	CONSTRAINT CHK_Costo_Servicio CHECK (Costo > 0),      --Asegura que el costo del servicio no sea 0
 );
 
-
- 
 -- 5. Tabla Pagos
 -- Almacena los pagos realizados para cada reservación.
 CREATE TABLE Pagos (
@@ -94,9 +89,6 @@ CREATE TABLE Empleados (
     CONSTRAINT FK_Empleados_Estado_Empleado FOREIGN KEY (Estado_Empleado) REFERENCES Estado_Empleado(Id_estado)
 );
 
-
-
-
 --6.1 Tabla Estados del Empleado
 --Muestra los posibes estado del empelado en la empresa siempre cuando este activo
 CREATE TABLE Estado_Empleado (
@@ -109,7 +101,6 @@ INSERT INTO Estado_Empleado (Tipo_estado) VALUES ('En evento');
 INSERT INTO Estado_Empleado (Tipo_estado) VALUES ('Incapacidad laboral');
 INSERT INTO Estado_Empleado (Tipo_estado) VALUES ('Disponible');
 INSERT INTO Estado_Empleado (Tipo_estado) VALUES ('No disponible');
-
 
 -- 7. Tabla Cargos
 -- Define la accebilidad que tiene el usuario al programa.
@@ -149,8 +140,6 @@ CREATE TABLE Roles (
     Nombre_rol VARCHAR(100) NOT NULL,                  -- Nombre del rol (por ejemplo, "Decorador").
     Descripcion VARCHAR(MAX)                                   -- Descripción del rol.
 );
-
-
 
 -- Relaciones
 

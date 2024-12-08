@@ -156,6 +156,7 @@ END;
 GO
 
 --Triggers------------------------------------------------------------------------------------------------------
+--Evitar asignar a un empelado que ya tiene evento el mismo dia
 CREATE TRIGGER prevent_same_day_employee_assignment
 ON Rol_Empleado_Evento
 INSTEAD OF INSERT
@@ -184,28 +185,8 @@ BEGIN
     END
 END;
 
-/*--Validar que el pago inicial no sea mayor al costo total
-CREATE TRIGGER trg_ValidarPagoInicial
-ON Eventos
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    DECLARE @PagoInicial DECIMAL(10, 2), @CostoTotal DECIMAL(10, 2), @IdEvento INT;
-    
-    SELECT @PagoInicial = i.Pago_inicial, 
-           @CostoTotal = i.Costo_total,
-           @IdEvento = i.Id_evento
-    FROM inserted i;
-    
-    IF @PagoInicial > @CostoTotal
-    BEGIN
-        PRINT 'El pago inicial no puede ser mayor que el costo total.';
-        ROLLBACK;
-    END
-END;*/
-
 --Actualiza los paquetes para su disponibilidad------------------------
---Cuanbdo se usa un paquete
+--Cuanbdo se usa un paquete-------
 CREATE TRIGGER trg_RestarCantidadPaquete
 ON Eventos
 AFTER INSERT

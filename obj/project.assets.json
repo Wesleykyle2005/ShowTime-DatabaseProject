@@ -4705,19 +4705,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Wesley\\.nuget\\packages\\": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wesley\\Desktop\\ShowTime-DatabaseProject\\ShowTime-DatabseProject.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Source\\Repos\\Wesleykyle2005\\ShowTime-DatabaseProject\\ShowTime-DatabseProject.csproj",
       "projectName": "ShowTime-DatabseProject",
-      "projectPath": "C:\\Users\\Wesley\\Desktop\\ShowTime-DatabaseProject\\ShowTime-DatabseProject.csproj",
-      "packagesPath": "C:\\Users\\Wesley\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wesley\\Desktop\\ShowTime-DatabaseProject\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\Source\\Repos\\Wesleykyle2005\\ShowTime-DatabaseProject\\ShowTime-DatabseProject.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\Source\\Repos\\Wesleykyle2005\\ShowTime-DatabaseProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Wesley\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4803,7 +4808,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
