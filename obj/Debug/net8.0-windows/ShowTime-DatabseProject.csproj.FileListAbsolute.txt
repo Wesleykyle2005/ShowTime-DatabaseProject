@@ -557,3 +557,4 @@ C:\Users\DELL\Source\Repos\Wesleykyle2005\ShowTime-DatabaseProject\obj\Debug\net
 C:\Users\DELL\Source\Repos\Wesleykyle2005\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.pdb
 C:\Users\DELL\source\repos\Wesleykyle2005\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime-DatabseProject.genruntimeconfig.cache
 C:\Users\DELL\source\repos\Wesleykyle2005\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ref\ShowTime-DatabseProject.dll
+C:\Users\Wesley\Desktop\ShowTime-DatabaseProject\obj\Debug\net8.0-windows\ShowTime_DatabseProject.Clientes.resources

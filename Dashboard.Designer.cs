@@ -37,6 +37,7 @@
             serviceButton = new FontAwesome.Sharp.IconButton();
             utileriaButton = new FontAwesome.Sharp.IconButton();
             eventButton = new FontAwesome.Sharp.IconButton();
+            btnClientes = new FontAwesome.Sharp.IconButton();
             principalPanel = new TableLayoutPanel();
             PanelForm = new TableLayoutPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -45,7 +46,6 @@
             iconButton1 = new FontAwesome.Sharp.IconButton();
             UserLabel = new Label();
             CierreSesion = new FontAwesome.Sharp.IconButton();
-            btnClientes = new FontAwesome.Sharp.IconButton();
             sidebarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             principalPanel.SuspendLayout();
@@ -234,6 +234,27 @@
             eventButton.UseVisualStyleBackColor = true;
             eventButton.Click += eventButton_Click;
             // 
+            // btnClientes
+            // 
+            btnClientes.Dock = DockStyle.Fill;
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.Font = new Font("Courier New", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClientes.IconChar = FontAwesome.Sharp.IconChar.PersonRays;
+            btnClientes.IconColor = Color.Black;
+            btnClientes.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnClientes.IconSize = 24;
+            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClientes.Location = new Point(23, 402);
+            btnClientes.Margin = new Padding(3, 2, 3, 2);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(174, 36);
+            btnClientes.TabIndex = 5;
+            btnClientes.Text = "  Clientes";
+            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
+            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += btnClientes_Click;
+            // 
             // principalPanel
             // 
             principalPanel.ColumnCount = 2;
@@ -371,27 +392,6 @@
             CierreSesion.TabIndex = 0;
             CierreSesion.UseVisualStyleBackColor = true;
             CierreSesion.Click += CierreSesion_Click;
-            // 
-            // btnClientes
-            // 
-            btnClientes.Dock = DockStyle.Fill;
-            btnClientes.FlatAppearance.BorderSize = 0;
-            btnClientes.FlatStyle = FlatStyle.Flat;
-            btnClientes.Font = new Font("Courier New", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClientes.IconChar = FontAwesome.Sharp.IconChar.PersonRays;
-            btnClientes.IconColor = Color.Black;
-            btnClientes.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            btnClientes.IconSize = 24;
-            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClientes.Location = new Point(23, 402);
-            btnClientes.Margin = new Padding(3, 2, 3, 2);
-            btnClientes.Name = "btnClientes";
-            btnClientes.Size = new Size(174, 36);
-            btnClientes.TabIndex = 5;
-            btnClientes.Text = "  Clientes";
-            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
-            btnClientes.UseVisualStyleBackColor = true;
-            btnClientes.Click += btnClientes_Click;
             // 
             // Dashboard
             // 

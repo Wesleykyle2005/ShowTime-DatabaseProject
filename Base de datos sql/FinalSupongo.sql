@@ -83,11 +83,16 @@ CREATE TABLE Empleados (
     Apellido VARCHAR(100) NOT NULL,                    -- Apellido del empleado.
     Telefono VARCHAR(20)  Not Null,                    -- Teléfono de contacto del empleado.
     Email VARCHAR(100) Not null,                       -- Correo electrónico del empleado.
-    Estado_Empleado INT NOT NULL DEFAULT 3,
+    Estado_Empleado INT NOT NULL DEFAULT 1,
 	CONSTRAINT UC_Email UNIQUE (Email),                -- Restringe correos duplicados.
 	CONSTRAINT UC_telefono_Empleado UNIQUE (Telefono),  -- Restringe telefonos duplicados.
     CONSTRAINT FK_Empleados_Estado_Empleado FOREIGN KEY (Estado_Empleado) REFERENCES Estado_Empleado(Id_estado)
 );
+
+
+
+
+
 
 --6.1 Tabla Estados del Empleado
 --Muestra los posibes estado del empelado en la empresa siempre cuando este activo

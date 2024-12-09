@@ -47,6 +47,7 @@ namespace ShowTime_DatabseProject
             Utils.AgregarBordeInferiorConHover(serviceButton, colorBase, 3, colorHover, Color.Black);
             Utils.AgregarBordeInferiorConHover(paqueteButton, colorBase, 3, colorHover, Color.Black);
             Utils.AgregarBordeInferiorConHover(empleadoButton, colorBase, 3, colorHover, Color.Black);
+            Utils.AgregarBordeInferiorConHover(btnClientes, colorBase, 3, colorHover, Color.Black);
         }
 
         /// <summary>
@@ -154,7 +155,7 @@ namespace ShowTime_DatabseProject
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            CargarFormularioEnCelda(new Clientes(), PanelForm, 0, 1);
         }
     }
 }

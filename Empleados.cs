@@ -3,6 +3,7 @@ using ShowTime_DatabseProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -25,6 +26,8 @@ namespace ShowTime_DatabseProject
             InitializeComponent();
             ConfigureUI();
             LoadDataToDataGridView();
+            CargarCargosEnComboBox();
+            CargarEstadosEnComboBox();
         }
 
         /// <summary>
@@ -38,6 +41,43 @@ namespace ShowTime_DatabseProject
             Utils.AgregarBordeInferiorConHover(btnRegisterEmployee, baseColor, 3, hoverColor, Color.Black);
             Utils.AgregarBordeInferiorConHover(btnUpdateEmployee, baseColor, 3, hoverColor, Color.Black);
         }
+
+
+        private void CargarCargosEnComboBox()
+        {
+            try
+            {
+                // Consulta SQL para obtener los nombres e IDs de los cargos
+                string query = "SELECT Id_cargo, Nombre_cargo FROM Cargos";
+
+                // Crear la conexión y el comando
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // Abrir la conexión
+                    conn.Open();
+
+                    // Ejecutar la consulta y cargar los resultados en un DataTable
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable cargos = new DataTable();
+                    adapter.Fill(cargos);
+
+                    // Configurar el ComboBox
+                    comboBoxCargo.DataSource = cargos;
+                    comboBoxCargo.DisplayMember = "Nombre_cargo"; // Mostrar el nombre del cargo
+                    comboBoxCargo.ValueMember = "Id_cargo";      // Asociar el ID del cargo
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los cargos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+       
+
 
         /// <summary>
         /// Obtiene la lista de todos los empleados desde la base de datos.
@@ -136,16 +176,43 @@ namespace ShowTime_DatabseProject
                         e.Value = "En Evento";
                         break;
                     case 3:
-                        e.Value = "Inactivo";
+                        e.Value = "Incapacidad laboral";
                         break;
-                    default:
-                        e.Value = "Desconocido";
+                    case 4:
+                        e.Value = "No disponible";
                         break;
                 }
 
                 e.FormattingApplied = true; // Indica que el formato personalizado se ha aplicado
             }
         }
+        public class EstadoEmpleado
+        {
+            public int Id { get; set; }
+            public string Nombre { get; set; }
+        }
+
+
+        /// <summary>
+        /// Carga una lista predeterminada de estados en el ComboBox.
+        /// </summary>
+        private void CargarEstadosEnComboBox()
+        {
+            // Lista predeterminada de estados
+            var estados = new List<EstadoEmpleado>
+            {
+                new EstadoEmpleado { Id = 1, Nombre = "Disponible" },
+                new EstadoEmpleado { Id = 2, Nombre = "En Evento" },
+                new EstadoEmpleado { Id = 3, Nombre = "Incapacidad laboral" },
+                new EstadoEmpleado { Id = 4, Nombre = "No disponible" }
+            };
+
+            // Configurar el ComboBox
+            comboBoxEstado.DataSource = estados;
+            comboBoxEstado.DisplayMember = "Nombre"; // Mostrar el nombre del estado
+            comboBoxEstado.ValueMember = "Id";       // Usar el ID como valor
+        }
+
 
         /// <summary>
         /// Maneja el evento de clic en el botón de registro de empleados.
@@ -175,15 +242,16 @@ namespace ShowTime_DatabseProject
                         SqlCommand cmdEmpleado = new SqlCommand(queryInsertEmpleado, conn, transaction);
                         cmdEmpleado.Parameters.AddWithValue("@Nombre", TxtEmployeeName.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@Apellido", txtEmployeeLastName.Text.Trim());
-                        cmdEmpleado.Parameters.AddWithValue("@Telefono", txtEmployeeNumber.Text.Trim());
+                        cmdEmpleado.Parameters.AddWithValue("@Telefono", numTelefono.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@Email", txtEmployeeEmail.Text.Trim());
-                        cmdEmpleado.Parameters.AddWithValue("@EstadoEmpleado", 3); // Default: Disponible
+                        cmdEmpleado.Parameters.AddWithValue("@EstadoEmpleado", comboBoxEstado.SelectedValue);
+
                         int idEmpleado = (int)cmdEmpleado.ExecuteScalar();
 
                         // Insertar usuario asociado
                         SqlCommand cmdUsuario = new SqlCommand(queryInsertUsuario, conn, transaction);
                         cmdUsuario.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
-                        cmdUsuario.Parameters.AddWithValue("@IdCargo", 2); // Default: Empleado
+                        cmdUsuario.Parameters.AddWithValue("@IdCargo", comboBoxCargo.SelectedValue); // Default: Empleado
                         cmdUsuario.Parameters.AddWithValue("@NombreUsuario", txtUser.Text.Trim());
                         cmdUsuario.Parameters.AddWithValue("@Contrasena", encryptedPassword);
                         cmdUsuario.Parameters.AddWithValue("@Estado", 1); // Activo por defecto
@@ -240,7 +308,7 @@ namespace ShowTime_DatabseProject
                         cmdEmpleado.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
                         cmdEmpleado.Parameters.AddWithValue("@Nombre", TxtEmployeeName.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@Apellido", txtEmployeeLastName.Text.Trim());
-                        cmdEmpleado.Parameters.AddWithValue("@Telefono", txtEmployeeNumber.Text.Trim());
+                        cmdEmpleado.Parameters.AddWithValue("@Telefono", numTelefono.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@Email", txtEmployeeEmail.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@EstadoEmpleado", 3);
                         cmdEmpleado.ExecuteNonQuery();
@@ -274,7 +342,7 @@ namespace ShowTime_DatabseProject
         {
             if (string.IsNullOrWhiteSpace(TxtEmployeeName.Text) ||
                 string.IsNullOrWhiteSpace(txtEmployeeLastName.Text) ||
-                string.IsNullOrWhiteSpace(txtEmployeeNumber.Text) ||
+                string.IsNullOrWhiteSpace(numTelefono.Text) ||
                 string.IsNullOrWhiteSpace(txtEmployeeEmail.Text) ||
                 string.IsNullOrWhiteSpace(txtUser.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -293,7 +361,7 @@ namespace ShowTime_DatabseProject
         {
             TxtEmployeeName.Clear();
             txtEmployeeLastName.Clear();
-            txtEmployeeNumber.Clear();
+            numTelefono.ResetText();
             txtEmployeeEmail.Clear();
             txtUser.Clear();
             txtPassword.Clear();

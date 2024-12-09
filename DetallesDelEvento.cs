@@ -145,25 +145,25 @@ namespace ShowTime_DatabseProject
         {
             // Lista de departamentos y regiones autónomas de Nicaragua
             List<string> departamentos = new List<string>
-    {
-        "Boaco",
-        "Carazo",
-        "Chinandega",
-        "Chontales",
-        "Estelí",
-        "Granada",
-        "Jinotega",
-        "León",
-        "Madriz",
-        "Managua",
-        "Masaya",
-        "Matagalpa",
-        "Nueva Segovia",
-        "Rivas",
-        "Río San Juan",
-        "Región Autónoma de la Costa Caribe Norte",
-        "Región Autónoma de la Costa Caribe Sur"
-    };
+            {
+                "Boaco",
+                "Carazo",
+                "Chinandega",
+                "Chontales",
+                "Estelí",
+                "Granada",
+                "Jinotega",
+                "León",
+                "Madriz",
+                "Managua",
+                "Masaya",
+                "Matagalpa",
+                "Nueva Segovia",
+                "Rivas",
+                "Río San Juan",
+                "Región Autónoma de la Costa Caribe Norte",
+                "Región Autónoma de la Costa Caribe Sur"
+            };
 
             // Cargar la lista en el ComboBox
             comboBoxDepartamentos.Items.AddRange(departamentos.ToArray());
