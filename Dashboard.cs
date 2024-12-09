@@ -151,5 +151,10 @@ namespace ShowTime_DatabseProject
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

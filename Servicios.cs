@@ -96,7 +96,7 @@ namespace ShowTime_DatabseProject
         {
             string serviceName = txtServiceName.Text.Trim();
             string serviceDescription = txtServiceDescription.Text.Trim();
-            if (!decimal.TryParse(txtServiceCost.Text.Trim(), out decimal serviceCost))
+            if (!decimal.TryParse(numCosto.Text.Trim(), out decimal serviceCost))
             {
                 MessageBox.Show("Ingrese un costo válido (número decimal).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -165,7 +165,7 @@ namespace ShowTime_DatabseProject
             int serviceId = Convert.ToInt32(selectedRow.Cells["Id_servicio"].Value);
             string serviceName = txtServiceName.Text.Trim();
             string serviceDescription = txtServiceDescription.Text.Trim();
-            if (!decimal.TryParse(txtServiceCost.Text.Trim(), out decimal serviceCost))
+            if (!decimal.TryParse(numCosto.Text.Trim(), out decimal serviceCost))
             {
                 MessageBox.Show("Ingrese un costo válido (número decimal).", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

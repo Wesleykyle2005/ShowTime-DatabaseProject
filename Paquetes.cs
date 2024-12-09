@@ -120,14 +120,14 @@ namespace ShowTime_DatabseProject
             decimal packageCost;
 
             // Validación de costo
-            if (!decimal.TryParse(txtPackageCost.Text.Trim(), out packageCost))
+            if (!decimal.TryParse(numCosto.Text.Trim(), out packageCost))
             {
                 MessageBox.Show("El costo del paquete debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             int cantidad;
-            if (!int.TryParse(comboboxCantidad.Text.Trim(), out cantidad))
+            if (!int.TryParse(numCantidad.Text.Trim(), out cantidad))
             {
                 MessageBox.Show("La cantidad debe ser un número entero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -209,14 +209,14 @@ namespace ShowTime_DatabseProject
             decimal packageCost;
 
             // Validación de costo
-            if (!decimal.TryParse(txtPackageCost.Text.Trim(), out packageCost))
+            if (!decimal.TryParse(numCosto.Text.Trim(), out packageCost))
             {
                 MessageBox.Show("El costo del paquete debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             int cantidad;
-            if (!int.TryParse(comboboxCantidad.Text.Trim(), out cantidad))
+            if (!int.TryParse(numCantidad.Text.Trim(), out cantidad))
             {
                 MessageBox.Show("La cantidad debe ser un número entero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

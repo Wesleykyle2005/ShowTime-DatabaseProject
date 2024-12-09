@@ -33,18 +33,18 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            numMontoInicial = new NumericUpDown();
             label5 = new Label();
             txtCostoTotal = new TextBox();
-            txtMontoInicial = new TextBox();
             listBoxPaquetes = new ListBox();
             listBoxServicios = new ListBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             CloseButton = new Button();
             registerEvent = new Button();
             label1 = new Label();
-            lblErrorMontoInicial = new Label();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numMontoInicial).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +57,6 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 3);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(lblErrorMontoInicial, 0, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Font = new Font("Courier New", 13F, FontStyle.Bold);
             tableLayoutPanel2.Location = new Point(0, 0);
@@ -84,9 +83,9 @@
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 1, 2);
+            tableLayoutPanel1.Controls.Add(numMontoInicial, 3, 3);
             tableLayoutPanel1.Controls.Add(label5, 1, 3);
             tableLayoutPanel1.Controls.Add(txtCostoTotal, 3, 2);
-            tableLayoutPanel1.Controls.Add(txtMontoInicial, 3, 3);
             tableLayoutPanel1.Controls.Add(listBoxPaquetes, 3, 1);
             tableLayoutPanel1.Controls.Add(listBoxServicios, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -135,6 +134,14 @@
             label4.TabIndex = 5;
             label4.Text = "Costo total";
             // 
+            // numMontoInicial
+            // 
+            numMontoInicial.Dock = DockStyle.Fill;
+            numMontoInicial.Location = new Point(333, 147);
+            numMontoInicial.Name = "numMontoInicial";
+            numMontoInicial.Size = new Size(204, 27);
+            numMontoInicial.TabIndex = 3;
+            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -154,19 +161,9 @@
             txtCostoTotal.Location = new Point(333, 99);
             txtCostoTotal.Multiline = true;
             txtCostoTotal.Name = "txtCostoTotal";
+            txtCostoTotal.ReadOnly = true;
             txtCostoTotal.Size = new Size(204, 42);
             txtCostoTotal.TabIndex = 9;
-            // 
-            // txtMontoInicial
-            // 
-            txtMontoInicial.BackColor = Color.White;
-            txtMontoInicial.BorderStyle = BorderStyle.None;
-            txtMontoInicial.Dock = DockStyle.Fill;
-            txtMontoInicial.Location = new Point(333, 147);
-            txtMontoInicial.Multiline = true;
-            txtMontoInicial.Name = "txtMontoInicial";
-            txtMontoInicial.Size = new Size(204, 42);
-            txtMontoInicial.TabIndex = 10;
             // 
             // listBoxPaquetes
             // 
@@ -255,17 +252,6 @@
             label1.TabIndex = 2;
             label1.Text = "Informacion de paquetes y servicios";
             // 
-            // lblErrorMontoInicial
-            // 
-            lblErrorMontoInicial.AutoSize = true;
-            lblErrorMontoInicial.BackColor = Color.FromArgb(157, 129, 137);
-            lblErrorMontoInicial.Dock = DockStyle.Fill;
-            lblErrorMontoInicial.Location = new Point(3, 247);
-            lblErrorMontoInicial.Name = "lblErrorMontoInicial";
-            lblErrorMontoInicial.Size = new Size(594, 55);
-            lblErrorMontoInicial.TabIndex = 66;
-            lblErrorMontoInicial.Text = " ";
-            // 
             // InformacionPaquetesServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -280,6 +266,7 @@
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numMontoInicial).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -293,13 +280,12 @@
         private Label label4;
         private Label label5;
         private TextBox txtCostoTotal;
-        private TextBox txtMontoInicial;
         private TableLayoutPanel tableLayoutPanel3;
         private Button CloseButton;
         private Button registerEvent;
         private Label label1;
         private ListBox listBoxPaquetes;
         private ListBox listBoxServicios;
-        private Label lblErrorMontoInicial;
+        private NumericUpDown numMontoInicial;
     }
 }

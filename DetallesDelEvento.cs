@@ -81,7 +81,7 @@ namespace ShowTime_DatabseProject
                 throw new ArgumentException("La hora de fin debe ser posterior a la hora de inicio.");
 
             // Validar CantidadAsistentes
-            if (!int.TryParse(txtCantidadAsistentes.Text, out int cantidadAsistentes) || cantidadAsistentes <= 0)
+            if (!int.TryParse(numAsistentes.Text, out int cantidadAsistentes) || cantidadAsistentes <= 0)
                 throw new ArgumentException("La cantidad de asistentes debe ser un número mayor a 0.");
 
             // Validar Ubicación

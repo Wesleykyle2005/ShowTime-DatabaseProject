@@ -35,7 +35,6 @@
             btnUpdateUtileria = new Button();
             btnRegisterProp = new Button();
             label2 = new Label();
-            txtPropQuantity = new TextBox();
             label1 = new Label();
             txtPropName = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -46,6 +45,7 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             panel3 = new Panel();
             tableLayoutPanel5 = new TableLayoutPanel();
+            numCantidad = new NumericUpDown();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvUtileria).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -56,6 +56,7 @@
             tableLayoutPanel4.SuspendLayout();
             panel3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
             SuspendLayout();
             // 
             // dgvUtileria
@@ -147,15 +148,6 @@
             label2.Size = new Size(98, 56);
             label2.TabIndex = 67;
             label2.Text = "Cantidad";
-            // 
-            // txtPropQuantity
-            // 
-            txtPropQuantity.Dock = DockStyle.Top;
-            txtPropQuantity.Location = new Point(135, 56);
-            txtPropQuantity.Margin = new Padding(0);
-            txtPropQuantity.Name = "txtPropQuantity";
-            txtPropQuantity.Size = new Size(315, 27);
-            txtPropQuantity.TabIndex = 66;
             // 
             // label1
             // 
@@ -287,9 +279,9 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             tableLayoutPanel5.Controls.Add(label2, 0, 1);
-            tableLayoutPanel5.Controls.Add(txtPropQuantity, 1, 1);
             tableLayoutPanel5.Controls.Add(label1, 0, 0);
             tableLayoutPanel5.Controls.Add(txtPropName, 1, 0);
+            tableLayoutPanel5.Controls.Add(numCantidad, 1, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(0, 0);
             tableLayoutPanel5.Margin = new Padding(4);
@@ -299,6 +291,15 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.Size = new Size(450, 112);
             tableLayoutPanel5.TabIndex = 68;
+            // 
+            // numCantidad
+            // 
+            numCantidad.Dock = DockStyle.Fill;
+            numCantidad.Location = new Point(138, 59);
+            numCantidad.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numCantidad.Name = "numCantidad";
+            numCantidad.Size = new Size(309, 27);
+            numCantidad.TabIndex = 68;
             // 
             // label3
             // 
@@ -331,6 +332,7 @@
             panel3.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();
             ResumeLayout(false);
         }
 
@@ -340,7 +342,6 @@
         private Button btnUpdateUtileria;
         private Button btnRegisterProp;
         private Label label2;
-        private TextBox txtPropQuantity;
         private Label label1;
         private TextBox txtPropName;
         private TableLayoutPanel tableLayoutPanel1;
@@ -352,5 +353,6 @@
         private Panel panel3;
         private TableLayoutPanel tableLayoutPanel5;
         private Label label3;
+        private NumericUpDown numCantidad;
     }
 }

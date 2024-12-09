@@ -111,6 +111,7 @@ namespace ShowTime_DatabseProject
             {
                 using (var informacionCliente = new InformacionCliente())
                 {
+                    informacionCliente.FormClosed += (s, e) => LoadEventosData();
                     informacionCliente.ShowDialog(this);
                 }
             }

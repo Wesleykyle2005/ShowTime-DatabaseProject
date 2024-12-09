@@ -30,10 +30,10 @@ namespace ShowTime_DatabseProject
         }
 
 
-        
+
 
         /// <summary>
-        /// Configura elementos visuales e inicializa eventos.
+        /// Configura eventos y límites iniciales para controles.
         /// </summary>
         private void ConfigureUI()
         {
@@ -46,9 +46,20 @@ namespace ShowTime_DatabseProject
             Utils.AgregarBordeInferiorConHover(registerEvent, baseColor, 3, hoverColor, Color.Black);
             Utils.AgregarBordeInferiorConHover(CloseButton, baseColor, 3, hoverColor, Color.Black);
 
-            // Eventos para validación y cálculo
-            txtMontoInicial.TextChanged += txtMontoInicial_TextChanged;
+            // Configurar el NumericUpDown
+            numMontoInicial.DecimalPlaces = 2;
+            numMontoInicial.Minimum = 0;
+            numMontoInicial.Maximum = 1000000; // Valor alto inicial, ajustado dinámicamente en CalculateTotalCost
+
+            // Eventos para cálculo
+            txtCostoTotal.TextChanged += (_, _) => CalculateTotalCost();
+           
         }
+
+
+
+ 
+
 
         /// <summary>
         /// Maneja el evento del botón "Registrar Evento".
@@ -72,6 +83,9 @@ namespace ShowTime_DatabseProject
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        public event Action OnCloseRequested;
 
         /// <summary>
         /// Cierra el formulario.
@@ -107,22 +121,48 @@ namespace ShowTime_DatabseProject
         /// </summary>
         private void CalculateTotalCost()
         {
-            decimal totalCost = 0;
-
-            // Sumar el costo del paquete seleccionado
-            if (listBoxPaquetes.SelectedItem is DataRowView paquete)
+            try
             {
-                totalCost += (decimal)paquete["Costo"];
-            }
+                decimal totalCost = 0;
 
-            // Sumar el costo de los servicios seleccionados
-            foreach (DataRowView servicio in listBoxServicios.SelectedItems)
+                // Sumar el costo del paquete seleccionado
+                if (listBoxPaquetes.SelectedItem is DataRowView paquete)
+                {
+                    if (paquete["Costo"] is decimal costoPaquete)
+                    {
+                        totalCost += costoPaquete;
+                    }
+                    else
+                    {
+                        throw new InvalidCastException("El costo del paquete no es un valor decimal.");
+                    }
+                }
+
+                // Sumar el costo de los servicios seleccionados
+                foreach (DataRowView servicio in listBoxServicios.SelectedItems)
+                {
+                    if (servicio["Costo"] is decimal costoServicio)
+                    {
+                        totalCost += costoServicio;
+                    }
+                    else
+                    {
+                        throw new InvalidCastException("El costo del servicio no es un valor decimal.");
+                    }
+                }
+
+                txtCostoTotal.Text = totalCost.ToString("F2");
+
+                // Configurar el rango del NumericUpDown
+                numMontoInicial.Maximum = totalCost;
+                numMontoInicial.Value = Math.Min(numMontoInicial.Value, totalCost);
+            }
+            catch (Exception ex)
             {
-                totalCost += (decimal)servicio["Costo"];
+                MessageBox.Show($"Error calculando el costo total: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            txtCostoTotal.Text = totalCost.ToString("F2");
         }
+
 
         /// <summary>
         /// Rellena un ListBox con datos de una consulta SQL.
@@ -161,50 +201,15 @@ namespace ShowTime_DatabseProject
                 .ToList();
 
             // Validar montos
-            if (!decimal.TryParse(txtMontoInicial.Text, out var montoInicial) || montoInicial <= 0)
-                throw new ArgumentException("El monto inicial debe ser un número positivo.");
+            decimal montoInicial = numMontoInicial.Value;
 
-            if (!decimal.TryParse(txtCostoTotal.Text, out var costoTotal) || costoTotal <= 0)
-                throw new ArgumentException("El costo total debe ser un número positivo.");
+            _eventoInfo.CostoTotal = decimal.Parse(txtCostoTotal.Text);
 
-            if (montoInicial < (costoTotal * 0.5m))
-                throw new ArgumentException("El monto inicial no puede ser menor al 50% del costo total.");
-
-            if (montoInicial > costoTotal)
-                throw new ArgumentException("El monto inicial no puede ser mayor al costo total.");
 
             _eventoInfo.MontoInicial = montoInicial;
-            _eventoInfo.CostoTotal = costoTotal;
         }
 
-        /// <summary>
-        /// Muestra errores relacionados al monto inicial.
-        /// </summary>
-        private void txtMontoInicial_TextChanged(object sender, EventArgs e)
-        {
-            if (decimal.TryParse(txtMontoInicial.Text, out var montoInicial) &&
-                decimal.TryParse(txtCostoTotal.Text, out var costoTotal))
-            {
-                if (montoInicial < (costoTotal * 0.5m))
-                {
-                    lblErrorMontoInicial.Text = "El monto inicial debe ser al menos el 50% del costo total.";
-                    lblErrorMontoInicial.Visible = true;
-                }
-                else if (montoInicial > costoTotal)
-                {
-                    lblErrorMontoInicial.Text = "El monto inicial no puede superar el costo total.";
-                    lblErrorMontoInicial.Visible = true;
-                }
-                else
-                {
-                    lblErrorMontoInicial.Visible = false;
-                }
-            }
-            else
-            {
-                lblErrorMontoInicial.Visible = false;
-            }
-        }
+       
 
         /// <summary>
         /// Guarda los datos del evento y sus relaciones en la base de datos.
@@ -223,7 +228,12 @@ namespace ShowTime_DatabseProject
                         int idCliente = InsertCliente(connection, transaction);
                         int idEvento = InsertEvento(connection, transaction, idCliente);
                         InsertEventoServicios(connection, transaction, idEvento);
-                        InsertPago(connection, transaction, idEvento);
+
+                        // Solo insertar el pago inicial si el monto es mayor a 0
+                        if (_eventoInfo.MontoInicial > 0)
+                        {
+                            InsertPago(connection, transaction, idEvento);
+                        }
 
                         transaction.Commit();
                     }
@@ -244,15 +254,13 @@ namespace ShowTime_DatabseProject
             // Consulta para verificar si el cliente ya existe
             var checkQuery = @"SELECT Id_cliente 
                        FROM Clientes 
-                       WHERE Nombre = @Nombre 
-                         AND Apellido = @Apellido 
-                         AND Telefono = @Telefono 
+                       WHERE  
+                          Telefono = @Telefono 
                          AND Correo_electronico = @Correo";
 
             // Creamos el comando para verificar la existencia
             var checkCommand = new SqlCommand(checkQuery, connection, transaction);
-            checkCommand.Parameters.AddWithValue("@Nombre", _eventoInfo.NombreCliente);
-            checkCommand.Parameters.AddWithValue("@Apellido", _eventoInfo.ApellidoCliente);
+            
             checkCommand.Parameters.AddWithValue("@Telefono", _eventoInfo.TelefonoCliente);
             checkCommand.Parameters.AddWithValue("@Correo", (object)_eventoInfo.CorreoCliente ?? DBNull.Value);
 

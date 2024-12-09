@@ -34,9 +34,9 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
-            label3 = new Label();
             numericMontoPago = new NumericUpDown();
             comboBoxMetodoPago = new ComboBox();
+            label3 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             CloseButton = new Button();
             btnRealizarPagos = new Button();
@@ -80,10 +80,10 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.Controls.Add(label2, 1, 0);
-            tableLayoutPanel1.Controls.Add(label3, 1, 1);
+            tableLayoutPanel1.Controls.Add(label2, 1, 1);
             tableLayoutPanel1.Controls.Add(numericMontoPago, 3, 0);
             tableLayoutPanel1.Controls.Add(comboBoxMetodoPago, 3, 1);
+            tableLayoutPanel1.Controls.Add(label3, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 55);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -97,22 +97,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 0);
+            label2.Location = new Point(34, 41);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(164, 21);
             label2.TabIndex = 3;
             label2.Text = "Metodo de pago";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(34, 41);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 21);
-            label3.TabIndex = 4;
-            label3.Text = "Monto";
             // 
             // numericMontoPago
             // 
@@ -127,12 +117,23 @@
             // comboBoxMetodoPago
             // 
             comboBoxMetodoPago.Dock = DockStyle.Fill;
+            comboBoxMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMetodoPago.FormattingEnabled = true;
             comboBoxMetodoPago.Location = new Point(330, 41);
             comboBoxMetodoPago.Margin = new Padding(0);
             comboBoxMetodoPago.Name = "comboBoxMetodoPago";
             comboBoxMetodoPago.Size = new Size(210, 28);
             comboBoxMetodoPago.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(34, 0);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 21);
+            label3.TabIndex = 4;
+            label3.Text = "Monto";
             // 
             // tableLayoutPanel3
             // 

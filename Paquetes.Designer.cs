@@ -36,7 +36,6 @@
             label1 = new Label();
             txtPackageName = new TextBox();
             label2 = new Label();
-            txtPackageCost = new TextBox();
             btnUpdatePackage = new Button();
             btnRegisterPackage = new Button();
             label4 = new Label();
@@ -48,10 +47,13 @@
             comboBoxDisponibilidad = new ComboBox();
             ServicesListBox = new ListBox();
             label7 = new Label();
-            comboboxCantidad = new TextBox();
+            numCantidad = new NumericUpDown();
+            numCosto = new NumericUpDown();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
             tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numCosto).BeginInit();
             SuspendLayout();
             // 
             // label3
@@ -104,16 +106,6 @@
             label2.Size = new Size(65, 21);
             label2.TabIndex = 40;
             label2.Text = "Costo";
-            // 
-            // txtPackageCost
-            // 
-            txtPackageCost.Dock = DockStyle.Fill;
-            txtPackageCost.Location = new Point(144, 70);
-            txtPackageCost.Margin = new Padding(4);
-            txtPackageCost.Multiline = true;
-            txtPackageCost.Name = "txtPackageCost";
-            txtPackageCost.Size = new Size(412, 25);
-            txtPackageCost.TabIndex = 39;
             // 
             // btnUpdatePackage
             // 
@@ -238,14 +230,14 @@
             tableLayoutPanel2.Controls.Add(btnRegisterPackage, 2, 0);
             tableLayoutPanel2.Controls.Add(txtPackageName, 1, 0);
             tableLayoutPanel2.Controls.Add(txtPackageDescription, 1, 1);
-            tableLayoutPanel2.Controls.Add(txtPackageCost, 1, 2);
             tableLayoutPanel2.Controls.Add(label6, 0, 0);
             tableLayoutPanel2.Controls.Add(label5, 0, 5);
             tableLayoutPanel2.Controls.Add(comboBoxDisponibilidad, 1, 5);
             tableLayoutPanel2.Controls.Add(ServicesListBox, 1, 4);
             tableLayoutPanel2.Controls.Add(label4, 0, 4);
             tableLayoutPanel2.Controls.Add(label7, 0, 3);
-            tableLayoutPanel2.Controls.Add(comboboxCantidad, 1, 3);
+            tableLayoutPanel2.Controls.Add(numCantidad, 1, 3);
+            tableLayoutPanel2.Controls.Add(numCosto, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 50);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -316,15 +308,23 @@
             label7.TabIndex = 69;
             label7.Text = "Cantidad";
             // 
-            // comboboxCantidad
+            // numCantidad
             // 
-            comboboxCantidad.Dock = DockStyle.Fill;
-            comboboxCantidad.Location = new Point(144, 103);
-            comboboxCantidad.Margin = new Padding(4);
-            comboboxCantidad.Multiline = true;
-            comboboxCantidad.Name = "comboboxCantidad";
-            comboboxCantidad.Size = new Size(412, 25);
-            comboboxCantidad.TabIndex = 70;
+            numCantidad.Dock = DockStyle.Fill;
+            numCantidad.Location = new Point(143, 102);
+            numCantidad.Name = "numCantidad";
+            numCantidad.Size = new Size(414, 27);
+            numCantidad.TabIndex = 70;
+            // 
+            // numCosto
+            // 
+            numCosto.DecimalPlaces = 2;
+            numCosto.Dock = DockStyle.Fill;
+            numCosto.Location = new Point(143, 69);
+            numCosto.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            numCosto.Name = "numCosto";
+            numCosto.Size = new Size(414, 27);
+            numCosto.TabIndex = 71;
             // 
             // Paquetes
             // 
@@ -341,6 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numCosto).EndInit();
             ResumeLayout(false);
         }
 
@@ -350,7 +352,6 @@
         private Label label1;
         private TextBox txtPackageName;
         private Label label2;
-        private TextBox txtPackageCost;
         private Button btnFiltlerPackage;
         private Button btnDeletePackage;
         private Button btnUpdatePackage;
@@ -365,6 +366,7 @@
         private Label label6;
         private ListBox ServicesListBox;
         private Label label7;
-        private TextBox comboboxCantidad;
+        private NumericUpDown numCantidad;
+        private NumericUpDown numCosto;
     }
 }

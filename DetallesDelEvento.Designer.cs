@@ -36,7 +36,6 @@
             txtDireccion = new TextBox();
             label7 = new Label();
             txtDetalles = new TextBox();
-            txtCantidadAsistentes = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label8 = new Label();
@@ -44,12 +43,14 @@
             txtHoraInicio = new DateTimePicker();
             txtHoraFin = new DateTimePicker();
             comboBoxDepartamentos = new ComboBox();
+            numAsistentes = new NumericUpDown();
             tableLayoutPanel3 = new TableLayoutPanel();
             CloseButton = new Button();
             continueButton = new Button();
             label1 = new Label();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numAsistentes).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,7 +90,6 @@
             tableLayoutPanel1.Controls.Add(txtDireccion, 3, 1);
             tableLayoutPanel1.Controls.Add(label7, 1, 6);
             tableLayoutPanel1.Controls.Add(txtDetalles, 3, 6);
-            tableLayoutPanel1.Controls.Add(txtCantidadAsistentes, 3, 5);
             tableLayoutPanel1.Controls.Add(label6, 1, 5);
             tableLayoutPanel1.Controls.Add(label5, 1, 3);
             tableLayoutPanel1.Controls.Add(label8, 1, 4);
@@ -97,6 +97,7 @@
             tableLayoutPanel1.Controls.Add(txtHoraInicio, 3, 3);
             tableLayoutPanel1.Controls.Add(txtHoraFin, 3, 4);
             tableLayoutPanel1.Controls.Add(comboBoxDepartamentos, 3, 0);
+            tableLayoutPanel1.Controls.Add(numAsistentes, 3, 5);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 55);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -180,18 +181,6 @@
             txtDetalles.Size = new Size(202, 20);
             txtDetalles.TabIndex = 14;
             // 
-            // txtCantidadAsistentes
-            // 
-            txtCantidadAsistentes.BackColor = Color.White;
-            txtCantidadAsistentes.BorderStyle = BorderStyle.None;
-            txtCantidadAsistentes.Dock = DockStyle.Fill;
-            txtCantidadAsistentes.Location = new Point(334, 164);
-            txtCantidadAsistentes.Margin = new Padding(4);
-            txtCantidadAsistentes.Multiline = true;
-            txtCantidadAsistentes.Name = "txtCantidadAsistentes";
-            txtCantidadAsistentes.Size = new Size(202, 24);
-            txtCantidadAsistentes.TabIndex = 12;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -256,12 +245,21 @@
             // comboBoxDepartamentos
             // 
             comboBoxDepartamentos.Dock = DockStyle.Fill;
+            comboBoxDepartamentos.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxDepartamentos.FormattingEnabled = true;
             comboBoxDepartamentos.Location = new Point(330, 0);
             comboBoxDepartamentos.Margin = new Padding(0);
             comboBoxDepartamentos.Name = "comboBoxDepartamentos";
             comboBoxDepartamentos.Size = new Size(210, 28);
             comboBoxDepartamentos.TabIndex = 20;
+            // 
+            // numAsistentes
+            // 
+            numAsistentes.Dock = DockStyle.Fill;
+            numAsistentes.Location = new Point(333, 163);
+            numAsistentes.Name = "numAsistentes";
+            numAsistentes.Size = new Size(204, 27);
+            numAsistentes.TabIndex = 21;
             // 
             // tableLayoutPanel3
             // 
@@ -342,6 +340,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numAsistentes).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -361,7 +360,6 @@
         private Button continueButton;
         private Label label1;
         private Label label6;
-        private TextBox txtCantidadAsistentes;
         private Label label7;
         private TextBox txtDetalles;
         private Label label8;
@@ -370,5 +368,6 @@
         private DateTimePicker txtHoraInicio;
         private DateTimePicker txtHoraFin;
         private ComboBox comboBoxDepartamentos;
+        private NumericUpDown numAsistentes;
     }
 }

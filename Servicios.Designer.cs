@@ -34,7 +34,6 @@
             btnUpdateService = new Button();
             btnRegisterService = new Button();
             label2 = new Label();
-            txtServiceCost = new TextBox();
             label3 = new Label();
             txtServiceDescription = new TextBox();
             label1 = new Label();
@@ -45,9 +44,11 @@
             label5 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             UtileriaList = new ListBox();
+            numCosto = new NumericUpDown();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
             tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numCosto).BeginInit();
             SuspendLayout();
             // 
             // btnUpdateService
@@ -87,16 +88,6 @@
             label2.Size = new Size(65, 21);
             label2.TabIndex = 54;
             label2.Text = "Costo";
-            // 
-            // txtServiceCost
-            // 
-            txtServiceCost.Dock = DockStyle.Fill;
-            txtServiceCost.Location = new Point(144, 104);
-            txtServiceCost.Margin = new Padding(4);
-            txtServiceCost.Multiline = true;
-            txtServiceCost.Name = "txtServiceCost";
-            txtServiceCost.Size = new Size(412, 42);
-            txtServiceCost.TabIndex = 53;
             // 
             // label3
             // 
@@ -237,12 +228,12 @@
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Controls.Add(txtServiceName, 1, 0);
             tableLayoutPanel2.Controls.Add(btnUpdateService, 2, 1);
-            tableLayoutPanel2.Controls.Add(txtServiceCost, 1, 2);
             tableLayoutPanel2.Controls.Add(btnRegisterService, 2, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 2);
             tableLayoutPanel2.Controls.Add(label3, 0, 1);
             tableLayoutPanel2.Controls.Add(txtServiceDescription, 1, 1);
             tableLayoutPanel2.Controls.Add(UtileriaList, 1, 3);
+            tableLayoutPanel2.Controls.Add(numCosto, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 50);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -268,6 +259,15 @@
             UtileriaList.Size = new Size(414, 40);
             UtileriaList.TabIndex = 63;
             // 
+            // numCosto
+            // 
+            numCosto.DecimalPlaces = 2;
+            numCosto.Dock = DockStyle.Fill;
+            numCosto.Location = new Point(143, 103);
+            numCosto.Name = "numCosto";
+            numCosto.Size = new Size(414, 27);
+            numCosto.TabIndex = 64;
+            // 
             // Servicios
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
@@ -284,6 +284,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numCosto).EndInit();
             ResumeLayout(false);
         }
 
@@ -293,7 +294,6 @@
         private Button btnUpdateService;
         private Button btnRegisterService;
         private Label label2;
-        private TextBox txtServiceCost;
         private Label label3;
         private TextBox txtServiceDescription;
         private Label label1;
@@ -304,5 +304,6 @@
         private Label label5;
         private DataGridView dgvServices;
         private ListBox UtileriaList;
+        private NumericUpDown numCosto;
     }
 }

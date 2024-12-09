@@ -143,14 +143,14 @@
             // 
             // eventsCalendar
             // 
-            eventsCalendar.CalendarDimensions = new Size(3, 1);
+            eventsCalendar.CalendarDimensions = new Size(2, 1);
             eventsCalendar.Location = new Point(4, 29);
             eventsCalendar.Margin = new Padding(4);
             eventsCalendar.Name = "eventsCalendar";
             eventsCalendar.OverrideBolded.Day.Back.Color1 = Color.FromArgb(192, 0, 0);
             eventsCalendar.OverrideBolded.Day.Border.Color1 = Color.Black;
             eventsCalendar.PaletteMode = Krypton.Toolkit.PaletteMode.SparkleOrange;
-            eventsCalendar.Size = new Size(934, 184);
+            eventsCalendar.Size = new Size(624, 184);
             eventsCalendar.TabIndex = 3;
             // 
             // Inicio

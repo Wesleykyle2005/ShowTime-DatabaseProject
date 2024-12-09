@@ -37,7 +37,7 @@ namespace ShowTime_DatabseProject
 
             // Agregar validación dinámica de entradas de texto
             txtPropName.TextChanged += ValidateInputs;
-            txtPropQuantity.TextChanged += ValidateInputs;
+            numCantidad.TextChanged += ValidateInputs;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace ShowTime_DatabseProject
         private void ValidateInputs(object sender, EventArgs e)
         {
             bool isNameValid = !string.IsNullOrWhiteSpace(txtPropName.Text);
-            bool isQuantityValid = int.TryParse(txtPropQuantity.Text, out _);
+            bool isQuantityValid = int.TryParse(numCantidad.Text, out _);
 
             // Habilitar botones solo si los datos son válidos
             btnRegisterProp.Enabled = isNameValid && isQuantityValid;
@@ -120,7 +120,7 @@ namespace ShowTime_DatabseProject
         {
             string propName = txtPropName.Text.Trim();
 
-            if (!int.TryParse(txtPropQuantity.Text, out int propQuantity))
+            if (!int.TryParse(numCantidad.Text, out int propQuantity))
             {
                 ShowWarningMessage("Ingrese una cantidad válida (número entero).");
                 return;
@@ -160,7 +160,7 @@ namespace ShowTime_DatabseProject
             {
                 DataGridViewRow row = dgvUtileria.Rows[e.RowIndex];
                 txtPropName.Text = row.Cells["Nombre"].Value?.ToString() ?? string.Empty;
-                txtPropQuantity.Text = row.Cells["Cantidad"].Value?.ToString() ?? string.Empty;
+                numCantidad.Text = row.Cells["Cantidad"].Value?.ToString() ?? string.Empty;
             }
         }
 
@@ -179,7 +179,7 @@ namespace ShowTime_DatabseProject
             int id = Convert.ToInt32(row.Cells["IdUtileria"].Value);
             string propName = txtPropName.Text.Trim();
 
-            if (!int.TryParse(txtPropQuantity.Text, out int propQuantity))
+            if (!int.TryParse(numCantidad.Text, out int propQuantity))
             {
                 ShowWarningMessage("Ingrese una cantidad válida (número entero).");
                 return;

@@ -45,6 +45,7 @@
             iconButton1 = new FontAwesome.Sharp.IconButton();
             UserLabel = new Label();
             CierreSesion = new FontAwesome.Sharp.IconButton();
+            btnClientes = new FontAwesome.Sharp.IconButton();
             sidebarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             principalPanel.SuspendLayout();
@@ -66,24 +67,29 @@
             sidebarPanel.Controls.Add(serviceButton, 1, 8);
             sidebarPanel.Controls.Add(utileriaButton, 1, 6);
             sidebarPanel.Controls.Add(eventButton, 1, 4);
+            sidebarPanel.Controls.Add(btnClientes, 1, 14);
             sidebarPanel.Dock = DockStyle.Fill;
             sidebarPanel.Location = new Point(0, 0);
             sidebarPanel.Margin = new Padding(0);
             sidebarPanel.Name = "sidebarPanel";
-            sidebarPanel.RowCount = 14;
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 3F));
-            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            sidebarPanel.RowCount = 18;
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 18F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
+            sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
             sidebarPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2F));
             sidebarPanel.Size = new Size(200, 500);
             sidebarPanel.TabIndex = 1;
@@ -100,10 +106,10 @@
             dashboardButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             dashboardButton.IconSize = 24;
             dashboardButton.ImageAlign = ContentAlignment.MiddleLeft;
-            dashboardButton.Location = new Point(23, 117);
+            dashboardButton.Location = new Point(23, 102);
             dashboardButton.Margin = new Padding(3, 2, 3, 2);
             dashboardButton.Name = "dashboardButton";
-            dashboardButton.Size = new Size(174, 46);
+            dashboardButton.Size = new Size(174, 36);
             dashboardButton.TabIndex = 2;
             dashboardButton.Text = "  Inicio";
             dashboardButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -117,7 +123,7 @@
             pictureBox1.Location = new Point(20, 0);
             pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(180, 100);
+            pictureBox1.Size = new Size(180, 90);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -133,10 +139,10 @@
             empleadoButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             empleadoButton.IconSize = 24;
             empleadoButton.ImageAlign = ContentAlignment.MiddleLeft;
-            empleadoButton.Location = new Point(23, 442);
+            empleadoButton.Location = new Point(23, 352);
             empleadoButton.Margin = new Padding(3, 2, 3, 2);
             empleadoButton.Name = "empleadoButton";
-            empleadoButton.Size = new Size(174, 46);
+            empleadoButton.Size = new Size(174, 36);
             empleadoButton.TabIndex = 3;
             empleadoButton.Text = "  Empleados";
             empleadoButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -154,10 +160,10 @@
             paqueteButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             paqueteButton.IconSize = 24;
             paqueteButton.ImageAlign = ContentAlignment.MiddleLeft;
-            paqueteButton.Location = new Point(23, 377);
+            paqueteButton.Location = new Point(23, 302);
             paqueteButton.Margin = new Padding(3, 2, 3, 2);
             paqueteButton.Name = "paqueteButton";
-            paqueteButton.Size = new Size(174, 46);
+            paqueteButton.Size = new Size(174, 36);
             paqueteButton.TabIndex = 4;
             paqueteButton.Text = "  Paquetes";
             paqueteButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -175,10 +181,10 @@
             serviceButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             serviceButton.IconSize = 24;
             serviceButton.ImageAlign = ContentAlignment.MiddleLeft;
-            serviceButton.Location = new Point(23, 312);
+            serviceButton.Location = new Point(23, 252);
             serviceButton.Margin = new Padding(3, 2, 3, 2);
             serviceButton.Name = "serviceButton";
-            serviceButton.Size = new Size(174, 46);
+            serviceButton.Size = new Size(174, 36);
             serviceButton.TabIndex = 3;
             serviceButton.Text = "  Servicio";
             serviceButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -196,10 +202,10 @@
             utileriaButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             utileriaButton.IconSize = 24;
             utileriaButton.ImageAlign = ContentAlignment.MiddleLeft;
-            utileriaButton.Location = new Point(23, 247);
+            utileriaButton.Location = new Point(23, 202);
             utileriaButton.Margin = new Padding(3, 2, 3, 2);
             utileriaButton.Name = "utileriaButton";
-            utileriaButton.Size = new Size(174, 46);
+            utileriaButton.Size = new Size(174, 36);
             utileriaButton.TabIndex = 2;
             utileriaButton.Text = "  Utileria";
             utileriaButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -218,10 +224,10 @@
             eventButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             eventButton.IconSize = 24;
             eventButton.ImageAlign = ContentAlignment.MiddleLeft;
-            eventButton.Location = new Point(23, 182);
+            eventButton.Location = new Point(23, 152);
             eventButton.Margin = new Padding(3, 2, 3, 2);
             eventButton.Name = "eventButton";
-            eventButton.Size = new Size(174, 46);
+            eventButton.Size = new Size(174, 36);
             eventButton.TabIndex = 1;
             eventButton.Text = "  Eventos";
             eventButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -366,6 +372,27 @@
             CierreSesion.UseVisualStyleBackColor = true;
             CierreSesion.Click += CierreSesion_Click;
             // 
+            // btnClientes
+            // 
+            btnClientes.Dock = DockStyle.Fill;
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.Font = new Font("Courier New", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClientes.IconChar = FontAwesome.Sharp.IconChar.PersonRays;
+            btnClientes.IconColor = Color.Black;
+            btnClientes.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnClientes.IconSize = 24;
+            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClientes.Location = new Point(23, 402);
+            btnClientes.Margin = new Padding(3, 2, 3, 2);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(174, 36);
+            btnClientes.TabIndex = 5;
+            btnClientes.Text = "  Clientes";
+            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
+            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += btnClientes_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 18F);
@@ -406,5 +433,6 @@
         private FontAwesome.Sharp.IconButton CierreSesion;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Label UserLabel;
+        private FontAwesome.Sharp.IconButton btnClientes;
     }
 }
