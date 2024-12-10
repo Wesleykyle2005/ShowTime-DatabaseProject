@@ -7,24 +7,16 @@ using System.Windows.Forms;
 
 namespace ShowTime_DatabseProject
 {
-    /// <summary>
-    /// Formulario de inicio de sesión para la aplicación.
-    /// Maneja la autenticación del usuario y redirige al panel principal.
-    /// </summary>
     public partial class LoginForm : Form
     {
         // Cadena de conexión a la base de datos
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["connection_S"].ConnectionString;
 
-        /// <summary>
-        /// Constructor del formulario de inicio de sesión.
-        /// Inicializa componentes y configura el diseño del formulario.
-        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
             CenterForm(); // Centra el formulario en la pantalla
-            this.StartPosition = FormStartPosition.CenterScreen; // Asegura que el formulario aparezca centrado
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             // Agrega estilos de hover a los botones
             Utils.AgregarBordeInferiorConHover(LoginButton, Color.FromArgb(18, 29, 36), 3, Color.FromArgb(10, 180, 180, 180), Color.Black);
@@ -34,8 +26,6 @@ namespace ShowTime_DatabseProject
         /// <summary>
         /// Cifra una contraseña usando el algoritmo SHA256.
         /// </summary>
-        /// <param name="password">La contraseña en texto plano.</param>
-        /// <returns>La contraseña cifrada en formato hexadecimal.</returns>
         private string EncryptPassword(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())
@@ -43,7 +33,6 @@ namespace ShowTime_DatabseProject
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
                 StringBuilder builder = new StringBuilder();
 
-                // Convierte cada byte a formato hexadecimal
                 foreach (byte t in bytes)
                 {
                     builder.Append(t.ToString("x2"));
@@ -56,32 +45,17 @@ namespace ShowTime_DatabseProject
         /// <summary>
         /// Verifica las credenciales del usuario contra la base de datos.
         /// </summary>
-        /// <param name="username">El nombre de usuario ingresado.</param>
-        /// <param name="password">La contraseña ingresada en texto plano.</param>
-        /// <param name="idCargo">Salida: ID del cargo del usuario.</param>
-        /// <param name="nombreEmpleado">Salida: Nombre del empleado.</param>
-        /// <returns>Verdadero si las credenciales son correctas; de lo contrario, falso.</returns>
-        /// <summary>
-        /// Verifica las credenciales del usuario contra la base de datos.
-        /// </summary>
-        /// <param name="username">El nombre de usuario ingresado.</param>
-        /// <param name="password">La contraseña ingresada en texto plano.</param>
-        /// <param name="idCargo">Salida: ID del cargo del usuario.</param>
-        /// <param name="nombreEmpleado">Salida: Nombre del empleado.</param>
-        /// <param name="nombreCargo">Salida: Nombre del cargo del usuario.</param>
-        /// <returns>Verdadero si las credenciales son correctas; de lo contrario, falso.</returns>
         private bool VerifyLogin(string username, string password, out int idCargo, out string nombreEmpleado, out string nombreCargo)
         {
             idCargo = -1;
             nombreEmpleado = string.Empty;
             nombreCargo = string.Empty;
 
-            // Consulta SQL para obtener la información del usuario y su cargo
             string query = @"
                 SELECT u.Id_Cargo, e.Nombre, c.Nombre_cargo, u.Contraseña 
                 FROM Usuarios u
                 INNER JOIN Empleados e ON u.Id_empleado = e.Id_empleado
-                INNER JOIN Cargos c ON u.Id_Cargo = c.Id_cargo  -- Se añade JOIN con la tabla Cargos
+                INNER JOIN Cargos c ON u.Id_Cargo = c.Id_cargo
                 WHERE u.Nombre_usuario = @Nombre_usuario AND u.Estado = 1";
 
             try
@@ -90,7 +64,6 @@ namespace ShowTime_DatabseProject
                 {
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Asigna el parámetro para evitar inyecciones SQL
                         cmd.Parameters.AddWithValue("@Nombre_usuario", username);
                         conn.Open();
 
@@ -98,16 +71,14 @@ namespace ShowTime_DatabseProject
                         {
                             if (reader.Read())
                             {
-                                // Recupera la contraseña almacenada y la compara con la ingresada
-                                string storedPassword = reader["Contraseña"].ToString();
-                                string encryptedPassword = EncryptPassword(password);
-
+                                string storedPassword = reader["Contraseña"].ToString().ToLower();
+                                string encryptedPassword = EncryptPassword(password).ToString().ToLower();
+                                
                                 if (storedPassword == encryptedPassword)
                                 {
-                                    // Asigna el ID del cargo, nombre del empleado y nombre del cargo
                                     idCargo = Convert.ToInt32(reader["Id_Cargo"]);
                                     nombreEmpleado = reader["Nombre"].ToString();
-                                    nombreCargo = reader["Nombre_cargo"].ToString();  // Aquí obtenemos el nombre del cargo
+                                    nombreCargo = reader["Nombre_cargo"].ToString();
                                     return true;
                                 }
                             }
@@ -120,9 +91,8 @@ namespace ShowTime_DatabseProject
                 MessageBox.Show($"Error al verificar el inicio de sesión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return false; // Usuario no encontrado o contraseña incorrecta
+            return false;
         }
-
 
         /// <summary>
         /// Maneja el evento de clic en el botón de inicio de sesión.
@@ -144,16 +114,16 @@ namespace ShowTime_DatabseProject
 
             if (isLoginSuccessful)
             {
-                // Muestra un mensaje de éxito y redirige al panel principal
                 MessageBox.Show($"Inicio de sesión exitoso. Bienvenido, {nombreEmpleado}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Dashboard dashboard = new Dashboard(nombreEmpleado, nombreCargo); // Pasa el nombre al formulario Dashboard
+                // Pasa el nombre y cargo al panel principal
+                Dashboard dashboard = new Dashboard(nombreEmpleado, nombreCargo);
                 dashboard.Show();
-                this.Hide(); // Oculta el formulario actual
+                this.Hide(); // Oculta el formulario de inicio de sesión
             }
             else
             {
-                MessageBox.Show("Nombre de usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Nombre de usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -170,11 +140,8 @@ namespace ShowTime_DatabseProject
         /// </summary>
         private void CenterForm()
         {
-            // Calcula las coordenadas para centrar el formulario
             int x = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
             int y = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
-
-            // Establece la ubicación calculada
             this.Location = new Point(x, y);
         }
     }

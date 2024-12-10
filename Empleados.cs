@@ -186,32 +186,46 @@ namespace ShowTime_DatabseProject
                 e.FormattingApplied = true; // Indica que el formato personalizado se ha aplicado
             }
         }
-        public class EstadoEmpleado
-        {
-            public int Id { get; set; }
-            public string Nombre { get; set; }
-        }
+        
 
 
         /// <summary>
         /// Carga una lista predeterminada de estados en el ComboBox.
         /// </summary>
+        /// <summary>
+        /// Carga los estados de empleados desde la base de datos en el ComboBox.
+        /// </summary>
         private void CargarEstadosEnComboBox()
         {
-            // Lista predeterminada de estados
-            var estados = new List<EstadoEmpleado>
+            try
             {
-                new EstadoEmpleado { Id = 1, Nombre = "Disponible" },
-                new EstadoEmpleado { Id = 2, Nombre = "En Evento" },
-                new EstadoEmpleado { Id = 3, Nombre = "Incapacidad laboral" },
-                new EstadoEmpleado { Id = 4, Nombre = "No disponible" }
-            };
+                // Consulta SQL para obtener los tipos de estado de la tabla Estado_Empleado
+                string query = "SELECT Id_estado, Tipo_estado FROM Estado_Empleado";
 
-            // Configurar el ComboBox
-            comboBoxEstado.DataSource = estados;
-            comboBoxEstado.DisplayMember = "Nombre"; // Mostrar el nombre del estado
-            comboBoxEstado.ValueMember = "Id";       // Usar el ID como valor
+                // Crear la conexión y el comando
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // Abrir la conexión
+                    conn.Open();
+
+                    // Ejecutar la consulta y cargar los resultados en un DataTable
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable estados = new DataTable();
+                    adapter.Fill(estados);
+
+                    // Configurar el ComboBox
+                    comboBoxEstado.DataSource = estados;
+                    comboBoxEstado.DisplayMember = "Tipo_estado"; // Mostrar el tipo de estado
+                    comboBoxEstado.ValueMember = "Id_estado";    // Asociar el ID del estado
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los estados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
 
         /// <summary>
@@ -310,7 +324,7 @@ namespace ShowTime_DatabseProject
                         cmdEmpleado.Parameters.AddWithValue("@Apellido", txtEmployeeLastName.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@Telefono", numTelefono.Text.Trim());
                         cmdEmpleado.Parameters.AddWithValue("@Email", txtEmployeeEmail.Text.Trim());
-                        cmdEmpleado.Parameters.AddWithValue("@EstadoEmpleado", 3);
+                        cmdEmpleado.Parameters.AddWithValue("@EstadoEmpleado", comboBoxEstado.SelectedValue);
                         cmdEmpleado.ExecuteNonQuery();
 
                         // Actualizar usuario
