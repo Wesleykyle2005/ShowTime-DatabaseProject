@@ -48,7 +48,6 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
-            btnCargos = new Button();
             panel1 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label8 = new Label();
@@ -73,10 +72,10 @@
             btnRegisterEmployee.FlatAppearance.BorderSize = 0;
             btnRegisterEmployee.FlatStyle = FlatStyle.Flat;
             btnRegisterEmployee.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnRegisterEmployee.Location = new Point(39, 4);
+            btnRegisterEmployee.Location = new Point(39, 29);
             btnRegisterEmployee.Margin = new Padding(4);
             btnRegisterEmployee.Name = "btnRegisterEmployee";
-            btnRegisterEmployee.Size = new Size(237, 35);
+            btnRegisterEmployee.Size = new Size(237, 79);
             btnRegisterEmployee.TabIndex = 28;
             btnRegisterEmployee.Text = "Registrar Empelado";
             btnRegisterEmployee.UseVisualStyleBackColor = true;
@@ -161,13 +160,14 @@
             // 
             // btnUpdateEmployee
             // 
+            btnUpdateEmployee.Dock = DockStyle.Fill;
             btnUpdateEmployee.FlatAppearance.BorderSize = 0;
             btnUpdateEmployee.FlatStyle = FlatStyle.Flat;
             btnUpdateEmployee.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnUpdateEmployee.Location = new Point(39, 72);
+            btnUpdateEmployee.Location = new Point(39, 141);
             btnUpdateEmployee.Margin = new Padding(4);
             btnUpdateEmployee.Name = "btnUpdateEmployee";
-            btnUpdateEmployee.Size = new Size(237, 31);
+            btnUpdateEmployee.Size = new Size(237, 79);
             btnUpdateEmployee.TabIndex = 32;
             btnUpdateEmployee.Text = "Actualizar Empelado";
             btnUpdateEmployee.UseVisualStyleBackColor = true;
@@ -269,37 +269,22 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel4.Controls.Add(btnRegisterEmployee, 1, 0);
-            tableLayoutPanel4.Controls.Add(btnUpdateEmployee, 1, 2);
-            tableLayoutPanel4.Controls.Add(btnCargos, 1, 4);
+            tableLayoutPanel4.Controls.Add(btnUpdateEmployee, 1, 3);
+            tableLayoutPanel4.Controls.Add(btnRegisterEmployee, 1, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 7;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowCount = 5;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.5F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel4.Size = new Size(350, 250);
             tableLayoutPanel4.TabIndex = 37;
-            // 
-            // btnCargos
-            // 
-            btnCargos.Dock = DockStyle.Fill;
-            btnCargos.FlatAppearance.BorderSize = 0;
-            btnCargos.FlatStyle = FlatStyle.Flat;
-            btnCargos.Font = new Font("Courier New", 13F, FontStyle.Bold);
-            btnCargos.Location = new Point(39, 140);
-            btnCargos.Margin = new Padding(4);
-            btnCargos.Name = "btnCargos";
-            btnCargos.Size = new Size(237, 35);
-            btnCargos.TabIndex = 33;
-            btnCargos.Text = "Agregar Cargos";
-            btnCargos.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -505,7 +490,6 @@
         private Label label5;
         private Label label8;
         private ComboBox comboBoxCargo;
-        private Button btnCargos;
         private MaskedTextBox numTelefono;
         private Label label9;
         private ComboBox comboBoxEstado;

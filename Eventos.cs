@@ -130,6 +130,7 @@ namespace ShowTime_DatabseProject
             {
                 using (var asignacionDeEmpleados = new Asignacion_de_Empleados())
                 {
+                    asignacionDeEmpleados.FormClosed += (s, e) => LoadEventosData();
                     asignacionDeEmpleados.ShowDialog(this);
                 }
             }
@@ -153,6 +154,7 @@ namespace ShowTime_DatabseProject
             {
                 using (var registrarPagosDeEventos = new RegistrarPagosDeEventos())
                 {
+                    registrarPagosDeEventos.FormClosed += (s, e) => LoadEventosData();
                     registrarPagosDeEventos.ShowDialog(this);
                 }
             }

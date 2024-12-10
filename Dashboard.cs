@@ -33,8 +33,8 @@ namespace ShowTime_DatabseProject
             // Cargar el formulario de inicio por defecto en el panel
             CargarFormularioEnCelda(new Inicio(), PanelForm, 0, 1);
            
-            string rolActual = "Gerente"; // Cambia este valor según el usuario actual
-            ConfigurarBotonesSegunRol(rolActual, sidebarPanel);
+            
+            ConfigurarBotonesSegunRol(Cargo, sidebarPanel);
 
         }
 
