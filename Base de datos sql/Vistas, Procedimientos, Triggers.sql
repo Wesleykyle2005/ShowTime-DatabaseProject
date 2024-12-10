@@ -9,6 +9,8 @@ WHERE MONTH(Fecha_inicio) = MONTH(GETDATE())    -- Mes del evento es el mes actu
   AND YEAR(Fecha_inicio) = YEAR(GETDATE())     -- Año del evento es el año actual
   AND Fecha_inicio >= GETDATE();               -- Evento no ha finalizado
 
+  GO
+
 --Muestre el mes en que se demanda mas eventos*
 CREATE VIEW vw_ReservacionesPorMes AS
 SELECT TOP 100 PERCENT
@@ -27,7 +29,7 @@ GO
 
 
 --Muestra q mes gnera mas resrevas en terminos de dinero*
-ALTER VIEW vw_IngresosFinalizadosPorMes AS
+CREATE VIEW vw_IngresosFinalizadosPorMes AS
 SELECT 
     YEAR(E.Fecha_reserva) AS Año,
     MONTH(E.Fecha_reserva) AS Mes,
@@ -48,21 +50,6 @@ GROUP BY
 GO
 
 
---Ver q empleados estan dicponibles*
-ALTER VIEW vw_EmpleadosDisponibles AS
-SELECT 
-    E.Id_empleado,
-    E.Nombre,
-    E.Apellido,
-    E.Telefono,
-    E.Email
-FROM 
-    Empleados E
-JOIN 
-    Estado_Empleado EE ON E.Estado_Empleado = EE.Id_estado
-WHERE 
-    EE.Tipo_estado = 'Disponible';
-GO
 
 --Funciones*************************************************************************************************************
 --Calcula el pago restante de cada evento
@@ -88,6 +75,7 @@ BEGIN
     -- Calcular y devolver el pago restante
     RETURN ISNULL(@CostoTotal, 0) - ISNULL(@TotalPagos, 0);
 END;
+GO
 
 --Consultar el paqute mas demnadado en el mes actual
 CREATE FUNCTION fn_PaquetesMasDemandados ()
@@ -112,7 +100,7 @@ GO
 
 --Procesos Almacenados******************************************************************************************
 --Asigna Empleados Disponibles a un Evento
-ALTER PROCEDURE asignar_empleado_disponible 
+CREATE PROCEDURE asignar_empleado_disponible 
     @p_evento_id INT,        -- ID del evento al que se asignará el empleado
     @p_empleado_id INT,      -- ID del empleado que se quiere asignar
     @p_rol_id INT            -- ID del rol que desempeñará el empleado
@@ -184,6 +172,7 @@ BEGIN
         FROM inserted;
     END
 END;
+GO
 
 --Actualiza los paquetes para su disponibilidad------------------------
 --Cuanbdo se usa un paquete-------
@@ -217,7 +206,7 @@ END;
 GO
 
 --Cuando se deja de usar el paquete
-ALTER TRIGGER trg_AumentarCantidadPaquete
+CREATE TRIGGER trg_AumentarCantidadPaquete
 ON Eventos
 AFTER UPDATE
 AS
@@ -248,7 +237,7 @@ GO
 
 
 -- Actualizar el estado del evento relacionado al pago recién insertado
-ALTER TRIGGER trg_ActualizarEstadoEvento
+CREATE TRIGGER trg_ActualizarEstadoEvento
 ON Pagos
 AFTER INSERT, UPDATE
 AS
@@ -295,7 +284,7 @@ END;
 GO
 
 --Cancelat eventos que no han sido abonados en nada para resrevar
-ALTER TRIGGER TRG_ActualizarEstadoEventosPendientes
+CREATE TRIGGER TRG_ActualizarEstadoEventosPendientes
 ON Pagos
 AFTER INSERT, UPDATE
 AS
@@ -333,7 +322,7 @@ END;
 GO
 
 -- Crear Trigger para cambiar el estado del empleado a 'En evento' cuando se asigne a un evento
-ALTER TRIGGER trg_AsignarEmpleadoEnEvento
+CREATE TRIGGER trg_AsignarEmpleadoEnEvento
 ON Rol_Empleado_Evento
 AFTER INSERT
 AS
@@ -349,7 +338,7 @@ END;
 GO
 
 -- Crear Trigger para cambiar el estado del empleado a 'Disponible' cuando el evento finaliza o se cancela
-ALTER TRIGGER trg_EventoFinalizadoOCancelado
+CREATE TRIGGER trg_EventoFinalizadoOCancelado
 ON Eventos
 AFTER UPDATE
 AS
@@ -373,7 +362,7 @@ GO
 --Verifcar q el pago a insertar no exceda el costo total con los anteriores
 CREATE TRIGGER trg_VerificarPagoExcedeCosto
 ON Pagos
-INSTEAD OF INSERT
+AFTER INSERT
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -384,7 +373,7 @@ BEGIN
     DECLARE @SumaPagosExistentes DECIMAL(18, 2);
     DECLARE @NuevoTotalPagos DECIMAL(18, 2);
 
-    -- Obtener los valores del pago que se intenta insertar
+    -- Obtener los valores del pago recién insertado
     SELECT @Id_evento = Id_evento, @Monto = Monto
     FROM inserted;
 
@@ -398,22 +387,18 @@ BEGIN
     FROM Pagos
     WHERE Id_evento = @Id_evento;
 
-    -- Calcular el nuevo total de pagos incluyendo el pago que se intenta insertar
-    SET @NuevoTotalPagos = @SumaPagosExistentes + @Monto;
+    -- Calcular el nuevo total de pagos incluyendo el pago recién insertado
+    SET @NuevoTotalPagos = @SumaPagosExistentes;
 
     -- Verificar si el nuevo total de pagos excede el costo total del evento
     IF @NuevoTotalPagos > @CostoTotal
     BEGIN
-        -- Generar un error para evitar la inserción
+        -- Generar un error y revertir la transacción
         RAISERROR ('El pago excede el costo total del evento.', 16, 1);
         ROLLBACK TRANSACTION;
     END
-    ELSE
-    BEGIN
-        -- Realizar la inserción si no hay conflictos
-        INSERT INTO Pagos (Id_evento, Monto, Fecha_pago, Metodo_pago)
-        SELECT Id_evento, Monto, Fecha_pago, Metodo_pago
-        FROM inserted;
-    END
 END;
 GO
+
+
+

@@ -372,9 +372,6 @@ VALUES
 (1, 12, 7), -- Animador (Isabel Vega)
 (1, 13, 7); -- Animador (Andrés Moreno)
 
-SELECT * FROM Rol_Empleado_Evento
-
-
 
 -- Evento 2: Paquete_Cars (Servicios Generales y Animación con 3 personajes)
 INSERT INTO Rol_Empleado_Evento (Id_evento, Id_empleado, Id_rol)
