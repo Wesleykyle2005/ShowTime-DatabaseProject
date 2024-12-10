@@ -77,7 +77,7 @@
             btnRegisterEmployee.Name = "btnRegisterEmployee";
             btnRegisterEmployee.Size = new Size(237, 79);
             btnRegisterEmployee.TabIndex = 28;
-            btnRegisterEmployee.Text = "Registrar Empelado";
+            btnRegisterEmployee.Text = "Registrar empleado";
             btnRegisterEmployee.UseVisualStyleBackColor = true;
             btnRegisterEmployee.Click += btnRegisterEmployee_Click_1;
             // 
@@ -169,7 +169,7 @@
             btnUpdateEmployee.Name = "btnUpdateEmployee";
             btnUpdateEmployee.Size = new Size(237, 79);
             btnUpdateEmployee.TabIndex = 32;
-            btnUpdateEmployee.Text = "Actualizar Empelado";
+            btnUpdateEmployee.Text = "Actualizar empleado";
             btnUpdateEmployee.UseVisualStyleBackColor = true;
             btnUpdateEmployee.Click += btnUpdateEmployee_Click;
             // 

@@ -368,3 +368,52 @@ BEGIN
     END
 END;
 GO
+
+
+--Verifcar q el pago a insertar no exceda el costo total con los anteriores
+CREATE TRIGGER trg_VerificarPagoExcedeCosto
+ON Pagos
+INSTEAD OF INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Id_evento INT;
+    DECLARE @Monto DECIMAL(18, 2);
+    DECLARE @CostoTotal DECIMAL(18, 2);
+    DECLARE @SumaPagosExistentes DECIMAL(18, 2);
+    DECLARE @NuevoTotalPagos DECIMAL(18, 2);
+
+    -- Obtener los valores del pago que se intenta insertar
+    SELECT @Id_evento = Id_evento, @Monto = Monto
+    FROM inserted;
+
+    -- Obtener el costo total del evento
+    SELECT @CostoTotal = Costo_total
+    FROM Eventos
+    WHERE Id_evento = @Id_evento;
+
+    -- Sumar todos los pagos existentes para el evento
+    SELECT @SumaPagosExistentes = ISNULL(SUM(Monto), 0)
+    FROM Pagos
+    WHERE Id_evento = @Id_evento;
+
+    -- Calcular el nuevo total de pagos incluyendo el pago que se intenta insertar
+    SET @NuevoTotalPagos = @SumaPagosExistentes + @Monto;
+
+    -- Verificar si el nuevo total de pagos excede el costo total del evento
+    IF @NuevoTotalPagos > @CostoTotal
+    BEGIN
+        -- Generar un error para evitar la inserción
+        RAISERROR ('El pago excede el costo total del evento.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+    ELSE
+    BEGIN
+        -- Realizar la inserción si no hay conflictos
+        INSERT INTO Pagos (Id_evento, Monto, Fecha_pago, Metodo_pago)
+        SELECT Id_evento, Monto, Fecha_pago, Metodo_pago
+        FROM inserted;
+    END
+END;
+GO

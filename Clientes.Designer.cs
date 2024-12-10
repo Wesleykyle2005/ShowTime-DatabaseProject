@@ -340,7 +340,7 @@
             label1.Name = "label1";
             label1.Size = new Size(688, 25);
             label1.TabIndex = 20;
-            label1.Text = "Administrar empleados";
+            label1.Text = "Administrar clientes";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Clientes
