@@ -61,16 +61,27 @@ namespace ShowTime_DatabseProject
         /// <param name="idCargo">Salida: ID del cargo del usuario.</param>
         /// <param name="nombreEmpleado">Salida: Nombre del empleado.</param>
         /// <returns>Verdadero si las credenciales son correctas; de lo contrario, falso.</returns>
-        private bool VerifyLogin(string username, string password, out int idCargo, out string nombreEmpleado)
+        /// <summary>
+        /// Verifica las credenciales del usuario contra la base de datos.
+        /// </summary>
+        /// <param name="username">El nombre de usuario ingresado.</param>
+        /// <param name="password">La contraseña ingresada en texto plano.</param>
+        /// <param name="idCargo">Salida: ID del cargo del usuario.</param>
+        /// <param name="nombreEmpleado">Salida: Nombre del empleado.</param>
+        /// <param name="nombreCargo">Salida: Nombre del cargo del usuario.</param>
+        /// <returns>Verdadero si las credenciales son correctas; de lo contrario, falso.</returns>
+        private bool VerifyLogin(string username, string password, out int idCargo, out string nombreEmpleado, out string nombreCargo)
         {
             idCargo = -1;
             nombreEmpleado = string.Empty;
+            nombreCargo = string.Empty;
 
-            // Consulta SQL para obtener la información del usuario
+            // Consulta SQL para obtener la información del usuario y su cargo
             string query = @"
-                SELECT u.Id_Cargo, e.Nombre, u.Contraseña 
+                SELECT u.Id_Cargo, e.Nombre, c.Nombre_cargo, u.Contraseña 
                 FROM Usuarios u
                 INNER JOIN Empleados e ON u.Id_empleado = e.Id_empleado
+                INNER JOIN Cargos c ON u.Id_Cargo = c.Id_cargo  -- Se añade JOIN con la tabla Cargos
                 WHERE u.Nombre_usuario = @Nombre_usuario AND u.Estado = 1";
 
             try
@@ -93,8 +104,10 @@ namespace ShowTime_DatabseProject
 
                                 if (storedPassword == encryptedPassword)
                                 {
+                                    // Asigna el ID del cargo, nombre del empleado y nombre del cargo
                                     idCargo = Convert.ToInt32(reader["Id_Cargo"]);
                                     nombreEmpleado = reader["Nombre"].ToString();
+                                    nombreCargo = reader["Nombre_cargo"].ToString();  // Aquí obtenemos el nombre del cargo
                                     return true;
                                 }
                             }
@@ -109,6 +122,7 @@ namespace ShowTime_DatabseProject
 
             return false; // Usuario no encontrado o contraseña incorrecta
         }
+
 
         /// <summary>
         /// Maneja el evento de clic en el botón de inicio de sesión.
@@ -126,14 +140,14 @@ namespace ShowTime_DatabseProject
             }
 
             // Verifica las credenciales del usuario
-            bool isLoginSuccessful = VerifyLogin(username, password, out int idCargo, out string nombreEmpleado);
+            bool isLoginSuccessful = VerifyLogin(username, password, out int idCargo, out string nombreEmpleado, out string nombreCargo);
 
             if (isLoginSuccessful)
             {
                 // Muestra un mensaje de éxito y redirige al panel principal
                 MessageBox.Show($"Inicio de sesión exitoso. Bienvenido, {nombreEmpleado}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Dashboard dashboard = new Dashboard(nombreEmpleado); // Pasa el nombre al formulario Dashboard
+                Dashboard dashboard = new Dashboard(nombreEmpleado, nombreCargo); // Pasa el nombre al formulario Dashboard
                 dashboard.Show();
                 this.Hide(); // Oculta el formulario actual
             }

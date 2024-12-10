@@ -76,7 +76,7 @@ namespace ShowTime_DatabseProject
 
 
 
-       
+
 
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace ShowTime_DatabseProject
             }
         }
 
-        
+
 
 
         /// <summary>
@@ -381,6 +381,24 @@ namespace ShowTime_DatabseProject
                     builder.Append(t.ToString("x2"));
                 }
                 return builder.ToString();
+            }
+        }
+
+        private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificamos que se haya seleccionado una fila válida
+            if (e.RowIndex >= 0)
+            {
+                // Obtener la fila seleccionada
+                DataGridViewRow row = dgvEmployees.Rows[e.RowIndex];
+
+                // Asignamos los valores de las celdas a los TextBox correspondientes
+                TxtEmployeeName.Text = row.Cells["Nombre"].Value?.ToString() ?? string.Empty;
+                txtEmployeeLastName.Text = row.Cells["Apellido"].Value?.ToString() ?? string.Empty;
+                numTelefono.Text = row.Cells["Telefono"].Value?.ToString() ?? string.Empty;
+                txtEmployeeEmail.Text = row.Cells["Email"].Value?.ToString() ?? string.Empty;
+
+              
             }
         }
     }

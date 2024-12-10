@@ -71,7 +71,7 @@ namespace ShowTime_DatabseProject
                 ValidateInputs();
                 SaveEventData();
 
-                MessageBox.Show("Evento registrado exitosamente junto con el pago inicial.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Evento registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (ArgumentException ex)

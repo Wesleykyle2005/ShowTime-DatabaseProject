@@ -455,6 +455,7 @@
             dgvEmployees.ShowRowErrors = false;
             dgvEmployees.Size = new Size(700, 225);
             dgvEmployees.TabIndex = 73;
+            dgvEmployees.CellClick += dgvEmployees_CellClick;
             // 
             // Empleados
             // 

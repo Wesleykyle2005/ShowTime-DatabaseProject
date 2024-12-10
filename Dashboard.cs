@@ -19,7 +19,7 @@ namespace ShowTime_DatabseProject
         /// Inicializa una nueva instancia de <see cref="Dashboard"/> y configura los botones y paneles iniciales.
         /// </summary>
         /// <param name="username">Nombre del usuario que inició sesión.</param>
-        public Dashboard(string username)
+        public Dashboard(string username, string Cargo)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -33,7 +33,7 @@ namespace ShowTime_DatabseProject
             // Cargar el formulario de inicio por defecto en el panel
             CargarFormularioEnCelda(new Inicio(), PanelForm, 0, 1);
            
-            string rolActual = "Bodeguero"; // Cambia este valor según el usuario actual
+            string rolActual = "Gerente"; // Cambia este valor según el usuario actual
             ConfigurarBotonesSegunRol(rolActual, sidebarPanel);
 
         }
