@@ -114,7 +114,7 @@ namespace ShowTime_DatabseProject
 
             if (isLoginSuccessful)
             {
-                MessageBox.Show($"Inicio de sesión exitoso. Bienvenido, {nombreEmpleado}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Inicio de sesión exitoso. Bienvenid@, {nombreEmpleado}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Pasa el nombre y cargo al panel principal
                 Dashboard dashboard = new Dashboard(nombreEmpleado, nombreCargo);
